@@ -1,0 +1,22 @@
+{
+  "name": "jscharting",
+  "description": "JavaScript charting library",
+  "homepage": "https://jscharting.com",
+  "author": "JSCharting <support@jscharting.com> (https://jscharting.com/support.htm)",
+  "version": "2.8.0",
+  "browser": "jscharting.js",
+  "repository": "https://github.com/jscharting/jscharting-dist",
+  "license": "https://www.jscharting.com/store/",
+  "private": true,
+  "bugs": {
+    "email": "support@jscharting.com"
+  },
+  "types": "jscharting.d.ts",
+  "keywords": [
+    "charts",
+    "dataviz",
+    "graphs",
+    "visualization",
+    "data"
+  ]
+}
