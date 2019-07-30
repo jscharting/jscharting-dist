@@ -3,14 +3,14 @@
 * The top level chart configuration API.
 * var chart = new JSC.Chart({});
 * See Also:
-* {@link http://jscharting.com/documentation/#node=Home.Tutorials.firstChart}
+* {@link undefined/js-chart-bundle/}
 */
 export declare interface JSCChartConfig {
 
     /**
      * Used to enable and disable accessibility or to assign an initial tabIndex for the chart.
      * See Also:
-     * {@link http://jscharting.com/documentation/#node=Home.Tutorials.accessibility}
+     * {@link undefined/js-chart-accessibility/}
      * @since 2.8
      */
     tabIndex?: number | string;
@@ -21,9 +21,9 @@ export declare interface JSCChartConfig {
     animation?: JSCAnimationConfig;
 
     /**
-     * The fundamental Chart Type such as horizontal or vertical. See <a href="Enums.seriesType">seriesType enum</a> for line, bar, area varieties. This can be set through <a href="Types.series.type">chart.defaultSeries.type</a>
+     * The fundamental Chart Type such as horizontal or vertical. See {@link https://jscharting.com/documentation/#node=Home.API.json.Enums.seriesType | seriesType enum} for line, bar, area varieties. This can be set through {@link https://jscharting.com/documentation/#node=Home.API.json.Types.series.type | chart.defaultSeries.type}
      * See Also:
-     * {@link http://jscharting.com/documentation/#node=Home.Tutorials.chartTypes|Describes how to define specific chart types.}
+     * {@link undefined/types/ | Describes how to define specific chart types.}
      */
     type?: string;
 
@@ -42,7 +42,7 @@ export declare interface JSCChartConfig {
      * Default culture name used when formatting values on this chart.
      * @def 'en-US'
      * See Also:
-     * {@link http://jscharting.com/documentation/#node=Home.Tutorials.labelFormatting}
+     * {@link undefined/js-chart-labels/formatting/}
      */
     defaultCultureName?: string;
 
@@ -117,7 +117,7 @@ export declare interface JSCChartConfig {
     xAxis?: JSCAxisConfig | JSCAxisConfig[];
 
     /**
-     * The main y axis or array of y axes used on the charts.
+     * The main y axis object or array of y axis objects for this chart.
      */
     yAxis?: JSCAxisConfig[] | JSCAxisConfig;
 
@@ -129,7 +129,7 @@ export declare interface JSCChartConfig {
     /**
      * Chart legend box options.
      * See Also:
-     * {@link http://jscharting.com/documentation/#node=Home.Tutorials.legend}
+     * {@link undefined/js-chart-legend/}
      */
     legend?: JSCLegendConfig;
 
@@ -146,7 +146,7 @@ export declare interface JSCChartConfig {
     /**
      * An array of series drawn on the chart.
      * See Also:
-     * {@link http://jscharting.com/documentation/#node=Home.Tutorials.data}
+     * {@link undefined/js-chart-data/}
      */
     series?: JSCSeriesConfig[];
 
@@ -185,7 +185,7 @@ export declare interface JSCChartConfig {
     /**
      * Map chart type related settings.
      * See Also:
-     * {@link http://jscharting.com/documentation/#node=Home.Tutorials.mapping}
+     * {@link undefined/types/js-map-chart/}
      * @since 2.1
      */
     mapping?: Mapping;
@@ -217,7 +217,7 @@ export declare interface JSCAnnotationConfig {
     /**
      * Used to enable and disable accessibility or to assign an initial tabIndex for the chart item.
      * See Also:
-     * {@link http://jscharting.com/documentation/#node=Home.Tutorials.accessibility}
+     * {@link undefined/js-chart-accessibility/}
      * @since 2.8
      */
     tabIndex?: number | string;
@@ -326,7 +326,7 @@ export declare interface JSCAxisConfig {
     /**
      * Used to enable and disable accessibility or to assign an initial tabIndex for the chart item.
      * See Also:
-     * {@link http://jscharting.com/documentation/#node=Home.Tutorials.accessibility}
+     * {@link undefined/js-chart-accessibility/}
      * @since 2.8
      */
     tabIndex?: number | string;
@@ -372,7 +372,7 @@ export declare interface JSCAxisConfig {
     /**
      * Default setting applied to all axis markers on this axis.
      * See Also:
-     * {@link http://jscharting.com/samples/Javascript_LegendAxisMarkers_Chart.htm}
+     * {@link https://jscharting.com/samples/Javascript_LegendAxisMarkers_Chart.htm}
      * @since 2.1
      */
     defaultMarker?: JSCAxisMarkerConfig;
@@ -403,15 +403,15 @@ export declare interface JSCAxisConfig {
     /**
      * Format string used for values on this axis. Values associated with this axis including axis ticks, point labels, among others will inherit this format by default.
      * See Also:
-     * {@link http://jscharting.com/documentation/#node=Home.Tutorials.labelFormatting}
-     * {@link http://jscharting.com/samples/Javascript_AxisFormatting_Chart.htm}
+     * {@link undefined/js-chart-labels/formatting/}
+     * {@link https://jscharting.com/samples/Javascript_AxisFormatting_Chart.htm}
      */
     formatString?: string;
 
     /**
      * Culture name used for formatting values on the axis.
      * See Also:
-     * {@link http://jscharting.com/documentation/#node=Home.Tutorials.labelFormatting}
+     * {@link undefined/js-chart-labels/formatting/}
      */
     cultureName?: string;
 
@@ -493,7 +493,7 @@ export declare interface JSCLineBreaksConfig {
 /**
 * Represents an axis tick that incapsulates the tick label, gridLine, line styling settings.
 * See Also:
-* {@link http://jscharting.com/documentation/#node=Home.Tutorials.TicksMarkers}
+* {@link undefined/js-chart-axis/ticks-markers/}
 */
 export declare interface JSCAxisTickConfig {
 
@@ -537,8 +537,8 @@ export declare interface JSCAxisTickConfig {
     /**
      * Axis tick label.
      * See Also:
-     * {@link http://jscharting.com/documentation/#node=Home.Tutorials.tokenReference|Label Token Reference}
-     * {@link http://jscharting.com/samples/Javascript_LabelTokens_Chart.htm}
+     * {@link undefined/js-chart-labels/token-reference/ | Label Token Reference}
+     * {@link https://jscharting.com/samples/Javascript_LabelTokens_Chart.htm}
      */
     label?: JSCLabelConfig;
 
@@ -557,7 +557,7 @@ export declare interface JSCAxisTickConfig {
     /**
      * Whether the axis range is adjusted to include this tick.
      * See Also:
-     * {@link http://jscharting.com/samples/Javascript_AxisMarkerGoal_Chart.htm}
+     * {@link https://jscharting.com/samples/Javascript_AxisMarkerGoal_Chart.htm}
      * @since 1.5
      */
     includeInScale?: boolean;
@@ -578,7 +578,7 @@ export declare interface JSCAxisTickConfig {
      * Controls the visualization when the tick has a range value.
      * @def auto
      * See Also:
-     * {@link http://jscharting.com/documentation/#node=Home.Tutorials.rangeTicks}
+     * {@link undefined/js-chart-axis/range-ticks/}
      * @since 2.8
      */
     rangeMode?: ("auto" | "curly" | "measure");
@@ -588,19 +588,13 @@ export declare interface JSCAxisTickConfig {
      * @since 2.5
      */
     onTop?: boolean;
-
-    /**
-     * TODO
-     * @since 2.9
-     */
-    axisId?: string;
     [any: string]: any;
 }
 
 /**
 * Defines styles and positions used to mark a specified section or position on an axis. .
 * See Also:
-* {@link http://jscharting.com/samples/Javascript_AxisMarkersInFront_Chart.htm}
+* {@link https://jscharting.com/samples/Javascript_AxisMarkersInFront_Chart.htm}
 */
 export declare interface JSCAxisMarkerConfig {
 
@@ -651,7 +645,7 @@ export declare interface JSCAxisMarkerConfig {
     /**
      * This marker's legend entry settings.
      * See Also:
-     * {@link http://jscharting.com/samples/Javascript_LegendAxisMarkers_Chart.htm}
+     * {@link https://jscharting.com/samples/Javascript_LegendAxisMarkers_Chart.htm}
      * @since 2.1
      */
     legendEntry?: JSCLegendEntryConfig;
@@ -742,8 +736,8 @@ export declare interface JSCCompleteConfig_object {
 /**
 * A color range specifying a value range and color.
 * See Also:
-* {@link http://jscharting.com/samples/Javascript_SmartPaletteRanges_Chart.htm}
-* {@link http://jscharting.com/documentation/#node=Home.Tutorials.smartPalette}
+* {@link https://jscharting.com/samples/Javascript_SmartPaletteRanges_Chart.htm}
+* {@link undefined/js-chart-gradient-palette/}
 * @since 2.1
 */
 export declare interface JSCColorRangeConfig {
@@ -791,8 +785,8 @@ export declare interface JSCSpRangeConfig_object {
 /**
 * A smartPalette defines a gradient range of colors and how point values are mapped to it.
 * See Also:
-* {@link http://jscharting.com/samples/Javascript_SmartPaletteGallery_Chart.htm}
-* {@link http://jscharting.com/documentation/#node=Home.Tutorials.smartPalette}
+* {@link https://jscharting.com/samples/Javascript_SmartPaletteGallery_Chart.htm}
+* {@link undefined/js-chart-gradient-palette/}
 * @since 2.1
 */
 export declare interface JSCSmartPaletteConfig {
@@ -806,7 +800,7 @@ export declare interface JSCSmartPaletteConfig {
     /**
      * Specifies a token expression evaluated for each point that maps to the colors.
      */
-    pointValue?: string | (() => void);
+    pointValue?: string | ((...args) => any);
 
     /**
      * An array of value ranges and the associated colors.
@@ -855,10 +849,10 @@ export declare interface JSCLabelConfig {
     /**
      * The label text.
      * See Also:
-     * {@link http://jscharting.com/documentation/#node=Home.Tutorials.tokenReference|Label Token Reference}
-     * {@link http://jscharting.com/samples/Javascript_LabelTokens_Chart.htm}
+     * {@link undefined/js-chart-labels/token-reference/ | Label Token Reference}
+     * {@link https://jscharting.com/samples/Javascript_LabelTokens_Chart.htm}
      */
-    text?: string | (() => void);
+    text?: string | ((...args) => any);
 
     /**
      * label color
@@ -953,7 +947,7 @@ export declare interface JSCLineConfig {
     /**
      * Outline width
      */
-    width?: number;
+    width?: number | string;
 
     /**
      * Line dash style
@@ -993,15 +987,15 @@ export declare interface JSCChartAreaConfig {
     /**
      * Used to enable and disable accessibility or to assign an initial tabIndex for the chart item.
      * See Also:
-     * {@link http://jscharting.com/documentation/#node=Home.Tutorials.accessibility}
+     * {@link undefined/js-chart-accessibility/}
      * @since 2.8
      */
     tabIndex?: number | string;
 
     /**
-     * The fundamental Chart Type such as horizontal or vertical. See <a href="Enums.seriesType">seriesType enum</a> for line, bar, area varieties. This can be set through <a href="Types.series.type">chart.defaultSeries.type</a>
+     * The fundamental Chart Type such as horizontal or vertical. See {@link https://jscharting.com/documentation/#node=Home.API.json.Enums.seriesType | seriesType enum} for line, bar, area varieties. This can be set through {@link https://jscharting.com/documentation/#node=Home.API.json.Types.series.type | chart.defaultSeries.type}
      * See Also:
-     * {@link http://jscharting.com/documentation/#node=Home.Tutorials.chartTypes|Describes how to define specific chart types.}
+     * {@link undefined/types/ | Describes how to define specific chart types.}
      * @since 2.0
      */
     type?: string;
@@ -1075,7 +1069,7 @@ export declare interface JSCSeriesConfig {
     /**
      * Used to enable and disable accessibility or to assign an initial tabIndex for the chart item.
      * See Also:
-     * {@link http://jscharting.com/documentation/#node=Home.Tutorials.accessibility}
+     * {@link undefined/js-chart-accessibility/}
      * @since 2.8
      */
     tabIndex?: number | string;
@@ -1088,7 +1082,7 @@ export declare interface JSCSeriesConfig {
     /**
      * Specifies the series type or a chart type such as pie, radar, or gauge.
      * See Also:
-     * {@link http://jscharting.com/documentation/#node=Home.Tutorials.chartTypes|Describes how to define specific chart types.}
+     * {@link undefined/types/ | Describes how to define specific chart types.}
      * @since 1.1
      */
     type?: string | string;
@@ -1191,7 +1185,7 @@ export declare interface JSCSeriesConfig {
     /**
      * Specifies the series states
      * See Also:
-     * {@link http://jscharting.com/documentation/#node=Home.Tutorials.states}
+     * {@link undefined/js-chart-interactivity/states/}
      */
     states?: States;
 
@@ -1221,8 +1215,8 @@ export declare interface JSCSeriesConfig {
     /**
      * Specifies a map by code, a file name or a map features defined in a map file that is specified in baseLayers
      * See Also:
-     * {@link http://jscharting.com/documentation/#node=Home.Tutorials.mapList}
-     * {@link http://jscharting.com/documentation/#node=Home.Tutorials.mapping}
+     * {@link undefined/types/js-map-chart/maps-mapcodes/}
+     * {@link undefined/types/js-map-chart/}
      * @since 2.1
      */
     map?: string | JSCMapFileDataConfig;
@@ -1304,10 +1298,10 @@ export declare interface JSCPointConfig_object {
     /**
      * Tooltip string for this element. Point related tokens can be used.
      * See Also:
-     * {@link http://jscharting.com/documentation/#node=Home.Tutorials.tokenReference|Label Token Reference}
-     * {@link http://jscharting.com/samples/Javascript_LabelTokens_Chart.htm}
+     * {@link undefined/js-chart-labels/token-reference/ | Label Token Reference}
+     * {@link https://jscharting.com/samples/Javascript_LabelTokens_Chart.htm}
      */
-    tooltip?: string | (() => void);
+    tooltip?: string | ((...args) => any);
 
     /**
      * When false, the point will not respond to mouse events.
@@ -1319,7 +1313,7 @@ export declare interface JSCPointConfig_object {
     /**
      * Specifies point state options
      * See Also:
-     * {@link http://jscharting.com/documentation/#node=Home.Tutorials.States}
+     * {@link undefined/js-chart-interactivity/states/}
      */
     states?: PointStates;
 
@@ -1346,7 +1340,7 @@ export declare interface JSCPointConfig_object {
     /**
      * Z value of this point. Used in bubble charts and as gauge needle length from 0 to 1, and as pie slide lengths.
      * See Also:
-     * {@link http://jscharting.com/documentation/#node=Home.Tutorials.chartTypes}
+     * {@link undefined/types/}
      * @since 1.1
      */
     z?: number;
@@ -1392,7 +1386,7 @@ export declare interface JSCPointConfig_object {
     /**
      * Used with calendar charts to specify a date, date range, or calendar pattern to bind to.
      * See Also:
-     * {@link http://jscharting.com/documentation/#node=Home.Tutorials.calendar}
+     * {@link undefined/types/js-calendar-chart/}
      * @since 2.6
      */
     date?: number | [(number | string), (number | string | Date)] | string | JSCCalendarPatternConfig;
@@ -1435,8 +1429,8 @@ export declare interface JSCPointConfig_object {
     /**
      * Specifies a map feature by code, a file name or a map feature defined in a map file that is specified in baseLayers
      * See Also:
-     * {@link http://jscharting.com/documentation/#node=Home.Tutorials.mapList}
-     * {@link http://jscharting.com/documentation/#node=Home.Tutorials.mapping}
+     * {@link undefined/types/js-map-chart/maps-mapcodes/}
+     * {@link undefined/types/js-map-chart/}
      * @since 2.1
      */
     map?: string | JSCMapFileDataConfig;
@@ -1478,7 +1472,7 @@ export declare interface JSCPointMarkerConfig {
     /**
      * Offsets the marker visual in pixels from the original position.
      * See Also:
-     * {@link http://jscharting.com/samples/Javascript_MapThematicMarkers_Chart.htm}
+     * {@link https://jscharting.com/samples/Javascript_MapThematicMarkers_Chart.htm}
      * @since 2.1
      */
     offset?: string;
@@ -1486,7 +1480,7 @@ export declare interface JSCPointMarkerConfig {
     /**
      * State options for point marker.
      * See Also:
-     * {@link http://jscharting.com/documentation/#node=Home.Tutorials.states}
+     * {@link undefined/js-chart-interactivity/states/}
      */
     states?: PointMarkerStates;
 
@@ -1512,7 +1506,7 @@ export declare interface JSCLegendConfig {
     /**
      * Used to enable and disable accessibility or to assign an initial tabIndex for the chart item.
      * See Also:
-     * {@link http://jscharting.com/documentation/#node=Home.Tutorials.accessibility}
+     * {@link undefined/js-chart-accessibility/}
      * @since 2.8
      */
     tabIndex?: number | string;
@@ -1650,7 +1644,7 @@ export declare interface JSCLegendConfig {
     /**
      * An array of custom legend entries that will be added to the legend.
      * See Also:
-     * {@link http://jscharting.com/samples/Javascript_LegendCustomEntries_Chart.htm}
+     * {@link https://jscharting.com/samples/Javascript_LegendCustomEntries_Chart.htm}
      * @since 2.1
      */
     customEntries?: JSCLegendEntryConfig[];
@@ -1676,13 +1670,13 @@ export declare interface JSCLegendEntryConfig {
      * The %name token in the legend template will refer to this string rather than process the token on the related item directly.
      * @since 2.0
      */
-    name?: string | (() => void);
+    name?: string | ((...args) => any);
 
     /**
      * The %value token in the legend template will refer to this string rather than process the token on the related item directly.
      * @since 2.0
      */
-    value?: string | (() => void);
+    value?: string | ((...args) => any);
 
     /**
      * Legend entry text style.
@@ -1718,7 +1712,7 @@ export declare interface JSCLegendEntryConfig {
     /**
      * State options for legend entry.
      * See Also:
-     * {@link http://jscharting.com/documentation/#node=Home.Tutorials.states}
+     * {@link undefined/js-chart-interactivity/states/}
      */
     states?: LegendEntryState;
 
@@ -1737,7 +1731,7 @@ export declare interface JSCLegendEntryConfig {
     /**
      * Icon options that are incorporated into the legend entry icon visual.
      * See Also:
-     * {@link http://jscharting.com/samples/Javascript_BarMarkerIconsInLegend_Chart.htm}
+     * {@link https://jscharting.com/samples/Javascript_BarMarkerIconsInLegend_Chart.htm}
      * @since 2.1
      */
     icon?: JSCIconConfig;
@@ -1745,7 +1739,7 @@ export declare interface JSCLegendEntryConfig {
     /**
      * Used with custom entries, these attributes hold values that legend columns may require.
      * See Also:
-     * {@link http://jscharting.com/samples/Javascript_LegendAlone_Chart.htm}
+     * {@link https://jscharting.com/samples/Javascript_LegendAlone_Chart.htm}
      * @since 2.1
      */
     attributes?: [string, (string | number | Date)][] | any;
@@ -1779,7 +1773,7 @@ export declare interface JSCTitleBoxConfig {
     /**
      * Used to enable and disable accessibility or to assign an initial tabIndex for the chart item.
      * See Also:
-     * {@link http://jscharting.com/documentation/#node=Home.Tutorials.accessibility}
+     * {@link undefined/js-chart-accessibility/}
      * @since 2.8
      */
     tabIndex?: number | string;
@@ -1899,7 +1893,7 @@ export declare interface JSCTooltipConfig {
      * Label displayed inside the annotation.
      * @remarks  When combined tooltip is enabled, the text property supports additional additional point list tokens.
      * See Also:
-     * {@link http://jscharting.com/documentation/#node=Home.Tutorials.cttCrosshair}
+     * {@link undefined/js-chart-interactivity/crosshair-combined-tooltip/}
      */
     label?: JSCLabelConfig;
 
@@ -1912,7 +1906,7 @@ export declare interface JSCTooltipConfig {
     /**
      * Enables a combined tooltip that includes details about all points at the cursor x axis position. The combined tooltip can also be enabled automatically based on crosshair settings. Use defaultTooltip.label.text to defined the combined tooltip template.
      * See Also:
-     * {@link http://jscharting.com/documentation/#node=Home.Tutorials.cttCrosshair}
+     * {@link undefined/js-chart-interactivity/crosshair-combined-tooltip/}
      * @since 2.7
      */
     combined?: boolean;
@@ -2008,7 +2002,7 @@ export declare type JSCUiItemConfig = JSCAnnotationConfig;
 /**
 * An icon visual.
 * See Also:
-* {@link http://jscharting.com/samples/Javascript_IconsBrowser_Chart.htm}
+* {@link https://jscharting.com/samples/Javascript_IconsBrowser_Chart.htm}
 * @since 2.0
 */
 export declare type JSCIconConfig = string | JSCIconConfig_object;
@@ -2267,8 +2261,8 @@ export declare interface JSCAnimationConfig_object {
     easing?: string | string;
     [any: string]: any;
 }
-export declare type JSCEventHandlerConfig = string | (() => void);
-export declare type JSCDataEventHandlerConfig = (() => void);
+export declare type JSCEventHandlerConfig = string | ((...args) => any);
+export declare type JSCDataEventHandlerConfig = ((...args) => any);
 
 /**
 * Defines an angle or arc.
@@ -2445,7 +2439,7 @@ export declare interface JSCCalendarConfig {
 * 
 * When using options such as { year:"1/1/2020" } the year value is evaluated using the same function applied to dates being tested and is equivalent to { year:2020 }
 * 
-* See <a href="Tutorials.calendarPatterns">calendarPattern tutorial</a> for more details.
+* See {@link undefined/types/js-calendar-chart/calendar-patterns/ | calendarPattern tutorial} for more details.
 * @since 2.6
 */
 export declare type JSCCalendarPatternConfig = JSCCalendarPatternConfig_object | string;
@@ -2464,7 +2458,7 @@ export declare interface JSCCalendarPatternConfig_object {
     /**
      * Specifies a time offset as a time interval or as a number in milliseconds. This option is useful with scale breaks that remove parts of the scale such as weekends. Data points may be centered on dates that specify the beginning of the time span like 12AM. This offset allows the parts of the scale that are removed to be adjusted so they dont remove parts of the data points.
      * See Also:
-     * {@link http://jscharting.com/samples/Javascript_FinancePatternBreaks_Chart.htm}
+     * {@link https://jscharting.com/samples/Javascript_FinancePatternBreaks_Chart.htm}
      * @since 2.7
      */
     offset?: number | JSCTimeIntervalConfig;
@@ -2620,7 +2614,7 @@ export declare interface JSCLineCapsConfig {
 export declare interface JSCGridConfig {
 
     /**
-     * Enables the chart to switch between chart and grid view when enabled through the chart <a href="Types.chart.grid">grid property</a>.
+     * Enables the chart to switch between chart and grid view when enabled through the chart {@link https://jscharting.com/documentation/#node=Home.API.json.Types.chart.grid | grid property}.
      */
     enabled?: boolean;
 
@@ -2632,7 +2626,7 @@ export declare interface JSCGridConfig {
     /**
      * An array of json objects or arrays to display in the grid. A function can be specified as well. It will be executed and the returned data will display in the grid. When grid.options({}) is called, the function is executed again to refresh grid data.
      */
-    data?: ([(string | number | Date)][] | Undefined[]) | (() => void);
+    data?: ([(string | number | Date)][] | Undefined[]) | ((...args) => any);
 
     /**
      * Default formatting culture name.
@@ -2688,7 +2682,7 @@ export declare interface JSCGridConfig {
     /**
      * Accessibility options for the grid buttons when enabled.
      * See Also:
-     * {@link http://jscharting.com/documentation/#node=Home.Tutorials.accessibility}
+     * {@link undefined/js-chart-accessibility/}
      */
     buttons?: Buttons;
     [any: string]: any;
@@ -2751,14 +2745,23 @@ export declare interface JSCGridButtonConfig {
 }
 
 /**
+* Initializes and returns a new instance of the JS chart object.
+* @param targetElement - Specifies the ID of the HTML element to which this chart is added, or the element object itself.
+* @param chartConfig - Chart options
+* @param callback - A callback function called when the chart load is complete. This function is called in the context of the chart object, hence, the "this" keyword can be used in the function to refer to the <a href="iObject.chart">chart</a>.
+* @returns Returns a chart JS object.
+* @example var chart = JSC.chart('targetDiv',options,callback);
+*/
+export function chart(targetElement: (string | any), chartConfig: JSCChartConfig, callback?: ((...args) => any)): Chart;
+/**
 * A static method providing number and date formatting by passing a value and using standard or custom format strings.
 * @param val - The value to be formatted based on the given format string.
 * @param format - Format string.
 * @param culture - Culture.
 * @returns Returns a string with the value formatted according to the specified format.
 * See Also:
-* {@link http://jscharting.com/samples/Javascript_CallbackFormatting_Chart.htm}
-* {@link http://jscharting.com/documentation/#node=Home.Tutorials.Labels|Includes a information on formatStrings.}
+* {@link https://jscharting.com/samples/Javascript_CallbackFormatting_Chart.htm}
+* {@link undefined/js-chart-labels/ | Includes a information on formatStrings.}
 */
 export function formatString(val: (number | Date), format: string, culture?: any): string;
 /**
@@ -2768,8 +2771,8 @@ export function formatString(val: (number | Date), format: string, culture?: any
 * @param culture - Culture.
 * @returns Returns a string with the value formatted according to the specified format.
 * See Also:
-* {@link http://jscharting.com/samples/Javascript_CallbackFormatting_Chart.htm}
-* {@link http://jscharting.com/documentation/#node=Home.Tutorials.Labels|Includes a information on formatStrings.}
+* {@link https://jscharting.com/samples/Javascript_CallbackFormatting_Chart.htm}
+* {@link undefined/js-chart-labels/ | Includes a information on formatStrings.}
 * @since 2.0
 */
 export function formatNumber(val: number, format: string, culture?: any): string;
@@ -2780,11 +2783,11 @@ export function formatNumber(val: number, format: string, culture?: any): string
 * @param culture - Culture.
 * @returns Returns a string with the value formatted according to the specified format.
 * See Also:
-* {@link http://jscharting.com/samples/Javascript_CallbackFormatting_Chart.htm}
-* {@link http://jscharting.com/documentation/#node=Home.Tutorials.Labels|Includes a information on formatStrings.}
+* {@link https://jscharting.com/samples/Javascript_CallbackFormatting_Chart.htm}
+* {@link undefined/js-chart-labels/ | Includes a information on formatStrings.}
 * @since 2.0
 */
-export function formatDate(val: Date, format: string, culture?: any): string;
+export function formatDate(val: (string | Date), format: string, culture?: any): string;
 /**
 * A static method that clears the API cache. This cache is used to improve config object processing and expansion performance. It is most useful when there are more than one charts on a page. Clearing this cache can decrease memory usage in the browser if necessary.
 */
@@ -2792,10 +2795,10 @@ export function clearApiCache(): void;
 /**
 * A static method used to populate points from array data with the goal of reducing the amount of overhead (string data size) when data is passed to JSCharting.
 * @param properties - A comma delimited list of properties the data argument arrays map to.
-* @param data - Data to map to the properies for each point.
+* @param data - Data to map to the properies for each point. Example: ['Greg',50];
 * @returns Returns an array of point config objects.
 * See Also:
-* {@link http://jscharting.com/documentation/#node=Home.Tutorials.staticData}
+* {@link undefined/js-chart-data/client-side/series-points/}
 * @since 1.1
 * @example var arrayOfPoints = JSC.pointsFromArray('name,y', [ ['Jan', 196], ['Feb', 178], ['Mar', 169] ])
 */
@@ -2805,7 +2808,7 @@ export function pointsFromArray(properties: string, data: [(string | number | Da
 * @param pointsObj - Point object data to expand.
 * @returns Returns an array of point config objects.
 * See Also:
-* {@link http://jscharting.com/documentation/#node=Home.Tutorials.staticData}
+* {@link undefined/js-chart-data/client-side/series-points/}
 * @since 2.0
 */
 export function parsePoints(pointsObj: any): JSCPointConfig[];
@@ -2815,7 +2818,7 @@ export function parsePoints(pointsObj: any): JSCPointConfig[];
 * @returns An array of colors
 * @since 1.1
 */
-export function getPalette(id: (string | number)): JSCColorConfig[];
+export function getPalette(id?: (string | number)): JSCColorConfig[];
 /**
 * Generates a specified number of colors based on the given base color and range of HSL variations.
 * @param base - A base color to use as a starting point.
@@ -2824,7 +2827,7 @@ export function getPalette(id: (string | number)): JSCColorConfig[];
 * @param sort - -1 = Random shuffling. 0 = Linear sort. 1 = Random seed.
 * @returns An array of colors
 * See Also:
-* {@link http://jscharting.com/samples/Javascript_MapPaletteDesigner_Chart.htm}
+* {@link https://jscharting.com/samples/Javascript_MapPaletteDesigner_Chart.htm}
 * @since 1.4
 */
 export function colorToPalette(base: JSCColorConfig, variations: Variations, count: number, sort: number): JSCColorConfig[];
@@ -2835,13 +2838,21 @@ export function colorToPalette(base: JSCColorConfig, variations: Variations, cou
 */
 export function nest(): Nest;
 /**
+* Wraps the array.map() function.
+* @param data - Array to iterate.
+* @param iteratee - Iterates each item in the array.
+* @returns An array with results of iteratee on each item.
+* @since 2.8
+*/
+export function map(data: any, iteratee: ((...args) => any)): any;
+/**
 * Provides a shortcut to the window.fetch() function or a polyfill when browser does not support it natively.
 * @param fileName - Filename to load.
 * @param callback - Callback.
-* @returns undefined
+* @returns A promise returned by fetch().
 * @since 2.6
 */
-export function fetch(fileName: string, callback?: any): any;
+export function fetch(fileName: string, callback?: any): Promise<any>;
 /**
 * A utility function to parse csv file content.
 * @param text - Csv file content string.
@@ -2864,17 +2875,19 @@ export function parseCsv(text: string, options?: Options): ParseCsv;
 * Recursively merges own and inherited enumerable string keyed properties of source objects into the destination object. Source properties that resolve to undefined are skipped if a destination value exists. Array and plain object properties are merged recursively.
 * @param target - Object to merge sources into.
 * @param sources - (...object) Sources to merge
+* @returns The result of merged objects.
 * @since 2.7
 */
-export function merge(target: Target, sources?: Sources): void;
+export function merge(target: Target, sources?: Sources): any;
 /**
 * Provides JSCharting label support for any DIV elements on a page. Supported features include microchart, and icon tag syntax.
 * @param targetElement - Specifies the ID of the HTML element to which this chart is added, or the element object itself.
 * @param labelText - String content to render in the targetElement.
+* @param options - Label options.
 * @since 2.7
 * @example JSC.label("divID", "Microchart: &#x3C;chart type=column data=1,5,3,4&#x3E;")
 */
-export function label(targetElement: (string | any), labelText: string): void;
+export function label(targetElement: (string | any), labelText: string, options?: JSCLabelConfig): void;
 /**
 * A utility math function to sum values of arrays or objects. Null values are ignored.
 * @param array - Array of numbers of object to process.
@@ -2883,7 +2896,7 @@ export function label(targetElement: (string | any), labelText: string): void;
 * @since 2.7
 * @example JSC.sum( [{a: 5}, {a: 10}], 'a' ); // -> 15<br>JSC.sum( [{a: 5}, {a: 10}], v => v.a ); // -> 15<br>JSC.sum( [5, 10] ); // -> 15
 */
-export function sum(array: (number[] | any[]), iterator?: (string | (() => void))): number;
+export function sum(array: (number[] | any[]), iterator?: (string | ((...args) => any))): number;
 /**
 * A utility math function to calculate the average of an array of numbers or objects. Null values are ignored.
 * @param array - Array of numbers of object to process.
@@ -2892,7 +2905,7 @@ export function sum(array: (number[] | any[]), iterator?: (string | (() => void)
 * @since 2.7
 * @example JSC.mean( [{a: 5}, {a: 10}], 'a' ); // -> 7.5<br>JSC.mean( [{a: 5}, {a: 10}], v => v.a ); // -> 7.5<br>JSC.mean( [5, 10] ); // -> 7.5
 */
-export function mean(array: (number[] | any[]), iterator?: (string | (() => void))): number;
+export function mean(array: (number[] | any[]), iterator?: (string | ((...args) => any))): number;
 /**
 * A utility math function to calculate the minimum value of an array of numbers or objects. Null values are ignored.
 * @param array - Array of numbers of object to process.
@@ -2901,7 +2914,7 @@ export function mean(array: (number[] | any[]), iterator?: (string | (() => void
 * @since 2.7
 * @example JSC.min( [{a: 5}, {a: 10}], 'a' ); // -> 5<br>JSC.min( [{a: 5}, {a: 10}], v => v.a ); // -> 5<br>JSC.min( [5, 10] ); // -> 5
 */
-export function min(array: (number[] | any[]), iterator?: (string | (() => void))): number;
+export function min(array: (number[] | any[]), iterator?: (string | ((...args) => any))): number;
 /**
 * A utility math function to calculate the minimum value of an array of numbers or objects. Null values are ignored.
 * @param array - Array of numbers of object to process.
@@ -2910,14 +2923,15 @@ export function min(array: (number[] | any[]), iterator?: (string | (() => void)
 * @since 2.7
 * @example JSC.max( [{a: 5}, {a: 10}], 'a' ); // -> 10<br>JSC.max( [{a: 5}, {a: 10}], v => v.a ); // -> 10<br>JSC.max( [5, 10] ); // -> 10
 */
-export function max(array: (number[] | any[]), iterator?: (string | (() => void))): number;
+export function max(array: (number[] | any[]), iterator?: (string | ((...args) => any))): number;
 /**
 * Converts a string of comma separated values into JSON objects. The first rows can include property names or property names can be specified in the options columns property.
 * @param csvText - File content of the comma separated values to convert.
-* @param options - Options used when converting to JSON objects.
+* @param options - Options used when converting to JSON objects. Example: JSC.csv2Json("Date,Actual
+1/1/2018,4535", {map: (d, i) => {return { date: d.Date, steps: d.Actual);}});
 * @returns An array of JSON objects
 * See Also:
-* {@link http://jscharting.com/documentation/#node=Home.Tutorials.gettingData}
+* {@link undefined/js-chart-data/client-side/fetch-csv-and-json/}
 * @since 2.7
 */
 export function csv2Json(csvText: string, options?: any): any[];
@@ -2927,7 +2941,7 @@ export function csv2Json(csvText: string, options?: any): any[];
 * @param options - Options used when converting to JSON objects.
 * @returns An array of JSON objects
 * See Also:
-* {@link http://jscharting.com/documentation/#node=Home.Tutorials.gettingData}
+* {@link undefined/js-chart-data/client-side/fetch-csv-and-json/}
 * @since 2.7
 */
 export function tsv2Json(tsvText: string, options?: any): any[];
@@ -2938,7 +2952,7 @@ export function tsv2Json(tsvText: string, options?: any): any[];
 * @param options - Options used when converting to JSON objects.
 * @returns An array of JSON objects
 * See Also:
-* {@link http://jscharting.com/documentation/#node=Home.Tutorials.gettingData}
+* {@link undefined/js-chart-data/client-side/fetch-csv-and-json/}
 * @since 2.7
 */
 export function dsv2Json(dsvText: string, delimiter: string, options?: any): any[];
@@ -2948,7 +2962,7 @@ export function dsv2Json(dsvText: string, delimiter: string, options?: any): any
 * @param options - Options used when converting to the delimiter separated value string.
 * @returns The resulting comma separated values string.
 * See Also:
-* {@link http://jscharting.com/documentation/#node=Home.Tutorials.gettingData}
+* {@link undefined/js-chart-data/client-side/fetch-csv-and-json/}
 * @since 2.7
 */
 export function json2Csv(items: any[], options?: any): string;
@@ -2958,7 +2972,7 @@ export function json2Csv(items: any[], options?: any): string;
 * @param options - Options used when converting to the delimiter separated value string.
 * @returns The resulting tab separated values string.
 * See Also:
-* {@link http://jscharting.com/documentation/#node=Home.Tutorials.gettingData}
+* {@link undefined/js-chart-data/client-side/fetch-csv-and-json/}
 * @since 2.7
 */
 export function json2Tsv(items: any[], options?: any): string;
@@ -2969,10 +2983,17 @@ export function json2Tsv(items: any[], options?: any): string;
 * @param options - Options used when converting to the delimiter separated value string.
 * @returns The resulting custom delimiter separated values string.
 * See Also:
-* {@link http://jscharting.com/documentation/#node=Home.Tutorials.gettingData}
+* {@link undefined/js-chart-data/client-side/fetch-csv-and-json/}
 * @since 2.7
 */
 export function json2Dsv(items: any[], delimiter: string, options?: any): string;
+/**
+* A method that establishes chart option defaults that will apply to all subsequent charts.
+* @param config - Default chart options that will be applied to all subsequent charts. Passing a null value will clear all default options.
+* @returns The current default options.
+* @since 2.8
+*/
+export function defaults(config: JSCChartConfig): JSCChartConfig;
 /**
 * Represents a chart JS object providing methods to manipulate and analyze the chart in real-time.
 */
@@ -2980,67 +3001,61 @@ export declare class Chart {
 
     /**
      * This is the constructor for creating a new chart object.
-     * @param  options - The chart configuration.
-     * @return Chart object reference.
-     */
-    constructor(options: JSCChartConfig);
-
-    /**
-     * This is the constructor for creating a new chart object.
      * @param options - The chart configuration.
      * @param callback - A function to execute 
      * @return Chart object reference
      */
-    constructor(options: JSCChartConfig, callback: (c?: Chart) => void);
+    constructor(options: JSCChartConfig, callback?: (c?: Chart) => void);
+
+    /**
+     * This is the constructor for creating a new chart object.
+     * @param targetElement - The chart target element.
+     * @param options - The chart configuration.
+     * @param callback - A function to execute 
+     * @return Chart object reference
+     */
+    constructor(targetElement: string, options: JSCChartConfig, callback?: (c?: Chart) => void);
 
     /**
     * A collection used to get/update/set series data and options.
     * @since 2.0
     * @example chart.series().points(p=>p.y>200).options({color:'red'}),
     */
-    series: CollectionFactory;
+    series: CollectionFactory<SeriesCollection, Series>;
 
     /**
     * A collection used to get/update/set annotations and options.
     * @since 2.0
     * @example chart.annotations.add( {label:{text:"labelText"}} ) - Adds an annotaton.<br/>chart.annotations().options({fill:"none"}) - Set fill for all annotations to none.
     */
-    annotations: CollectionFactory;
+    annotations: CollectionFactory<Collection<Annotation>, Annotation>;
 
     /**
     * A collection used to get/update/set chartArea and options.
     * @since 2.0
     * @example chart.chartAreas(0) - Get the chartArea.
     */
-    chartAreas: CollectionFactory;
-
-    /**
-    * TODO
-    * @since 2.0
-    * @example TODO
-    */
-    xAxis: CollectionFactory;
+    chartAreas: CollectionFactory<Collection<ChartArea>, ChartArea>;
 
     /**
     * A collection used to get and update axes on the chart.
     * @since 2.0
     * @example chart.axes( { prefix: "x" } ) - Get all x axes.<br/>chart.axes( "x" ) - Get the main x axis.
     */
-    axes: CollectionFactory;
+    axes: CollectionFactory<AxisCollection, Axis>;
 
     /**
-    * TODO
+    * A collection legends on the chart.
     * @since 2.0
-    * @example TODO
     */
-    legends: CollectionFactory;
+    legends: CollectionFactory<LegendCollection, Legend>;
 
     /**
     * A collection used to get and update UI items  on the chart.
     * @since 2.0
     * @example chart.uiItems() - Get all UI Items.
     */
-    uiItems: CollectionFactory;
+    uiItems: CollectionFactory<Collection<UiItem>, UiItem>;
 
     /**
     * Destroy chart and release resources.
@@ -3050,27 +3065,28 @@ export declare class Chart {
     /**
     * Function used to get and set chart options.
     * @param chartOptions - The setting to update on the chart.
-    * @param updateOptions - Options used when this chart is updating.
+    * @param updateOptions - Update options used when the chart redraws.
+    * @returns The collection.
     * @remarks With no arguments, all options are returned.
     * @since 2.0
     */
-    options(chartOptions?: (JSCChartConfig | string), updateOptions?: JSCUpdateOptionsConfig): void;
+    options(chartOptions?: (JSCChartConfig | string), updateOptions?: (JSCUpdateOptionsConfig | boolean)): JSCChartConfig;
     /**
     * Initialize and return a grid object that is connected to and displays chart data in the specified div element.
     * @param targetDiv - A string containing tokens and expression to evaluate.
     * @param options - Grid options.
-    * @returns Returns a new grid object.
+    * @returns Returns a new grid object promise.
     * @since 2.8
     */
-    toGrid(targetDiv: string, options?: JSCGridConfig): Grid;
+    toGrid(targetDiv: string, options?: JSCGridConfig): Promise<any>;
     /**
     * Takes a string with tokens and expressions and returns a processed string where tokens are replaced with calculated values. Tokens are evaluated based on data of all series (series Collection).
     * @param str - A string containing tokens and expression to evaluate.
     * @returns The resulting string after tokens are replaced with values and expressions are evaluated.
     * @remarks This method can be used to populate a template string with tokens that describe the data in this chart. Label expressions also enable inline formatting.
     * See Also:
-    * {@link http://jscharting.com/documentation/#node=Home.Tutorials.labelExpressions}
-    * {@link http://jscharting.com/documentation/#node=Home.Tutorials.tokenReference|List of available label tokens.}
+    * {@link undefined/js-chart-labels/expressions-calculations/}
+    * {@link undefined/js-chart-labels/token-reference/ | List of available label tokens.}
     * @example chart.replaceTokens('%sum') // returns a string with sum of chart data such as: '543'.
     */
     replaceTokens(str: string): string;
@@ -3080,7 +3096,7 @@ export declare class Chart {
     * @returns The value of the specified token.
     * @remarks Only one token or expression should be used with this method.
     * See Also:
-    * {@link http://jscharting.com/documentation/#node=Home.Tutorials.tokenReference|List of available label tokens.}
+    * {@link undefined/js-chart-labels/token-reference/ | List of available label tokens.}
     * @since 1.1
     * @example chart.tokenValue('%sum') // returns a number with sum of chart data such as: 543.
     */
@@ -3117,10 +3133,23 @@ export declare class Chart {
     * @param updateOptions - Options used when this chart is updating.
     * @returns Will return false if a provided point filter did not find any matches. Otherwise, the current view bbox is given.
     * See Also:
-    * {@link http://jscharting.com/samples/Javascript_MapZoomTo_Chart.htm}
+    * {@link https://jscharting.com/samples/Javascript_MapZoomTo_Chart.htm}
     * @since 2.1
     */
     zoom(zoomConfig: JSCZoomConfig, updateOptions?: JSCUpdateOptionsConfig): boolean | [number, number, number, number];
+    /**
+    * Options to manipulate the chart loading animation.
+    * @param messageOrState - A message or loading state setting.
+    * @param delay - The loading animation delay.
+    * @since 2.8
+    */
+    loading(messageOrState: (string | boolean), delay?: number): void;
+    /**
+    * Returns the toolbar object.
+    * @returns The toobar object.
+    * @since 2.8
+    */
+    toolbar(): any;
 }
 /**
 * Represents a point on the chart providing properties and method that enable manipulating the point in real-time.
@@ -3172,10 +3201,11 @@ export declare class Point {
     * Function used to get and set series options.
     * @param pointOptions - The setting to update on the series.
     * @param updateOptions - Options used when this series is updating.
+    * @returns Returns the point, or point options.
     * @remarks With no arguments, all options are returned.
     * @since 2.0
     */
-    options(pointOptions?: (JSCPointConfig | string), updateOptions?: JSCUpdateOptionsConfig): void;
+    options(pointOptions?: (JSCPointConfig | string), updateOptions?: (JSCUpdateOptionsConfig | boolean)): Point | any;
     /**
     * Removes this point from the chart in real-time.
     * @param updateOptions - Options used when this point is removed.
@@ -3199,9 +3229,9 @@ export declare class Point {
     * @returns The resulting string after tokens are replaced with values and expressions are evaluated.
     * @remarks This method can be used to populate a template string with tokens that describe this point. Label expressions also enable inline formatting.
     * See Also:
-    * {@link http://jscharting.com/documentation/#node=Home.Tutorials.labelExpressions}
-    * {@link http://jscharting.com/documentation/#node=Home.Tutorials.tokenReference|List of available label tokens}
-    * {@link http://jscharting.com/samples/Javascript_HoverSideInfo_Chart.htm}
+    * {@link undefined/js-chart-labels/expressions-calculations/}
+    * {@link undefined/js-chart-labels/token-reference/ | List of available label tokens}
+    * {@link https://jscharting.com/samples/Javascript_HoverSideInfo_Chart.htm}
     */
     replaceTokens(str: string): string;
     /**
@@ -3210,7 +3240,7 @@ export declare class Point {
     * @returns The value of the specified token.
     * @remarks Only one token or expression should be used with this method.
     * See Also:
-    * {@link http://jscharting.com/documentation/#node=Home.Tutorials.tokenReference|List of available label tokens}
+    * {@link undefined/js-chart-labels/token-reference/ | List of available label tokens}
     * @since 1.1
     * @example pointObj.tokenValue('%percentOfSeries')
     */
@@ -3242,20 +3272,27 @@ export declare class Series {
     chart: Chart;
 
     /**
+    * Toggles or sets series visibility.
+    * @param visible - Visibility setting.
+    * @returns The returned series.
+    */
+    visible(visible?: boolean): Series;
+    /**
     * A collection used to get/update/set points of this series.
     * @since 2.0
     * @example chart.series().points().options( { color: 'red' } )
     */
-    points: CollectionFactory;
+    points: CollectionFactory<Collection<Point>, Point>;
 
     /**
     * Function used to get and set series options.
     * @param seriesOptions - The setting to update on the series.
     * @param updateOptions - Options used when this series is updating.
+    * @returns Returns the series, or series options.
     * @remarks With no arguments, all options are returned.
     * @since 2.0
     */
-    options(seriesOptions?: (JSCSeriesConfig | string), updateOptions?: JSCUpdateOptionsConfig): void;
+    options(seriesOptions?: (JSCSeriesConfig | string), updateOptions?: (JSCUpdateOptionsConfig | boolean)): Series | any;
     /**
     * Sets or toggles the visibility of this series.
     * @param isShown - Specifies whether the series is visible. When not set, the visible state toggles.
@@ -3284,8 +3321,8 @@ export declare class Series {
     * @returns The resulting string after tokens are replaced with values and expressions are evaluated.
     * @remarks This method can be used to populate a template string with tokens that describe this point. Label expressions also enable inline formatting.
     * See Also:
-    * {@link http://jscharting.com/documentation/#node=Home.Tutorials.labelExpressions}
-    * {@link http://jscharting.com/documentation/#node=Home.Tutorials.tokenReference|List of available label tokens.}
+    * {@link undefined/js-chart-labels/expressions-calculations/}
+    * {@link undefined/js-chart-labels/token-reference/ | List of available label tokens.}
     */
     replaceTokens(str: string): string;
     /**
@@ -3294,7 +3331,7 @@ export declare class Series {
     * @returns The value of the specified token.
     * @remarks Only one token or expression should be used with this method.
     * See Also:
-    * {@link http://jscharting.com/documentation/#node=Home.Tutorials.tokenReference|List of available label tokens}
+    * {@link undefined/js-chart-labels/token-reference/ | List of available label tokens}
     * @since 1.1
     * @example seriesObj.tokenValue('%sum')
     */
@@ -3304,7 +3341,7 @@ export declare class Series {
     * @param x - The x value to match to a y value.
     * @returns The interpolated y value.
     * See Also:
-    * {@link http://jscharting.com/samples/Javascript_ZoomSelection_Chart.htm}
+    * {@link https://jscharting.com/samples/Javascript_ZoomSelection_Chart.htm}
     * @since 2.1
     */
     yAt(x: (string | number | Date)): number;
@@ -3312,7 +3349,7 @@ export declare class Series {
 /**
 * The nest object provides a mechanism to define a list of operations that can be used to arrange an array of data objects into a nested hierarchy that maps to the chart data hierarchy of series, x values, and y values.
 * See Also:
-* {@link http://jscharting.com/documentation/#node=Home.Tutorials.nesting}
+* {@link undefined/js-chart-data/client-side/data-nesting/}
 * @since 2.7
 */
 export declare class Nest {
@@ -3320,40 +3357,46 @@ export declare class Nest {
     /**
     * Specifies a key by which data is grouped and nested into a data hierarchy. A single key() call will designate the property as point x values. A second key call will designate the properties as series name and point x values respectively.
     * @param iteratee - Specifies a key name or function key getter by which data is grouped and nested.
+    * @returns The nest object instance.
     * @since 2.7
     */
-    key(iteratee: ((() => void) | Iteratee | string)): void;
+    key(iteratee: (((...args) => any) | Iteratee | string)): Nest;
     /**
     * A property name or function used to summarize a values of data entries for each resulting grouping. Using a property name will map the grouping into point y values.
     * @param iteratee - Iteratee is invoked on each grouping with (collection) array of data entries.
     * @param calculation - The calculation applied when the rollup() call results in an array of numbers.
+    * @returns The nest object instance.
     * @since 2.7
     */
-    rollup(iteratee: ((() => void) | string), calculation?: ("sum" | "average" | "min" | "max")): void;
+    rollup(iteratee: (((...args) => any) | string), calculation?: ("sum" | "average" | "min" | "max")): Nest;
     /**
     * Defines a function that returns the resulting point objects.
     * @param iteratee - Iteratee is invoked with key and values for each data point grouping and can be used to customize how values are applied to point properties.
+    * @returns The nest object instance.
     * @since 2.7
     */
-    pointRollup(iteratee: (() => void)): void;
+    pointRollup(iteratee: ((...args) => any)): Nest;
     /**
     * Applies the nesting call chain on the specified data entries generating an array of series. The result can be applied to the chart series config property directly.
     * @param data - An array of data entries to process.
+    * @returns An array of series given the specified data.
     * @since 2.7
     */
-    series(data: any[]): void;
+    series(data: any[]): Series[];
     /**
     * Applies the nesting call chain on the specified data entries generating an array of points. Should only be used when the nesting call chain contains a single key() call which generates a single series..
     * @param data - An array of data entries to process.
+    * @returns An array of points given the specified data.
     * @since 2.7
     */
-    points(data: any[]): void;
+    points(data: any[]): Point[];
     /**
     * Applies the nesting call chain on the specified data entries and returns the raw nested data without converting it to series or point configurations.
     * @param data - An array of data entries to process.
+    * @returns Direct result of the given data and nesting.
     * @since 2.7
     */
-    entries(data: any[]): void;
+    entries(data: any[]): LegendEntry[];
 }
 /**
 * Represents a grid JS object providing methods to manipulate the grid in real-time.
@@ -3364,10 +3407,11 @@ export declare class Grid {
     /**
     * Function used to get and set chart options.
     * @param gridOptions - The setting to update on the chart.
+    * @returns The grid instance or specified grid option.
     * @remarks With no arguments, all options are returned.
     * @since 2.8
     */
-    options(gridOptions?: (JSCGridConfig | string)): void;
+    options(gridOptions?: (JSCGridConfig | string)): any;
     /**
     * Removes the chart and clears its memory. This method can be used when the chart is not required or is discarded to reduce memory usage.
     * @since 2.8
@@ -3390,16 +3434,17 @@ export declare class Axis {
     * @since 2.0
     * @example chart.axes('x').markers.add( {value:[5,10],label:{text:"labelText"}} ) - Adds an axis marker.<br/>chart.axes('x').markers().options({fill:"none"}) - Modifies options for all markers on this axis.
     */
-    markers: CollectionFactory;
+    markers: CollectionFactory<Collection<AxisMarker>, AxisMarker>;
 
     /**
     * Function used to get and set axis options.
     * @param axisOptions - The setting to update on the axis.
     * @param updateOptions - Options used when this axis is updating.
+    * @returns The axis instance or specified axis option.
     * @remarks With no arguments, all options are returned.
     * @since 2.0
     */
-    options(axisOptions?: (JSCAxisConfig | string), updateOptions?: JSCUpdateOptionsConfig): void;
+    options(axisOptions?: (JSCAxisConfig | string), updateOptions?: (JSCUpdateOptionsConfig | boolean)): any;
     /**
     * Makes the axis zoom to the specified range.
     * @param min - The minimum value of the range to zoom.
@@ -3414,7 +3459,7 @@ export declare class Axis {
     * @returns Axis range information.
     * @remarks A range can be set for a category scale, however, numbers are used to represent each axis tick starting with 0.
     * See Also:
-    * {@link http://jscharting.com/samples/Javascript_AxisInteractiveExtremes_Chart.htm}
+    * {@link https://jscharting.com/samples/Javascript_AxisInteractiveExtremes_Chart.htm}
     */
     getRange(): GetRange;
     /**
@@ -3425,59 +3470,247 @@ export declare class Axis {
     getCategories(): string[];
 }
 /**
-* TODO
-* @since 2.9
+* A chartArea object.
+* @since 2.8
 */
-export declare interface CollectionFactory {
+export declare class ChartArea {
 
     /**
-    * TODO
+    * Gets or sets the specified options.
+    * @param itemOptions - ChartArea options to set.
+    * @param updateOptions - Options used when this chartArea is updating.
+    * @returns The chartArea instance or specified chartArea option.
+    * @since 2.8
+    */
+    options(itemOptions?: (JSCChartAreaConfig | string), updateOptions?: (JSCUpdateOptionsConfig | boolean)): ChartArea | any;
+    /**
+    * Removes and destroys the chartArea.
+    * @since 2.8
+    */
+    remove(): void;
+    /**
+    * Binds an event handler to chartArea events.
+    * @param event - The event name.
+    * @param callback - The event handler.
+    * @since 2.8
+    */
+    on(event: string, callback: ((...args) => any)): void;
+}
+/**
+* An annotation object.
+* @since 2.8
+*/
+export declare class Annotation {
+
+    /**
+    * Gets or sets annotation options.
+    * @param itemOptions - Annotation options to set.
+    * @param updateOptions - Options used when this annotation is updating.
+    * @returns The annotation instance or specified annotation option.
+    * @since 2.8
+    */
+    options(itemOptions?: (JSCAnnotationConfig | string), updateOptions?: (JSCUpdateOptionsConfig | boolean)): Annotation | any;
+    /**
+    * Removes and destroys the annotation.
+    * @since 2.8
+    */
+    remove(): void;
+}
+/**
+* UiItem object with methods to update and remove it.
+* @since 2.8
+*/
+export declare class UiItem {
+
+    /**
+    * Gets or sets uiItem options.
+    * @param itemOptions - UiItem options
+    * @param updateOptions - Options used when this uiItem is updating.
+    * @returns The uiItem instance or specified uiItem option.
+    * @since 2.8
+    */
+    options(itemOptions?: (JSCUiItemConfig | string), updateOptions?: (JSCUpdateOptionsConfig | boolean)): UiItem | any;
+    /**
+    * Removes and destroys the uiItem.
+    * @since 2.8
+    */
+    remove(): void;
+    /**
+    * Toggles or sets the item visibility.
+    * @param visible - The visibility setting.
+    * @since 2.8
+    */
+    visible(visible: boolean): void;
+}
+/**
+* Toolbar object with methods to update and remove it.
+* @since 2.8
+*/
+export declare class Toolbar {
+}
+/**
+* Legend object with methods to update and remove it.
+* @since 2.8
+*/
+export declare class Legend {
+
+    /**
+    * Gets or sets the specified options.
+    * @param itemOptions - Legend options to set.
+    * @param updateOptions - Options used when this legend is updating.
+    * @returns The legend instance or specified legend option.
+    * @since 2.8
+    */
+    options(itemOptions?: (JSCLegendConfig | string), updateOptions?: (JSCUpdateOptionsConfig | boolean)): Legend | any;
+    /**
+    * Removes and destroys the legend.
+    * @since 2.8
+    */
+    remove(): void;
+}
+/**
+* AxisTick object with methods to update and remove it.
+* @since 2.8
+*/
+export declare class AxisTick {
+
+    /**
+    * Gets or sets the specified options.
+    * @param itemOptions - axisTick options to set.
+    * @param updateOptions - Options used when this axisTick is updating.
+    * @returns The axisTick instance or specified legend option.
+    * @since 2.8
+    */
+    options(itemOptions?: (JSCAxisTickConfig | string), updateOptions?: (JSCUpdateOptionsConfig | boolean)): any;
+    /**
+    * Removes and destroys the axisTick.
+    * @since 2.8
+    */
+    remove(): void;
+}
+/**
+* AxisMarker object with methods to update and remove it.
+* @since 2.8
+*/
+export declare class AxisMarker {
+
+    /**
+    * Gets or sets the specified options.
+    * @param itemOptions - AxisMarker options to set.
+    * @param updateOptions - Options used when this axisMarker is updating.
+    * @returns The axisMarker instance or specified axisMarker option.
+    * @since 2.8
+    */
+    options(itemOptions?: (JSCAxisMarkerConfig | string), updateOptions?: (JSCUpdateOptionsConfig | boolean)): AxisMarker | any;
+    /**
+    * Removes and destroys the axisMarker.
+    * @since 2.8
+    */
+    remove(): void;
+}
+/**
+* LegendEntry object with methods to update and remove it.
+* @since 2.8
+*/
+export declare class LegendEntry {
+
+    /**
+    * Gets or sets the specified options.
+    * @param itemOptions - LegendEntry options to set.
+    * @param updateOptions - Options used when this legendEntry is updating.
+    * @returns The legendEntry instance or specified legendEntry option.
+    * @since 2.8
+    */
+    options(itemOptions?: (JSCLegendEntryConfig | string), updateOptions?: (JSCUpdateOptionsConfig | boolean)): LegendEntry | any;
+    /**
+    * Removes and destroys the legendEntry.
+    * @since 2.8
+    */
+    remove(): void;
+}
+/**
+* Initializes and returns a new instance of the Promise object.
+* @since 2.8
+*/
+export declare class Promise<T>  {
+
+    /**
+    * The then() method returns a Promise. It takes up to two arguments: callback functions for the success and failure cases of the Promise.
+    * @param onFulfilled - A Function called if the Promise is fulfilled.
+    * @param onRejected - A Function called if the Promise is rejected.
+    * @returns A Promise object.
+    * @since 2.8
+    */
+    then(onFulfilled: ((...args) => any), onRejected: ((...args) => any)): Promise<T>;
+    /**
+    * The catch() method returns a Promise and deals with rejected cases only.
+    * @param onRejected - A Function called if the Promise is rejected.
+    * @returns A Promise object.
+    * @since 2.8
+    */
+    catch(onRejected: ((...args) => any)): Promise<T>;
+}
+/**
+* Collection factory that wraps an array of items to provide a simpler way to get/set items and options.
+* @since 2.8
+*/
+export declare interface CollectionFactory<T, U> {
+
+    /**
+    * Collection factory that wraps an array of items to provide a simpler way to get/set items and options.
     * @param predicateOrObj - Select specific items within this collection.
-    * @returns TODO
-    * @since 2.9
-    * @example TODO
+    * @returns A collection of items.
+    * @since 2.8
+    * @example chart.series
     */
-    (predicateOrObj?: (number | string | (() => void) | PredicateOrObj)): Collection;
+    (predicateOrObj?: (((...args) => any) | PredicateOrObj)): T;
     /**
-    * TODO
-    * @param ...args - TODO
-    * @returns TODO
-    * @since 2.9
-    * @example TODO
+    * Collection factory that wraps an array of items to provide a simpler way to get/set items and options.
+    * @param param - Collection factory that wraps an array of items to provide a simpler way to get/set items and options.
+    * @returns A collection of items.
+    * @since 2.8
+    * @example chart.series
     */
-    add(...args): Collection;
+    (param?: (string | number)): U;
     /**
-    * TODO
-    * @param ...args - TODO
-    * @returns TODO
-    * @since 2.9
-    * @example TODO
+    * This collectionFactory method adds an item with the specified options and returns a new collection.
+    * @param ...args - An item to add to the collection.
+    * @returns A collection of items.
+    * @since 2.8
+    * @example chart.series.add({seriesOptions})
     */
-    remove(...args): Collection;
+    add(...args): T;
     /**
-    * TODO
-    * @param ...args - TODO
-    * @returns TODO
-    * @since 2.9
-    * @example TODO
+    * Removes an item that matches the specified options and returns a new collection.
+    * @param ...args - An item to remove from the collection.
+    * @returns A collection of items.
+    * @since 2.8
+    * @example chart.series.remove({seriesOptions})
     */
-    splice(...args): Collection;
+    remove(...args): T;
+    /**
+    * Modifies the collection using an array.splice() API and returns a new collection.
+    * @param ...args - chart.series.splice( 1, 0, {seriesOptions})
+    * @returns A collection of items.
+    * @since 2.8
+    */
+    splice(...args): T;
 }
 /**
 * Wraps an array of items to provide a simpler way to get/set items and options.
 * @since 2.0
 */
-export declare class Collection {
+export declare class Collection<T>  {
 
     /**
     * This collection can be used as a function to select and find items based on specified argument.
-    * @param predicate - Select specific items within this collection.
+    * @param predicate - Select specific items within this collection. Example: numExample;
     * @returns undefined
     * @remarks This function is used on the collection property itself.
     * @since 2.0
     * @example chart.series( predicate )
     */
-    constructor(predicate?: (number | string | (() => void) | Predicate));
+    constructor(predicate?: (number | string | ((...args) => any) | Predicate));
     /**
     * Iterates over items in this collection and returns the first item the predicate returns truthly for.
     * @param predicate - The predicate that must match or return truthly.
@@ -3485,16 +3718,17 @@ export declare class Collection {
     * @since 2.0
     * @example chart.series().find( predicate )
     */
-    find(predicate: ((() => void) | any)): any;
+    find(predicate: (((...args) => any) | any)): T;
     /**
     * Function used to get and set options for items in this collection.
     * @param itemOptions - The setting to update on the chart.
     * @param updateOptions - Options used when this chart is updating.
+    * @returns Returns the collection.
     * @remarks With no arguments, all options are returned.
     * @since 2.0
     * @example chart.series().options( seriesOptions )
     */
-    options(itemOptions?: (ItemOptions | string), updateOptions?: JSCUpdateOptionsConfig): void;
+    options(itemOptions?: (ItemOptions | string), updateOptions?: (JSCUpdateOptionsConfig | boolean)): Collection<T>;
     /**
     * Iterates over each item in this collection and invokes iteratee for each item.
     * @param iteratee - The function invoked on each iteration.
@@ -3502,15 +3736,15 @@ export declare class Collection {
     * @since 2.0
     * @example chart.series().each( (series) => { ... } )
     */
-    each(iteratee: (() => void)): Collection;
+    each(iteratee: ((arg0: T) => any)): Collection<T>;
     /**
     * Iterates over each item in this collection and returns an array of results from iteratee.
     * @param iteratee - The function invoked on each iteration.
-    * @returns Returns the collection.
+    * @returns Array of items resulting from running iteratee on each original item.
     * @since 2.1
     * @example chart.series().points().map( p => p.x); - returns an array of x values
     */
-    map(iteratee: (() => void)): Collection;
+    map(iteratee: ((...args) => any)): any[];
     /**
     * Creates an array of items, sorted in ascending order based on the results of running each item through each iteratee.
     * @param iteratee - The function invoked on each item to get the comparable value to sort by.
@@ -3518,14 +3752,14 @@ export declare class Collection {
     * @since 2.0
     * @example chart.series().sortBy( s => s.name ).each(console.log)
     */
-    sortBy(iteratee: (() => void)): Collection;
+    sortBy(iteratee: ((arg0: T) => any)): Collection<T>;
     /**
     * Creates an array of items in reverse order.
     * @returns Returns the collection.
     * @since 2.0
     * @example chart.series().reverse().each(console.log)
     */
-    reverse(): Collection;
+    reverse(): Collection<T>;
     /**
     * This property of collection adds an item to the collection with the specified options.
     * @param itemOptions - The function invoked on each item to get the comparable value to sort by. The item is passed in the first argument of this function.
@@ -3535,7 +3769,7 @@ export declare class Collection {
     * @since 2.0
     * @example chart.series.add({seriesOptions})
     */
-    add(itemOptions: any, updateOptions?: JSCUpdateOptionsConfig): Collection;
+    add(itemOptions: any, updateOptions?: JSCUpdateOptionsConfig): Collection<T>;
     /**
     * This property of collection adds an item to the collection at the specified index.
     * @param index - Index at which to add the item.
@@ -3547,7 +3781,57 @@ export declare class Collection {
     * @since 2.0
     * @example chart.series.splice( 1, 0, {seriesOptions})
     */
-    splice(index: number, delCount: number, itemOptions: any, updateOptions?: JSCUpdateOptionsConfig): Collection;
+    splice(index: number, delCount: number, itemOptions: any, updateOptions?: JSCUpdateOptionsConfig): Collection<T>;
+    /**
+    * Returns an array of collection items.
+    */
+    items: T[];
+}
+/**
+* Wraps an array of axis objects to provide a simpler way to get/set items and options.
+* @since 2.8
+*/
+export declare class AxisCollection extends Collection<Axis> {
+
+    /**
+    * Returns a collection of axisMarkes.
+    * @since 2.8
+    * @example chart.axes().markers()
+    */
+    markers: CollectionFactory<Collection<AxisMarker>, AxisMarker>;
+
+    /**
+    * Returns a collection of axisTick objects.
+    * @since 2.8
+    * @example chart.axes().ticks()
+    */
+    ticks: CollectionFactory<Collection<AxisTick>, AxisTick>;
+}
+/**
+* Wraps an array of series items to provide a simpler way to get/set items and options.
+* @since 2.8
+*/
+export declare class SeriesCollection extends Collection<Series> {
+
+    /**
+    * Returns a collection of points.
+    * @since 2.8
+    * @example chart.series().points()
+    */
+    points: CollectionFactory<Collection<Point>, Point>;
+}
+/**
+* Wraps an array of legend items to provide a simpler way to get/set items and options.
+* @since 2.8
+*/
+export declare class LegendCollection extends Collection<Legend> {
+
+    /**
+    * Returns a collection of legendEntry objects.
+    * @since 2.8
+    * @example chart.legends().entries()
+    */
+    entries: CollectionFactory<Collection<LegendEntry>, LegendEntry>;
 }
 /**
 * Describes the type of each individual corner of the box.
@@ -3685,11 +3969,25 @@ export declare interface ChartEvents {
      * Fires when chart area selection values change active.
      * @remarks In the function, the "this" keyword refers to the chart object. An event argument is passed to the specified function. It contains  e.xAxis & e.yValue properties which are arrays of objects with axis, min and max properties. The min and max properties refers to the axis values of the selected area. e.yAxis[0].axis and e.xAxis[0].axis refer to the primary axes.
      * See Also:
-     * {@link http://jscharting.com/samples/Javascript_ZoomSelection_Chart.htm}
+     * {@link https://jscharting.com/samples/Javascript_ZoomSelection_Chart.htm}
      * @since 2.1
      * @inline true
      */
     selecting?: JSCEventHandlerConfig;
+
+    /**
+     * Fires when a chart zoom is completed.
+     * @remarks In the function, the "this" keyword refers to the chart object. An event argument is passed to the specified function. It contains axes ranges which are objects with min, max and range properties of the selected area.
+     * @inline true
+     */
+    zoomed?: JSCEventHandlerConfig;
+
+    /**
+     * Fires when a chart scroll is completed.
+     * @remarks In the function, the "this" keyword refers to the chart object. An event argument is passed to the specified function. It contains axes ranges which are objects with min, max and range properties of the selected area.
+     * @inline true
+     */
+    scrolled?: JSCEventHandlerConfig;
     [any: string]: any;
 }
 
@@ -3701,7 +3999,7 @@ export declare interface Base {
     /**
      * A list of comma delimited map codes or geoJSON/topoJSON files. Map property filters can also be used if a reference layer is defined.
      * See Also:
-     * {@link http://jscharting.com/documentation/#node=Home.Tutorials.mapList}
+     * {@link undefined/types/js-map-chart/maps-mapcodes/}
      */
     layers?: string;
 
@@ -3739,7 +4037,7 @@ export declare interface Projection_object {
 /**
 * Map chart type related settings.
 * See Also:
-* {@link http://jscharting.com/documentation/#node=Home.Tutorials.mapping}
+* {@link undefined/types/js-map-chart/}
 * @since 2.1
 */
 export declare interface Mapping {
@@ -3752,7 +4050,7 @@ export declare interface Mapping {
     /**
      * A list of comma delimited map codes or geoJSON/topoJSON files that are loaded into memory but not shown on the chart by default. This is useful when a series is built based on map features in memory.
      * See Also:
-     * {@link http://jscharting.com/documentation/#node=Home.Tutorials.mapList}
+     * {@link undefined/types/js-map-chart/maps-mapcodes/}
      */
     referenceLayers?: string;
 
@@ -3894,14 +4192,14 @@ export declare interface Scale {
     /**
      * Specifies the major axis tick intervals.
      * See Also:
-     * {@link http://jscharting.com/samples/Javascript_AxisIntervals_Chart.htm}
+     * {@link https://jscharting.com/samples/Javascript_AxisIntervals_Chart.htm}
      */
     interval?: number | JSCTimeIntervalConfig;
 
     /**
      * Specifies the minor axis tick intervals.
      * See Also:
-     * {@link http://jscharting.com/samples/Javascript_AxisIntervals_Chart.htm}
+     * {@link https://jscharting.com/samples/Javascript_AxisIntervals_Chart.htm}
      */
     minorInterval?: number | JSCTimeIntervalConfig | string;
 
@@ -3932,12 +4230,12 @@ export declare interface Scale {
      * ID of another axis that this axis will sync its range with.
      * @remarks This is useful with unit conversion where two axes show the same scale but in different units. An axis not associated with data can be synced with another axis. Or two axes both with data can be set to show the same range.
      * See Also:
-     * {@link http://jscharting.com/samples/Javascript_AxisShadowingTime_Chart.htm}
+     * {@link https://jscharting.com/samples/Javascript_AxisShadowingTime_Chart.htm}
      */
     syncWith?: string;
 
     /**
-     * Specifies the axis <a href="Enums.scale">scale</a> enum.
+     * Specifies the axis {@link https://jscharting.com/documentation/#node=Home.API.json.Enums.scale | scale} enum.
      * @remarks If a time scale is specified for the x axis, the chart will attempt to interpret the data x values as dates.
      */
     type?: ("auto" | "time" | "stacked" | "stackedFull" | "stackedfull" | "stackedLogarithmic" | "stackedlogarithmic" | "logarithmic" | "variwide");
@@ -3951,7 +4249,7 @@ export declare interface Scale {
     /**
      * The logarithmic base used with logarithmic scales.
      * See Also:
-     * {@link http://jscharting.com/samples/Javascript_AxisLogScale_Chart.htm}
+     * {@link https://jscharting.com/samples/Javascript_AxisLogScale_Chart.htm}
      * @since 2.6
      */
     logBase?: number;
@@ -4075,7 +4373,7 @@ export declare interface MouseTracking {
 /**
 * Specifies the series states
 * See Also:
-* {@link http://jscharting.com/documentation/#node=Home.Tutorials.states}
+* {@link undefined/js-chart-interactivity/states/}
 */
 export declare interface States {
 
@@ -4182,7 +4480,7 @@ export declare interface FocusGlow {
 /**
 * Specifies point state options
 * See Also:
-* {@link http://jscharting.com/documentation/#node=Home.Tutorials.States}
+* {@link undefined/js-chart-interactivity/states/}
 */
 export declare interface PointStates {
 
@@ -4256,7 +4554,7 @@ export declare interface PointEvents {
 /**
 * State options for point marker.
 * See Also:
-* {@link http://jscharting.com/documentation/#node=Home.Tutorials.states}
+* {@link undefined/js-chart-interactivity/states/}
 */
 export declare interface PointMarkerStates {
 
@@ -4290,7 +4588,7 @@ export declare interface LegendTitle {
 /**
 * State options for legend entry.
 * See Also:
-* {@link http://jscharting.com/documentation/#node=Home.Tutorials.states}
+* {@link undefined/js-chart-interactivity/states/}
 */
 export declare interface LegendEntryState {
 
@@ -4393,7 +4691,7 @@ export declare interface Undefined {
 /**
 * Accessibility options for the grid buttons when enabled.
 * See Also:
-* {@link http://jscharting.com/documentation/#node=Home.Tutorials.accessibility}
+* {@link undefined/js-chart-accessibility/}
 */
 export declare interface Buttons {
 
@@ -4512,7 +4810,7 @@ export declare interface Sources {
 /**
 * Specifies a key name or function key getter by which data is grouped and nested.
 */
-export declare type Iteratee = (() => void) | Iteratee_object | string;
+export declare type Iteratee = ((...args) => any) | Iteratee_object | string;
 export declare interface Iteratee_object {
 
     /**
@@ -4523,7 +4821,7 @@ export declare interface Iteratee_object {
     /**
      * A CalendarPattern that describes a date grouping. For example, setting 'month' will result in dates being grouped into months.
      * See Also:
-     * {@link http://jscharting.com/documentation/#node=Home.Tutorials.calendarPatterns}
+     * {@link undefined/types/js-calendar-chart/calendar-patterns/}
      */
     pattern?: JSCCalendarPatternConfig;
 
@@ -4575,7 +4873,7 @@ export declare interface GetRange {
 * Select specific items within this collection.
 * @inline true
 */
-export declare type PredicateOrObj = number | string | (() => void) | PredicateOrObj_object;
+export declare type PredicateOrObj = ((...args) => any) | PredicateOrObj_object;
 export declare interface PredicateOrObj_object {
 
     /**
@@ -4589,7 +4887,7 @@ export declare interface PredicateOrObj_object {
 * Select specific items within this collection.
 * @inline true
 */
-export declare type Predicate = number | string | (() => void) | Predicate_object;
+export declare type Predicate = number | string | ((...args) => any) | Predicate_object;
 export declare interface Predicate_object {
 
     /**
