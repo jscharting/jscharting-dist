@@ -1,16 +1,19 @@
+// Type definitions for JSCharting 2.8
+// Project: https://jscharting.com/
+// Typescript version 2.5
 
 /**
 * The top level chart configuration API.
 * var chart = new JSC.Chart({});
 * See Also:
-* {@link undefined/js-chart-bundle/}
+* {@link https://jscharting.com/tutorials/js-chart-bundle/}
 */
 export declare interface JSCChartConfig {
 
     /**
      * Used to enable and disable accessibility or to assign an initial tabIndex for the chart.
      * See Also:
-     * {@link undefined/js-chart-accessibility/}
+     * {@link https://jscharting.com/tutorials/js-chart-accessibility/}
      * @since 2.8
      */
     tabIndex?: number | string;
@@ -23,7 +26,7 @@ export declare interface JSCChartConfig {
     /**
      * The fundamental Chart Type such as horizontal or vertical. See {@link https://jscharting.com/documentation/#node=Home.API.json.Enums.seriesType | seriesType enum} for line, bar, area varieties. This can be set through {@link https://jscharting.com/documentation/#node=Home.API.json.Types.series.type | chart.defaultSeries.type}
      * See Also:
-     * {@link undefined/types/ | Describes how to define specific chart types.}
+     * {@link https://jscharting.com/tutorials/types/ | Describes how to define specific chart types.}
      */
     type?: string;
 
@@ -42,7 +45,7 @@ export declare interface JSCChartConfig {
      * Default culture name used when formatting values on this chart.
      * @def 'en-US'
      * See Also:
-     * {@link undefined/js-chart-labels/formatting/}
+     * {@link https://jscharting.com/tutorials/js-chart-labels/formatting/}
      */
     defaultCultureName?: string;
 
@@ -129,7 +132,7 @@ export declare interface JSCChartConfig {
     /**
      * Chart legend box options.
      * See Also:
-     * {@link undefined/js-chart-legend/}
+     * {@link https://jscharting.com/tutorials/js-chart-legend/}
      */
     legend?: JSCLegendConfig;
 
@@ -146,7 +149,7 @@ export declare interface JSCChartConfig {
     /**
      * An array of series drawn on the chart.
      * See Also:
-     * {@link undefined/js-chart-data/}
+     * {@link https://jscharting.com/tutorials/js-chart-data/}
      */
     series?: JSCSeriesConfig[];
 
@@ -185,7 +188,7 @@ export declare interface JSCChartConfig {
     /**
      * Map chart type related settings.
      * See Also:
-     * {@link undefined/types/js-map-chart/}
+     * {@link https://jscharting.com/tutorials/types/js-map-chart/}
      * @since 2.1
      */
     mapping?: Mapping;
@@ -217,7 +220,7 @@ export declare interface JSCAnnotationConfig {
     /**
      * Used to enable and disable accessibility or to assign an initial tabIndex for the chart item.
      * See Also:
-     * {@link undefined/js-chart-accessibility/}
+     * {@link https://jscharting.com/tutorials/js-chart-accessibility/}
      * @since 2.8
      */
     tabIndex?: number | string;
@@ -326,7 +329,7 @@ export declare interface JSCAxisConfig {
     /**
      * Used to enable and disable accessibility or to assign an initial tabIndex for the chart item.
      * See Also:
-     * {@link undefined/js-chart-accessibility/}
+     * {@link https://jscharting.com/tutorials/js-chart-accessibility/}
      * @since 2.8
      */
     tabIndex?: number | string;
@@ -403,7 +406,7 @@ export declare interface JSCAxisConfig {
     /**
      * Format string used for values on this axis. Values associated with this axis including axis ticks, point labels, among others will inherit this format by default.
      * See Also:
-     * {@link undefined/js-chart-labels/formatting/}
+     * {@link https://jscharting.com/tutorials/js-chart-labels/formatting/}
      * {@link https://jscharting.com/samples/Javascript_AxisFormatting_Chart.htm}
      */
     formatString?: string;
@@ -411,7 +414,7 @@ export declare interface JSCAxisConfig {
     /**
      * Culture name used for formatting values on the axis.
      * See Also:
-     * {@link undefined/js-chart-labels/formatting/}
+     * {@link https://jscharting.com/tutorials/js-chart-labels/formatting/}
      */
     cultureName?: string;
 
@@ -493,7 +496,7 @@ export declare interface JSCLineBreaksConfig {
 /**
 * Represents an axis tick that incapsulates the tick label, gridLine, line styling settings.
 * See Also:
-* {@link undefined/js-chart-axis/ticks-markers/}
+* {@link https://jscharting.com/tutorials/js-chart-axis/ticks-markers/}
 */
 export declare interface JSCAxisTickConfig {
 
@@ -537,7 +540,7 @@ export declare interface JSCAxisTickConfig {
     /**
      * Axis tick label.
      * See Also:
-     * {@link undefined/js-chart-labels/token-reference/ | Label Token Reference}
+     * {@link https://jscharting.com/tutorials/js-chart-labels/token-reference/ | Label Token Reference}
      * {@link https://jscharting.com/samples/Javascript_LabelTokens_Chart.htm}
      */
     label?: JSCLabelConfig;
@@ -578,7 +581,7 @@ export declare interface JSCAxisTickConfig {
      * Controls the visualization when the tick has a range value.
      * @def auto
      * See Also:
-     * {@link undefined/js-chart-axis/range-ticks/}
+     * {@link https://jscharting.com/tutorials/js-chart-axis/range-ticks/}
      * @since 2.8
      */
     rangeMode?: ("auto" | "curly" | "measure");
@@ -737,7 +740,7 @@ export declare interface JSCCompleteConfig_object {
 * A color range specifying a value range and color.
 * See Also:
 * {@link https://jscharting.com/samples/Javascript_SmartPaletteRanges_Chart.htm}
-* {@link undefined/js-chart-gradient-palette/}
+* {@link https://jscharting.com/tutorials/js-chart-gradient-palette/}
 * @since 2.1
 */
 export declare interface JSCColorRangeConfig {
@@ -786,7 +789,7 @@ export declare interface JSCSpRangeConfig_object {
 * A smartPalette defines a gradient range of colors and how point values are mapped to it.
 * See Also:
 * {@link https://jscharting.com/samples/Javascript_SmartPaletteGallery_Chart.htm}
-* {@link undefined/js-chart-gradient-palette/}
+* {@link https://jscharting.com/tutorials/js-chart-gradient-palette/}
 * @since 2.1
 */
 export declare interface JSCSmartPaletteConfig {
@@ -849,7 +852,7 @@ export declare interface JSCLabelConfig {
     /**
      * The label text.
      * See Also:
-     * {@link undefined/js-chart-labels/token-reference/ | Label Token Reference}
+     * {@link https://jscharting.com/tutorials/js-chart-labels/token-reference/ | Label Token Reference}
      * {@link https://jscharting.com/samples/Javascript_LabelTokens_Chart.htm}
      */
     text?: string | ((...args) => any);
@@ -987,7 +990,7 @@ export declare interface JSCChartAreaConfig {
     /**
      * Used to enable and disable accessibility or to assign an initial tabIndex for the chart item.
      * See Also:
-     * {@link undefined/js-chart-accessibility/}
+     * {@link https://jscharting.com/tutorials/js-chart-accessibility/}
      * @since 2.8
      */
     tabIndex?: number | string;
@@ -995,7 +998,7 @@ export declare interface JSCChartAreaConfig {
     /**
      * The fundamental Chart Type such as horizontal or vertical. See {@link https://jscharting.com/documentation/#node=Home.API.json.Enums.seriesType | seriesType enum} for line, bar, area varieties. This can be set through {@link https://jscharting.com/documentation/#node=Home.API.json.Types.series.type | chart.defaultSeries.type}
      * See Also:
-     * {@link undefined/types/ | Describes how to define specific chart types.}
+     * {@link https://jscharting.com/tutorials/types/ | Describes how to define specific chart types.}
      * @since 2.0
      */
     type?: string;
@@ -1069,7 +1072,7 @@ export declare interface JSCSeriesConfig {
     /**
      * Used to enable and disable accessibility or to assign an initial tabIndex for the chart item.
      * See Also:
-     * {@link undefined/js-chart-accessibility/}
+     * {@link https://jscharting.com/tutorials/js-chart-accessibility/}
      * @since 2.8
      */
     tabIndex?: number | string;
@@ -1082,7 +1085,7 @@ export declare interface JSCSeriesConfig {
     /**
      * Specifies the series type or a chart type such as pie, radar, or gauge.
      * See Also:
-     * {@link undefined/types/ | Describes how to define specific chart types.}
+     * {@link https://jscharting.com/tutorials/types/ | Describes how to define specific chart types.}
      * @since 1.1
      */
     type?: string | string;
@@ -1185,7 +1188,7 @@ export declare interface JSCSeriesConfig {
     /**
      * Specifies the series states
      * See Also:
-     * {@link undefined/js-chart-interactivity/states/}
+     * {@link https://jscharting.com/tutorials/js-chart-interactivity/states/}
      */
     states?: States;
 
@@ -1215,8 +1218,8 @@ export declare interface JSCSeriesConfig {
     /**
      * Specifies a map by code, a file name or a map features defined in a map file that is specified in baseLayers
      * See Also:
-     * {@link undefined/types/js-map-chart/maps-mapcodes/}
-     * {@link undefined/types/js-map-chart/}
+     * {@link https://jscharting.com/tutorials/types/js-map-chart/maps-mapcodes/}
+     * {@link https://jscharting.com/tutorials/types/js-map-chart/}
      * @since 2.1
      */
     map?: string | JSCMapFileDataConfig;
@@ -1298,7 +1301,7 @@ export declare interface JSCPointConfig_object {
     /**
      * Tooltip string for this element. Point related tokens can be used.
      * See Also:
-     * {@link undefined/js-chart-labels/token-reference/ | Label Token Reference}
+     * {@link https://jscharting.com/tutorials/js-chart-labels/token-reference/ | Label Token Reference}
      * {@link https://jscharting.com/samples/Javascript_LabelTokens_Chart.htm}
      */
     tooltip?: string | ((...args) => any);
@@ -1313,7 +1316,7 @@ export declare interface JSCPointConfig_object {
     /**
      * Specifies point state options
      * See Also:
-     * {@link undefined/js-chart-interactivity/states/}
+     * {@link https://jscharting.com/tutorials/js-chart-interactivity/states/}
      */
     states?: PointStates;
 
@@ -1340,7 +1343,7 @@ export declare interface JSCPointConfig_object {
     /**
      * Z value of this point. Used in bubble charts and as gauge needle length from 0 to 1, and as pie slide lengths.
      * See Also:
-     * {@link undefined/types/}
+     * {@link https://jscharting.com/tutorials/types/}
      * @since 1.1
      */
     z?: number;
@@ -1386,7 +1389,7 @@ export declare interface JSCPointConfig_object {
     /**
      * Used with calendar charts to specify a date, date range, or calendar pattern to bind to.
      * See Also:
-     * {@link undefined/types/js-calendar-chart/}
+     * {@link https://jscharting.com/tutorials/types/js-calendar-chart/}
      * @since 2.6
      */
     date?: number | [(number | string), (number | string | Date)] | string | JSCCalendarPatternConfig;
@@ -1429,8 +1432,8 @@ export declare interface JSCPointConfig_object {
     /**
      * Specifies a map feature by code, a file name or a map feature defined in a map file that is specified in baseLayers
      * See Also:
-     * {@link undefined/types/js-map-chart/maps-mapcodes/}
-     * {@link undefined/types/js-map-chart/}
+     * {@link https://jscharting.com/tutorials/types/js-map-chart/maps-mapcodes/}
+     * {@link https://jscharting.com/tutorials/types/js-map-chart/}
      * @since 2.1
      */
     map?: string | JSCMapFileDataConfig;
@@ -1480,7 +1483,7 @@ export declare interface JSCPointMarkerConfig {
     /**
      * State options for point marker.
      * See Also:
-     * {@link undefined/js-chart-interactivity/states/}
+     * {@link https://jscharting.com/tutorials/js-chart-interactivity/states/}
      */
     states?: PointMarkerStates;
 
@@ -1506,7 +1509,7 @@ export declare interface JSCLegendConfig {
     /**
      * Used to enable and disable accessibility or to assign an initial tabIndex for the chart item.
      * See Also:
-     * {@link undefined/js-chart-accessibility/}
+     * {@link https://jscharting.com/tutorials/js-chart-accessibility/}
      * @since 2.8
      */
     tabIndex?: number | string;
@@ -1712,7 +1715,7 @@ export declare interface JSCLegendEntryConfig {
     /**
      * State options for legend entry.
      * See Also:
-     * {@link undefined/js-chart-interactivity/states/}
+     * {@link https://jscharting.com/tutorials/js-chart-interactivity/states/}
      */
     states?: LegendEntryState;
 
@@ -1773,7 +1776,7 @@ export declare interface JSCTitleBoxConfig {
     /**
      * Used to enable and disable accessibility or to assign an initial tabIndex for the chart item.
      * See Also:
-     * {@link undefined/js-chart-accessibility/}
+     * {@link https://jscharting.com/tutorials/js-chart-accessibility/}
      * @since 2.8
      */
     tabIndex?: number | string;
@@ -1893,7 +1896,7 @@ export declare interface JSCTooltipConfig {
      * Label displayed inside the annotation.
      * @remarks  When combined tooltip is enabled, the text property supports additional additional point list tokens.
      * See Also:
-     * {@link undefined/js-chart-interactivity/crosshair-combined-tooltip/}
+     * {@link https://jscharting.com/tutorials/js-chart-interactivity/crosshair-combined-tooltip/}
      */
     label?: JSCLabelConfig;
 
@@ -1906,7 +1909,7 @@ export declare interface JSCTooltipConfig {
     /**
      * Enables a combined tooltip that includes details about all points at the cursor x axis position. The combined tooltip can also be enabled automatically based on crosshair settings. Use defaultTooltip.label.text to defined the combined tooltip template.
      * See Also:
-     * {@link undefined/js-chart-interactivity/crosshair-combined-tooltip/}
+     * {@link https://jscharting.com/tutorials/js-chart-interactivity/crosshair-combined-tooltip/}
      * @since 2.7
      */
     combined?: boolean;
@@ -2439,7 +2442,7 @@ export declare interface JSCCalendarConfig {
 * 
 * When using options such as { year:"1/1/2020" } the year value is evaluated using the same function applied to dates being tested and is equivalent to { year:2020 }
 * 
-* See {@link undefined/types/js-calendar-chart/calendar-patterns/ | calendarPattern tutorial} for more details.
+* See {@link https://jscharting.com/tutorials/types/js-calendar-chart/calendar-patterns/ | calendarPattern tutorial} for more details.
 * @since 2.6
 */
 export declare type JSCCalendarPatternConfig = JSCCalendarPatternConfig_object | string;
@@ -2682,7 +2685,7 @@ export declare interface JSCGridConfig {
     /**
      * Accessibility options for the grid buttons when enabled.
      * See Also:
-     * {@link undefined/js-chart-accessibility/}
+     * {@link https://jscharting.com/tutorials/js-chart-accessibility/}
      */
     buttons?: Buttons;
     [any: string]: any;
@@ -2761,7 +2764,7 @@ export function chart(targetElement: (string | any), chartConfig: JSCChartConfig
 * @returns Returns a string with the value formatted according to the specified format.
 * See Also:
 * {@link https://jscharting.com/samples/Javascript_CallbackFormatting_Chart.htm}
-* {@link undefined/js-chart-labels/ | Includes a information on formatStrings.}
+* {@link https://jscharting.com/tutorials/js-chart-labels/ | Includes a information on formatStrings.}
 */
 export function formatString(val: (number | Date), format: string, culture?: any): string;
 /**
@@ -2772,7 +2775,7 @@ export function formatString(val: (number | Date), format: string, culture?: any
 * @returns Returns a string with the value formatted according to the specified format.
 * See Also:
 * {@link https://jscharting.com/samples/Javascript_CallbackFormatting_Chart.htm}
-* {@link undefined/js-chart-labels/ | Includes a information on formatStrings.}
+* {@link https://jscharting.com/tutorials/js-chart-labels/ | Includes a information on formatStrings.}
 * @since 2.0
 */
 export function formatNumber(val: number, format: string, culture?: any): string;
@@ -2784,7 +2787,7 @@ export function formatNumber(val: number, format: string, culture?: any): string
 * @returns Returns a string with the value formatted according to the specified format.
 * See Also:
 * {@link https://jscharting.com/samples/Javascript_CallbackFormatting_Chart.htm}
-* {@link undefined/js-chart-labels/ | Includes a information on formatStrings.}
+* {@link https://jscharting.com/tutorials/js-chart-labels/ | Includes a information on formatStrings.}
 * @since 2.0
 */
 export function formatDate(val: (string | Date), format: string, culture?: any): string;
@@ -2798,7 +2801,7 @@ export function clearApiCache(): void;
 * @param data - Data to map to the properies for each point. Example: ['Greg',50];
 * @returns Returns an array of point config objects.
 * See Also:
-* {@link undefined/js-chart-data/client-side/series-points/}
+* {@link https://jscharting.com/tutorials/js-chart-data/client-side/series-points/}
 * @since 1.1
 * @example var arrayOfPoints = JSC.pointsFromArray('name,y', [ ['Jan', 196], ['Feb', 178], ['Mar', 169] ])
 */
@@ -2808,7 +2811,7 @@ export function pointsFromArray(properties: string, data: [(string | number | Da
 * @param pointsObj - Point object data to expand.
 * @returns Returns an array of point config objects.
 * See Also:
-* {@link undefined/js-chart-data/client-side/series-points/}
+* {@link https://jscharting.com/tutorials/js-chart-data/client-side/series-points/}
 * @since 2.0
 */
 export function parsePoints(pointsObj: any): JSCPointConfig[];
@@ -2931,7 +2934,7 @@ export function max(array: (number[] | any[]), iterator?: (string | ((...args) =
 1/1/2018,4535", {map: (d, i) => {return { date: d.Date, steps: d.Actual);}});
 * @returns An array of JSON objects
 * See Also:
-* {@link undefined/js-chart-data/client-side/fetch-csv-and-json/}
+* {@link https://jscharting.com/tutorials/js-chart-data/client-side/fetch-csv-and-json/}
 * @since 2.7
 */
 export function csv2Json(csvText: string, options?: any): any[];
@@ -2941,7 +2944,7 @@ export function csv2Json(csvText: string, options?: any): any[];
 * @param options - Options used when converting to JSON objects.
 * @returns An array of JSON objects
 * See Also:
-* {@link undefined/js-chart-data/client-side/fetch-csv-and-json/}
+* {@link https://jscharting.com/tutorials/js-chart-data/client-side/fetch-csv-and-json/}
 * @since 2.7
 */
 export function tsv2Json(tsvText: string, options?: any): any[];
@@ -2952,7 +2955,7 @@ export function tsv2Json(tsvText: string, options?: any): any[];
 * @param options - Options used when converting to JSON objects.
 * @returns An array of JSON objects
 * See Also:
-* {@link undefined/js-chart-data/client-side/fetch-csv-and-json/}
+* {@link https://jscharting.com/tutorials/js-chart-data/client-side/fetch-csv-and-json/}
 * @since 2.7
 */
 export function dsv2Json(dsvText: string, delimiter: string, options?: any): any[];
@@ -2962,7 +2965,7 @@ export function dsv2Json(dsvText: string, delimiter: string, options?: any): any
 * @param options - Options used when converting to the delimiter separated value string.
 * @returns The resulting comma separated values string.
 * See Also:
-* {@link undefined/js-chart-data/client-side/fetch-csv-and-json/}
+* {@link https://jscharting.com/tutorials/js-chart-data/client-side/fetch-csv-and-json/}
 * @since 2.7
 */
 export function json2Csv(items: any[], options?: any): string;
@@ -2972,7 +2975,7 @@ export function json2Csv(items: any[], options?: any): string;
 * @param options - Options used when converting to the delimiter separated value string.
 * @returns The resulting tab separated values string.
 * See Also:
-* {@link undefined/js-chart-data/client-side/fetch-csv-and-json/}
+* {@link https://jscharting.com/tutorials/js-chart-data/client-side/fetch-csv-and-json/}
 * @since 2.7
 */
 export function json2Tsv(items: any[], options?: any): string;
@@ -2983,7 +2986,7 @@ export function json2Tsv(items: any[], options?: any): string;
 * @param options - Options used when converting to the delimiter separated value string.
 * @returns The resulting custom delimiter separated values string.
 * See Also:
-* {@link undefined/js-chart-data/client-side/fetch-csv-and-json/}
+* {@link https://jscharting.com/tutorials/js-chart-data/client-side/fetch-csv-and-json/}
 * @since 2.7
 */
 export function json2Dsv(items: any[], delimiter: string, options?: any): string;
@@ -3085,8 +3088,8 @@ export declare class Chart {
     * @returns The resulting string after tokens are replaced with values and expressions are evaluated.
     * @remarks This method can be used to populate a template string with tokens that describe the data in this chart. Label expressions also enable inline formatting.
     * See Also:
-    * {@link undefined/js-chart-labels/expressions-calculations/}
-    * {@link undefined/js-chart-labels/token-reference/ | List of available label tokens.}
+    * {@link https://jscharting.com/tutorials/js-chart-labels/expressions-calculations/}
+    * {@link https://jscharting.com/tutorials/js-chart-labels/token-reference/ | List of available label tokens.}
     * @example chart.replaceTokens('%sum') // returns a string with sum of chart data such as: '543'.
     */
     replaceTokens(str: string): string;
@@ -3096,7 +3099,7 @@ export declare class Chart {
     * @returns The value of the specified token.
     * @remarks Only one token or expression should be used with this method.
     * See Also:
-    * {@link undefined/js-chart-labels/token-reference/ | List of available label tokens.}
+    * {@link https://jscharting.com/tutorials/js-chart-labels/token-reference/ | List of available label tokens.}
     * @since 1.1
     * @example chart.tokenValue('%sum') // returns a number with sum of chart data such as: 543.
     */
@@ -3229,8 +3232,8 @@ export declare class Point {
     * @returns The resulting string after tokens are replaced with values and expressions are evaluated.
     * @remarks This method can be used to populate a template string with tokens that describe this point. Label expressions also enable inline formatting.
     * See Also:
-    * {@link undefined/js-chart-labels/expressions-calculations/}
-    * {@link undefined/js-chart-labels/token-reference/ | List of available label tokens}
+    * {@link https://jscharting.com/tutorials/js-chart-labels/expressions-calculations/}
+    * {@link https://jscharting.com/tutorials/js-chart-labels/token-reference/ | List of available label tokens}
     * {@link https://jscharting.com/samples/Javascript_HoverSideInfo_Chart.htm}
     */
     replaceTokens(str: string): string;
@@ -3240,7 +3243,7 @@ export declare class Point {
     * @returns The value of the specified token.
     * @remarks Only one token or expression should be used with this method.
     * See Also:
-    * {@link undefined/js-chart-labels/token-reference/ | List of available label tokens}
+    * {@link https://jscharting.com/tutorials/js-chart-labels/token-reference/ | List of available label tokens}
     * @since 1.1
     * @example pointObj.tokenValue('%percentOfSeries')
     */
@@ -3321,8 +3324,8 @@ export declare class Series {
     * @returns The resulting string after tokens are replaced with values and expressions are evaluated.
     * @remarks This method can be used to populate a template string with tokens that describe this point. Label expressions also enable inline formatting.
     * See Also:
-    * {@link undefined/js-chart-labels/expressions-calculations/}
-    * {@link undefined/js-chart-labels/token-reference/ | List of available label tokens.}
+    * {@link https://jscharting.com/tutorials/js-chart-labels/expressions-calculations/}
+    * {@link https://jscharting.com/tutorials/js-chart-labels/token-reference/ | List of available label tokens.}
     */
     replaceTokens(str: string): string;
     /**
@@ -3331,7 +3334,7 @@ export declare class Series {
     * @returns The value of the specified token.
     * @remarks Only one token or expression should be used with this method.
     * See Also:
-    * {@link undefined/js-chart-labels/token-reference/ | List of available label tokens}
+    * {@link https://jscharting.com/tutorials/js-chart-labels/token-reference/ | List of available label tokens}
     * @since 1.1
     * @example seriesObj.tokenValue('%sum')
     */
@@ -3349,7 +3352,7 @@ export declare class Series {
 /**
 * The nest object provides a mechanism to define a list of operations that can be used to arrange an array of data objects into a nested hierarchy that maps to the chart data hierarchy of series, x values, and y values.
 * See Also:
-* {@link undefined/js-chart-data/client-side/data-nesting/}
+* {@link https://jscharting.com/tutorials/js-chart-data/client-side/data-nesting/}
 * @since 2.7
 */
 export declare class Nest {
@@ -3999,7 +4002,7 @@ export declare interface Base {
     /**
      * A list of comma delimited map codes or geoJSON/topoJSON files. Map property filters can also be used if a reference layer is defined.
      * See Also:
-     * {@link undefined/types/js-map-chart/maps-mapcodes/}
+     * {@link https://jscharting.com/tutorials/types/js-map-chart/maps-mapcodes/}
      */
     layers?: string;
 
@@ -4037,7 +4040,7 @@ export declare interface Projection_object {
 /**
 * Map chart type related settings.
 * See Also:
-* {@link undefined/types/js-map-chart/}
+* {@link https://jscharting.com/tutorials/types/js-map-chart/}
 * @since 2.1
 */
 export declare interface Mapping {
@@ -4050,7 +4053,7 @@ export declare interface Mapping {
     /**
      * A list of comma delimited map codes or geoJSON/topoJSON files that are loaded into memory but not shown on the chart by default. This is useful when a series is built based on map features in memory.
      * See Also:
-     * {@link undefined/types/js-map-chart/maps-mapcodes/}
+     * {@link https://jscharting.com/tutorials/types/js-map-chart/maps-mapcodes/}
      */
     referenceLayers?: string;
 
@@ -4373,7 +4376,7 @@ export declare interface MouseTracking {
 /**
 * Specifies the series states
 * See Also:
-* {@link undefined/js-chart-interactivity/states/}
+* {@link https://jscharting.com/tutorials/js-chart-interactivity/states/}
 */
 export declare interface States {
 
@@ -4480,7 +4483,7 @@ export declare interface FocusGlow {
 /**
 * Specifies point state options
 * See Also:
-* {@link undefined/js-chart-interactivity/states/}
+* {@link https://jscharting.com/tutorials/js-chart-interactivity/states/}
 */
 export declare interface PointStates {
 
@@ -4554,7 +4557,7 @@ export declare interface PointEvents {
 /**
 * State options for point marker.
 * See Also:
-* {@link undefined/js-chart-interactivity/states/}
+* {@link https://jscharting.com/tutorials/js-chart-interactivity/states/}
 */
 export declare interface PointMarkerStates {
 
@@ -4588,7 +4591,7 @@ export declare interface LegendTitle {
 /**
 * State options for legend entry.
 * See Also:
-* {@link undefined/js-chart-interactivity/states/}
+* {@link https://jscharting.com/tutorials/js-chart-interactivity/states/}
 */
 export declare interface LegendEntryState {
 
@@ -4691,7 +4694,7 @@ export declare interface Undefined {
 /**
 * Accessibility options for the grid buttons when enabled.
 * See Also:
-* {@link undefined/js-chart-accessibility/}
+* {@link https://jscharting.com/tutorials/js-chart-accessibility/}
 */
 export declare interface Buttons {
 
@@ -4821,7 +4824,7 @@ export declare interface Iteratee_object {
     /**
      * A CalendarPattern that describes a date grouping. For example, setting 'month' will result in dates being grouped into months.
      * See Also:
-     * {@link undefined/types/js-calendar-chart/calendar-patterns/}
+     * {@link https://jscharting.com/tutorials/types/js-calendar-chart/calendar-patterns/}
      */
     pattern?: JSCCalendarPatternConfig;
 

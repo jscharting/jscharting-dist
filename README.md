@@ -1,10 +1,9 @@
 # JSCharting: Any Chart. Anywhere.
 
-<a href="https://jscharting.com"><img src="https://jscharting.com/images/logo_short.svg" style="margin:0px" align="left" hspace="10" vspace="6" width="200" ></a>
+<a href="https://jscharting.com"><img src="https://jscharting.com/images/logo_short.svg" style="margin: 0 13px 0 0;" align="left" hspace="10" vspace="6" width="200" ></a>
 
 **JSCharting** is a JavaScript chart library for visualizing your data, providing resolution 
-independent results across all devices and platorms. Every JSCharting license includes the 
-full suite of 150+ advanced chart types, interactive stock charts and JSMapping at no additional charge.
+independent results across all devices and platorms. Every JSCharting license includes the full suite of 150+ advanced chart types plus interactive stock charts, seamless grid and calendar support, JavaScript maps, Gantt charts, JavaScript Org Charts and micro charts at no additional charge.
 
 
 ## Install
@@ -15,19 +14,49 @@ full suite of 150+ advanced chart types, interactive stock charts and JSMapping 
 <script src="https://code.jscharting.com/latest/jscharting.js"></script>
 ```
 
+#### Download
+
+The latest release can be [downloaded here](https://jscharting.com/download.aspx).
+
+
 #### Using npm
 
 See [npm documentation](https://docs.npmjs.com/) for more information.
 ```
 npm install --save jscharting
 ```
+##### npm usage
 
-#### Download
+The JSC package folder ```jscharting/dist/``` includes all the necessary charting JavaScript files and resources such as icons, polyfills, and mapping data files. The chart loads these resources dynamically as needed. The content of this folder should be accessible through http, so when building, copy this folder to a destination in the output website. 
 
-The latest release can be [downloaded here](https://jscharting.com/download.aspx).
+If the chart detects a script tag pointing to the main jscharting.js file, it will assume the rest of the resources are 
+located in the same place and will load them from there.
 
-## Get Data
+If the ```JSC``` namespace is imported from the ```jscharting.js``` file as a module, the chart will not know where resources 
+are located and will load them from the CDN. If ```debug:true``` chart option is set, a warning message will note that the 
+chart is using the CDN. In order to use local resources, point the chart baseUrl option to the location of the local 
+copy of the ```jscharting/dist/``` folder.
 
+To avoid setting the baseUrl property on every chart instance, it can be set as a global default like so:
+
+```typescript
+JSC.defaults({ baseUrl: './js/jsc/' });
+```
+
+A wrapper module can be used to apply the baseUrl and any other default options that should be used globally such as 
+debug, or styling options. All subsequent charts can import this wrapper instead of the chart itself to ensure the default options are always applied. 
+
+```typescript
+import * as JSC from "jscharting";
+
+JSC.defaults({ baseUrl: './js/jsc/' });
+
+export default JSC;
+```
+
+## First Chart
+
+#### Get some data
 JSC.fetch() is an alias for vanilla JS 
  [fetch()](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) function but includes 
  a polyfill for IE11. This function makes it easy to get data for the chart.
@@ -61,7 +90,7 @@ let points = data.map(d => { x: d.date, y: d.actual });
 
 #### Draw a chart
 
-A div element is required in the page for the chart to render in.
+A target div element is required in the page for the chart to render in.
 
 ```html
 <div id="chartDiv"></div>
@@ -82,12 +111,12 @@ const chart = new JSC.Chart('chartDiv', {
 
 (5 min read to hit the ground running)
 
-JSCharting API is designed with ease of use in mind. The chart attempts to select 
+The JSCharting API is designed with ease of use in mind. The chart attempts to select 
 default options that are obvious to reduce the need to customize. 
 
 #### Chart Types
 
- Chart types can be set easily through options like so
+ Chart types can be set easily through options such as:
  
  ```js
  const chart = new JSC.Chart('divId', { type:'line step' });
@@ -98,11 +127,11 @@ default options that are obvious to reduce the need to customize.
  - 'gauge linear horizontal' - Horizontal linear gauges.
  - 'radar polar column' - Polar radar chart with columns. 
  
- [More information..](https://jscharting.com/Documentation/index.htm#node=Home.Tutorials.chartTypes.chartTypesOverview)
+ [More information](https://jscharting.com/tutorials/types/overview/)
  
 #### Options
 
- Chart options are set in the chart constructor like
+ Chart options are set in the chart constructor
 ```js
 const chart = new JSC.Chart('divId', { /*options*/ });
 ```
@@ -111,7 +140,7 @@ const chart = new JSC.Chart('divId', { /*options*/ });
 chart.options({ /*options*/ });
 ```
 
-JSCharting offers a declarative API with options like
+JSCharting offers a declarative API with options such as
 ```js
 chart.options({ title: { label: { text: 'title text' }}});
 ```
@@ -121,14 +150,14 @@ However, property paths can be combined into single property names.
 chart.options({ title_label_text: 'title text' });
 ```
 
-[Property Expansion](https://jscharting.com/Documentation/index.htm#node=Home.Tutorials.apiFeatures.codeExpansion)
+[Property Expansion](https://jscharting.com/tutorials/js-chart-api-features/code-expansion/)
 
 #### Hide Legend
 
 ```js
 chart.options({ legend_visible: false });
 ```
-#### Legend Columns
+#### Legend Columns 
 
 ```js
 //Less Detail
@@ -141,7 +170,7 @@ chart.options({ legend_template: '%average %sum %icon %name' });
 ```js
 chart.options({ defaultSeries_palette: 'default' });
 ```
-[Legend Tutorial](https://jscharting.com/Documentation/index.htm#node=Home.Tutorials.legend)
+[Legend Tutorial](https://jscharting.com/tutorials/js-chart-legend/)
 
 #### Labels
 
@@ -161,14 +190,14 @@ chart.options({
     }]
 });
 ```
-[Using Labels](https://jscharting.com/Documentation/index.htm#node=Home.Tutorials.labels)
+[Using Labels](https://jscharting.com/tutorials/js-chart-labels/)
 
 #### Disable Export Toolbar
 
 ```js
 chart.options({ toolbar_items_export_visible: false });
 ```
-[Toolbar &#x26; UiItems](https://jscharting.com/Documentation/index.htm#node=Home.Tutorials.interactivityOverview.uiItems.Overview)
+[Toolbar &#x26; UiItems](https://jscharting.com/tutorials/js-chart-interactivity/ui-controls/overview/)
 
 #### Disable box visuals
 
