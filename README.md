@@ -10,9 +10,12 @@ independent results across all devices and platorms. Every JSCharting license in
 
 #### Using CDN
 
+Visit [code.jscharting.com](https://code.jscharting.com/) for a list of available releases.
+
 ```html
 <script src="https://code.jscharting.com/latest/jscharting.js"></script>
 ```
+
 
 #### Download
 
@@ -21,13 +24,13 @@ The latest release can be [downloaded here](https://jscharting.com/download.aspx
 
 #### Using npm
 
-See [npm documentation](https://docs.npmjs.com/) for more information.
+See [npm documentation](https://docs.npmjs.com/) to get started with npm.
 ```
 npm install --save jscharting
 ```
-##### npm usage
+##### Working with a local copy of JSCharting
 
-The JSC package folder ```jscharting/dist/``` includes all the necessary charting JavaScript files and resources such as icons, polyfills, and mapping data files. The chart loads these resources dynamically as needed. The content of this folder should be accessible through http, so when building, copy this folder to a destination in the output website. 
+The npm package folder ```jscharting/dist/``` includes all the necessary charting JavaScript files and resources such as icons, polyfills, and mapping data files. The chart loads these resources dynamically as needed. The content of this folder should be accessible through http, so when building, copy this folder to a destination in the output website. 
 
 If the chart detects a script tag pointing to the main jscharting.js file, it will assume the rest of the resources are 
 located in the same place and will load them from there.
@@ -56,6 +59,26 @@ export default JSC;
 
 ## First Chart
 
+A target div element is required in the page for the chart to render in.
+
+```html
+<div id="chartDiv" style="width: 100%; height: 400px"></div>
+```
+
+<blockquote>
+The chart will automatically conform to the container size by default.
+</blockquote>
+
+Instantiate a chart with some static data.
+
+```js
+const chart = new JSC.Chart('chartDiv', { 
+  series:[{
+    points: [{ x: 'A', y: 10 }, { x: 'B', y: 5 }]
+  }], 
+});
+```
+
 #### Get some data
 JSC.fetch() is an alias for vanilla JS 
  [fetch()](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) function but includes 
@@ -69,41 +92,37 @@ JSC.fetch('./data.csv')
     });
 ```
  
-If data is transferred as csv, tsv or any delimiter separated values use JSC.csv2Json().
+If data is transferred as csv, tsv or any delimiter separated values, it can be converted to JSON format.
+See the [fetch(), CSV, and JSON](https://jscharting.com/tutorials/js-chart-data/client-side/fetch-csv-and-json/) tutorial for more information.
 
 ```js
 let data = JSC.csv2Json(
 'date,actual,goal\n1/1/2018,5409,7000\n1/2/2018,4893,7000'
 )
-// ->
-//[{date: 1514786400000, actual: 5409, goal: 7000},
-//{date: 1514872800000, actual: 4893, goal: 7000}]
-
+// -> 
+// [ {date: 1514786400000, actual: 5409, goal: 7000},
+// {date: 1514872800000, actual: 4893, goal: 7000} ]
 ```
 
 #### Map data to chart points
 
 ```js
-let points = data.map(d => { x: d.date, y: d.actual });
+let points = data.map(d => {  
+  return { x: d.date, y: d.actual }; 
+});
 //-> [{ x: 1514786400000, y: 5409 }, { x: 1514872800000, y: 4893 }]
 ```
 
-#### Draw a chart
-
-A target div element is required in the page for the chart to render in.
-
-```html
-<div id="chartDiv"></div>
-```
-
-Instantiate the chart 
+#### Render a chart using data
 
 ```js
-const chart = new JSC.Chart('chartDiv', { 
-    //Pass points to the series
-    series:[{ points:points }], 
+const chart = new JSC.Chart('chartDiv', {
+    // Pass points to the series
+    series: [{
+        points: points
+    }],
     // Set the x axis scale to time.
-    xAxis_scale_type:'time' 
+    xAxis_scale_type: 'time'
 });
 ```
 
@@ -166,7 +185,7 @@ chart.options({ legend_template: '%icon %name' });
 chart.options({ legend_template: '%average %sum %icon %name' });
 ```
 #### Legend Entries for Points
-
+The following code snippet sets a series palette which causes each point in a series to have an entry in the legend box.
 ```js
 chart.options({ defaultSeries_palette: 'default' });
 ```
