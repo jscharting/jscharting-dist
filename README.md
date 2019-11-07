@@ -3,9 +3,11 @@
 <a href="https://jscharting.com"><img src="https://jscharting.com/images/logo_short.svg" style="margin: 0 13px 0 0;" align="left" hspace="10" vspace="6" width="200" ></a>
 
 **JSCharting** is a JavaScript chart library for visualizing your data, providing resolution 
-independent results across all devices and platorms. Every JSCharting license includes the full suite of 150+ advanced chart types plus interactive stock charts, seamless grid and calendar support, JavaScript maps, Gantt charts, JavaScript Org Charts and micro charts at no additional charge.
+independent results across all devices and platforms. Every JSCharting license includes the full suite of 150+ advanced chart types plus interactive stock charts, seamless grid and calendar support, JavaScript maps, Gantt charts, JavaScript Org Charts and micro charts at no additional charge.
 
-
+Example Charts: 
+[Chart Types](https://jscharting.com/examples/chart-types/)
+| [Features](https://jscharting.com/examples/chart-types/)
 ## Install
 
 #### Using CDN
@@ -19,7 +21,7 @@ Visit [code.jscharting.com](https://code.jscharting.com/) for a list of availabl
 
 #### Download
 
-The latest release can be [downloaded here](https://jscharting.com/download.aspx).
+The latest release can be [downloaded here](https://jscharting.com/download/).
 
 
 #### Using npm
@@ -36,7 +38,7 @@ If the chart detects a script tag pointing to the main jscharting.js file, it wi
 located in the same place and will load them from there.
 
 If the ```JSC``` namespace is imported from the ```jscharting.js``` file as a module, the chart will not know where resources 
-are located and will load them from the CDN. If ```debug:true``` chart option is set, a warning message will note that the 
+are located and will load them from the CDN. If ```debug: true``` chart option is set, a warning message will note that the 
 chart is using the CDN. In order to use local resources, point the chart baseUrl option to the location of the local 
 copy of the ```jscharting/dist/``` folder.
 
@@ -62,7 +64,7 @@ export default JSC;
 A target div element is required in the page for the chart to render in.
 
 ```html
-<div id="chartDiv" style="width: 100%; height: 400px"></div>
+<div id="chartDiv" style="width: 100%; height: 400px;"></div>
 ```
 
 <blockquote>
@@ -158,18 +160,18 @@ const chart = new JSC.Chart('divId', { /*options*/ });
 ```js
 chart.options({ /*options*/ });
 ```
-
+#### Property Expansion
 JSCharting offers a declarative API with options such as
 ```js
 chart.options({ title: { label: { text: 'title text' }}});
 ```
 
-However, property paths can be combined into single property names.
+However, property paths can be combined into single property names as follows:
 ```js
 chart.options({ title_label_text: 'title text' });
 ```
 
-[Property Expansion](https://jscharting.com/tutorials/js-chart-api-features/code-expansion/)
+[Property Expansion Details](https://jscharting.com/tutorials/js-chart-api-features/code-expansion/)
 
 #### Hide Legend
 
@@ -211,15 +213,15 @@ chart.options({
 ```
 [Using Labels](https://jscharting.com/tutorials/js-chart-labels/)
 
-#### Disable Export Toolbar
-
+#### Chart with a button
+Quickly add UI elements to make charts more interactive.
 ```js
-chart.options({ toolbar_items_export_visible: false });
+JSC.Chart('chartDiv', { 
+    toolbar_items: {
+        'Click Me': {
+            events_click: function(){ alert('Button clicked');}
+        }}
+});
 ```
 [Toolbar &#x26; UiItems](https://jscharting.com/tutorials/js-chart-interactivity/ui-controls/overview/)
 
-#### Disable box visuals
-
-```js
-chart.options({ defaultBox_boxVisible: false });
-```

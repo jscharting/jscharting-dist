@@ -1,1 +1,1 @@
-JSCharting is a commercial product which offers both free and paid commercial licenses.  A license is required for all usage outside the 30 day evaluation.  For licensing purchase (including obtaining free licenses), please visit  https://jscharting.com/store
+JSCharting offers both free and commercial licenses. To obtain a license (including free licenses), please visit https://jscharting.com/store/

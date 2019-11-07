@@ -1,6 +1,3 @@
-// Type definitions for JSCharting 2.8
-// Project: https://jscharting.com/
-// Typescript version 2.5
 
 /**
 * The top level chart configuration API.
@@ -40,6 +37,12 @@ export declare interface JSCChartConfig {
      * Default annotation settings.
      */
     defaultAnnotation?: JSCAnnotationConfig;
+
+    /**
+     * Default options that are applied to axes.
+     * @since 2.9
+     */
+    defaultAxis?: JSCAxisConfig;
 
     /**
      * Default culture name used when formatting values on this chart.
@@ -209,6 +212,13 @@ export declare interface JSCChartConfig {
      * A number of strings used on the chart.
      */
     languageStrings?: JSCLanguageStringsConfig;
+
+    /**
+     * Manually specifies the location where the jscharting.js and its resources are located. It is not necessary to set if a script tag referencing jscharting.js exists on a page.
+     * @remarks This URL can be set globally using <a href="iObject.JSC.defaults()">JSC.defaults()</a> and is useful when using jscharting.js as a module.
+     * @since 2.9
+     */
+    baseUrl?: string;
     [any: string]: any;
 }
 
@@ -591,6 +601,12 @@ export declare interface JSCAxisTickConfig {
      * @since 2.5
      */
     onTop?: boolean;
+
+    /**
+     * With multiple x or y axes, this property can be used with point.(x/y)AxisTick to specify the id of the axis the point axis tick should be added to.
+     * @since 2.9
+     */
+    axisId?: string;
     [any: string]: any;
 }
 
@@ -904,6 +920,12 @@ export declare interface JSCLabelConfig {
      * @since 2.6
      */
     autoWrap?: boolean;
+
+    /**
+     * Max width of this label.
+     * @since 2.9
+     */
+    maxWidth?: number;
     [any: string]: any;
 }
 
@@ -1106,6 +1128,18 @@ export declare interface JSCSeriesConfig {
     defaultPoint?: JSCPointConfig;
 
     /**
+     * Point options applied to the first point in this series.
+     * @since 2.9
+     */
+    firstPoint?: JSCPointConfig;
+
+    /**
+     * Point options applied to the first point in this series.
+     * @since 2.9
+     */
+    lastPoint?: JSCPointConfig;
+
+    /**
      * An array of points or point data object associated with this series.
      */
     points?: JSCPointConfig[] | Points;
@@ -1120,6 +1154,12 @@ export declare interface JSCSeriesConfig {
      * The default series color. Same as the defaultPoint.Color setting.
      */
     color?: JSCColorConfig;
+
+    /**
+     * The fill of series area used with area series type.
+     * @since 2.9
+     */
+    fill?: JSCFillConfig;
 
     /**
      * Specifies the amount of opacity of this series from 0 to 1, where 0 is transparent and 1 is solid.
@@ -1163,7 +1203,7 @@ export declare interface JSCSeriesConfig {
      * Specifies mouse tracking options for this series.
      * @remarks Disabling mouse tracking can improve client-side performance.
      */
-    mouseTracking?: MouseTracking;
+    mouseTracking?: MouseTracking | boolean;
 
     /**
      * Legend entry settings associated with this series.
@@ -1251,6 +1291,12 @@ export declare interface JSCPointConfig_object {
     parent?: string;
 
     /**
+     * Specifies only the point visual fill color and does not affect other point related color.
+     * @since 2.9
+     */
+    fill?: JSCColorConfig;
+
+    /**
      * This point's color.
      */
     color?: JSCColorConfig;
@@ -1307,7 +1353,7 @@ export declare interface JSCPointConfig_object {
     tooltip?: string | ((...args) => any);
 
     /**
-     * When false, the point will not respond to mouse events.
+     * When false, the point will not respond to mouse events. The points will also be invisible to crosshairs and excluded from combined tooltips
      * @def true
      * @since 2.6
      */
@@ -1456,6 +1502,12 @@ export declare interface JSCPointMarkerConfig {
      * Specifies whether this marker is visible.
      */
     visible?: boolean;
+
+    /**
+     * This point marker color. Applies to both fill and outline color but is slightly adjusted for outline color by default.
+     * @since 2.9
+     */
+    color?: JSCColorConfig;
 
     /**
      * Marker shape fill.
@@ -1660,16 +1712,6 @@ export declare interface JSCLegendConfig {
 export declare interface JSCLegendEntryConfig {
 
     /**
-     * When specified, this pixel width is used for the entry. Determined automatically when not specified.
-     */
-    width?: number;
-
-    /**
-     * Specifies the entry icon width.
-     */
-    iconWidth?: number;
-
-    /**
      * The %name token in the legend template will refer to this string rather than process the token on the related item directly.
      * @since 2.0
      */
@@ -1695,6 +1737,21 @@ export declare interface JSCLegendEntryConfig {
      * Legend entry text color.
      */
     color?: JSCColorConfig;
+
+    /**
+     * When specified, this pixel width is used for the entry. Determined automatically when not specified.
+     */
+    width?: number;
+
+    /**
+     * Height of the legend entry in pixels.
+     */
+    height?: number;
+
+    /**
+     * Specifies the entry icon width.
+     */
+    iconWidth?: number;
 
     /**
      * When true, a line will be drawn above the legend entry.
@@ -2238,11 +2295,6 @@ export declare interface JSCPointMarkerStateConfig {
      * Point marker outline properties.
      */
     outline?: JSCOutlineConfig;
-
-    /**
-     * Point marker size in pixels.
-     */
-    size?: number;
     [any: string]: any;
 }
 
@@ -2637,7 +2689,7 @@ export declare interface JSCGridConfig {
     cultureName?: string;
 
     /**
-     * The width of the output grid as a number in pixels of percentage.
+     * The width of the output grid as a number in pixels or string percentage.
      */
     width?: number | string;
 
@@ -2764,7 +2816,7 @@ export function chart(targetElement: (string | any), chartConfig: JSCChartConfig
 * @returns Returns a string with the value formatted according to the specified format.
 * See Also:
 * {@link https://jscharting.com/samples/Javascript_CallbackFormatting_Chart.htm}
-* {@link https://jscharting.com/tutorials/js-chart-labels/ | Includes a information on formatStrings.}
+* {@link https://jscharting.com/tutorials/js-chart-labels/ | Includes information on formatStrings.}
 */
 export function formatString(val: (number | Date), format: string, culture?: any): string;
 /**
@@ -2775,7 +2827,7 @@ export function formatString(val: (number | Date), format: string, culture?: any
 * @returns Returns a string with the value formatted according to the specified format.
 * See Also:
 * {@link https://jscharting.com/samples/Javascript_CallbackFormatting_Chart.htm}
-* {@link https://jscharting.com/tutorials/js-chart-labels/ | Includes a information on formatStrings.}
+* {@link https://jscharting.com/tutorials/js-chart-labels/ | Includes information on formatStrings.}
 * @since 2.0
 */
 export function formatNumber(val: number, format: string, culture?: any): string;
@@ -2787,7 +2839,7 @@ export function formatNumber(val: number, format: string, culture?: any): string
 * @returns Returns a string with the value formatted according to the specified format.
 * See Also:
 * {@link https://jscharting.com/samples/Javascript_CallbackFormatting_Chart.htm}
-* {@link https://jscharting.com/tutorials/js-chart-labels/ | Includes a information on formatStrings.}
+* {@link https://jscharting.com/tutorials/js-chart-labels/ | Includes information on formatStrings.}
 * @since 2.0
 */
 export function formatDate(val: (string | Date), format: string, culture?: any): string;
@@ -2991,6 +3043,20 @@ export function json2Tsv(items: any[], options?: any): string;
 */
 export function json2Dsv(items: any[], delimiter: string, options?: any): string;
 /**
+* Returns a promise indicating that all web fonts have been loaded.
+* @param fonts - Font or font list to load
+* @returns A promise returned when fonts are loaded.
+* @since 2.9
+*/
+export function fontsReady(fonts: (string | string[])): Promise<any>;
+/**
+* Returns a promise indicating that all targets have been loaded.
+* @param ...args - Font names or/and document object
+* @returns A promise returned when all targets have been loaded.
+* @since 2.9
+*/
+export function ready(...args): Promise<any>;
+/**
 * A method that establishes chart option defaults that will apply to all subsequent charts.
 * @param config - Default chart options that will be applied to all subsequent charts. Passing a null value will clear all default options.
 * @returns The current default options.
@@ -3152,7 +3218,7 @@ export declare class Chart {
     * @returns The toobar object.
     * @since 2.8
     */
-    toolbar(): any;
+    toolbar(): Toolbar;
 }
 /**
 * Represents a point on the chart providing properties and method that enable manipulating the point in real-time.
@@ -3523,21 +3589,14 @@ export declare class Annotation {
 * UiItem object with methods to update and remove it.
 * @since 2.8
 */
-export declare class UiItem {
+export declare class UiItem extends Annotation {
 
     /**
-    * Gets or sets uiItem options.
-    * @param itemOptions - UiItem options
-    * @param updateOptions - Options used when this uiItem is updating.
-    * @returns The uiItem instance or specified uiItem option.
+    * Child items collection.
     * @since 2.8
     */
-    options(itemOptions?: (JSCUiItemConfig | string), updateOptions?: (JSCUpdateOptionsConfig | boolean)): UiItem | any;
-    /**
-    * Removes and destroys the uiItem.
-    * @since 2.8
-    */
-    remove(): void;
+    items: CollectionFactory<Collection<UiItem>, UiItem>;
+
     /**
     * Toggles or sets the item visibility.
     * @param visible - The visibility setting.
@@ -3549,7 +3608,7 @@ export declare class UiItem {
 * Toolbar object with methods to update and remove it.
 * @since 2.8
 */
-export declare class Toolbar {
+export declare class Toolbar extends UiItem {
 }
 /**
 * Legend object with methods to update and remove it.
@@ -3644,7 +3703,7 @@ export declare class Promise<T>  {
     * @returns A Promise object.
     * @since 2.8
     */
-    then(onFulfilled: ((...args) => any), onRejected: ((...args) => any)): Promise<T>;
+    then(onFulfilled: ((...args) => any), onRejected?: ((...args) => any)): Promise<T>;
     /**
     * The catch() method returns a Promise and deals with rejected cases only.
     * @param onRejected - A Function called if the Promise is rejected.
@@ -3654,66 +3713,53 @@ export declare class Promise<T>  {
     catch(onRejected: ((...args) => any)): Promise<T>;
 }
 /**
-* Collection factory that wraps an array of items to provide a simpler way to get/set items and options.
+* Provides a mechanism to get a specific item, to create a collection of selected items, or to modify the list of items in the base collection.
 * @since 2.8
 */
 export declare interface CollectionFactory<T, U> {
 
     /**
-    * Collection factory that wraps an array of items to provide a simpler way to get/set items and options.
-    * @param predicateOrObj - Select specific items within this collection.
+    * Creates a collection based on the specified filter or object with properties to match.
+    * @param predicate - Select specific items within this collection.
     * @returns A collection of items.
     * @since 2.8
-    * @example chart.series
+    * @example chart.axes({ prefix: 'x' });
     */
-    (predicateOrObj?: (((...args) => any) | PredicateOrObj)): T;
+    (predicate?: (((...args) => any) | Predicate)): T;
     /**
-    * Collection factory that wraps an array of items to provide a simpler way to get/set items and options.
-    * @param param - Collection factory that wraps an array of items to provide a simpler way to get/set items and options.
+    * Returns a specific item of the collection based on the id, name, numeric index or other identifying strings.
+    * @param id - The identifyer of a specific item in the collection.
     * @returns A collection of items.
     * @since 2.8
-    * @example chart.series
+    * @example chart.axes("x"); // ->The main x axis even if multiple x axes exist
     */
-    (param?: (string | number)): U;
+    (id: (string | number)): U;
     /**
     * This collectionFactory method adds an item with the specified options and returns a new collection.
-    * @param ...args - An item to add to the collection.
+    * @param itemOptions - An item to add to the collection.
     * @returns A collection of items.
     * @since 2.8
     * @example chart.series.add({seriesOptions})
     */
-    add(...args): T;
+    add(itemOptions: any): T;
     /**
-    * Removes an item that matches the specified options and returns a new collection.
-    * @param ...args - An item to remove from the collection.
+    * Modifies the collection using an array.splice() function and returns a new collection.
+    * @param index - Index at which to add the item.
+    * @param delCount - Number of items to delete at this index before adding the item.
+    * @param itemOptions - The function invoked on each item to get the comparable value to sort by. The item is passed in the first argument of this function.
     * @returns A collection of items.
-    * @since 2.8
-    * @example chart.series.remove({seriesOptions})
+    * @remarks Not all collections support this function.
+    * @since 2.0
+    * @example chart.series.splice( 1, 0, {seriesOptions})
     */
-    remove(...args): T;
-    /**
-    * Modifies the collection using an array.splice() API and returns a new collection.
-    * @param ...args - chart.series.splice( 1, 0, {seriesOptions})
-    * @returns A collection of items.
-    * @since 2.8
-    */
-    splice(...args): T;
+    splice(index: number, delCount: number, itemOptions: ItemOptions): T;
 }
 /**
-* Wraps an array of items to provide a simpler way to get/set items and options.
+* Wraps a list of items and provides methods to simultaneously update all items in the collection.
 * @since 2.0
 */
 export declare class Collection<T>  {
 
-    /**
-    * This collection can be used as a function to select and find items based on specified argument.
-    * @param predicate - Select specific items within this collection. Example: numExample;
-    * @returns undefined
-    * @remarks This function is used on the collection property itself.
-    * @since 2.0
-    * @example chart.series( predicate )
-    */
-    constructor(predicate?: (number | string | ((...args) => any) | Predicate));
     /**
     * Iterates over items in this collection and returns the first item the predicate returns truthly for.
     * @param predicate - The predicate that must match or return truthly.
@@ -3722,16 +3768,6 @@ export declare class Collection<T>  {
     * @example chart.series().find( predicate )
     */
     find(predicate: (((...args) => any) | any)): T;
-    /**
-    * Function used to get and set options for items in this collection.
-    * @param itemOptions - The setting to update on the chart.
-    * @param updateOptions - Options used when this chart is updating.
-    * @returns Returns the collection.
-    * @remarks With no arguments, all options are returned.
-    * @since 2.0
-    * @example chart.series().options( seriesOptions )
-    */
-    options(itemOptions?: (ItemOptions | string), updateOptions?: (JSCUpdateOptionsConfig | boolean)): Collection<T>;
     /**
     * Iterates over each item in this collection and invokes iteratee for each item.
     * @param iteratee - The function invoked on each iteration.
@@ -3745,7 +3781,7 @@ export declare class Collection<T>  {
     * @param iteratee - The function invoked on each iteration.
     * @returns Array of items resulting from running iteratee on each original item.
     * @since 2.1
-    * @example chart.series().points().map( p => p.x); - returns an array of x values
+    * @example chart.series().points().map( p => p.x); //  returns an array of x values
     */
     map(iteratee: ((...args) => any)): any[];
     /**
@@ -3764,31 +3800,13 @@ export declare class Collection<T>  {
     */
     reverse(): Collection<T>;
     /**
-    * This property of collection adds an item to the collection with the specified options.
-    * @param itemOptions - The function invoked on each item to get the comparable value to sort by. The item is passed in the first argument of this function.
-    * @param updateOptions - Options used when this chart is updating.
+    * Call collection items remove method and returns current collection.
+    * @param updateOptions - The update options which are passed to items remove method.
     * @returns Returns the collection.
-    * @remarks Not all collections support this function. This function is available on the collection property itself. collection.add()
-    * @since 2.0
-    * @example chart.series.add({seriesOptions})
+    * @since 2.8
+    * @example chart.series().remove(false); // Removes all series from the chart
     */
-    add(itemOptions: any, updateOptions?: JSCUpdateOptionsConfig): Collection<T>;
-    /**
-    * This property of collection adds an item to the collection at the specified index.
-    * @param index - Index at which to add the item.
-    * @param delCount - Number of items to delete at this index before adding the item.
-    * @param itemOptions - The function invoked on each item to get the comparable value to sort by. The item is passed in the first argument of this function.
-    * @param updateOptions - Options used when this chart is updating.
-    * @returns Returns the collection.
-    * @remarks Not all collections support this function. This function is available on the collection property itself. collection.add()
-    * @since 2.0
-    * @example chart.series.splice( 1, 0, {seriesOptions})
-    */
-    splice(index: number, delCount: number, itemOptions: any, updateOptions?: JSCUpdateOptionsConfig): Collection<T>;
-    /**
-    * Returns an array of collection items.
-    */
-    items: T[];
+    remove(updateOptions?: any): Collection<T>;
 }
 /**
 * Wraps an array of axis objects to provide a simpler way to get/set items and options.
@@ -3991,6 +4009,20 @@ export declare interface ChartEvents {
      * @inline true
      */
     scrolled?: JSCEventHandlerConfig;
+
+    /**
+     * Fires when mouse cursor enters the chartArea.
+     * @remarks In the function, the "this" keyword refers to the chart object. An event argument is passed to the specified function.
+     * @inline true
+     */
+    mouseOver?: JSCEventHandlerConfig;
+
+    /**
+     * Fires when mouse cursor exits the chartArea.
+     * @remarks In the function, the "this" keyword refers to the chart object. An event argument is passed to the specified function.
+     * @inline true
+     */
+    mouseOut?: JSCEventHandlerConfig;
     [any: string]: any;
 }
 
@@ -4200,6 +4232,12 @@ export declare interface Scale {
     interval?: number | JSCTimeIntervalConfig;
 
     /**
+     * The minimum interval the axis will automatically consider. For example, setting a value of 1 will prevent intervals with decimal places such as .5, 1.5.
+     * @since 2.9
+     */
+    minInterval?: number | JSCTimeIntervalConfig;
+
+    /**
      * Specifies the minor axis tick intervals.
      * See Also:
      * {@link https://jscharting.com/samples/Javascript_AxisIntervals_Chart.htm}
@@ -4364,7 +4402,8 @@ export declare interface Attributes_object {
 * Specifies mouse tracking options for this series.
 * @remarks Disabling mouse tracking can improve client-side performance.
 */
-export declare interface MouseTracking {
+export declare type MouseTracking = MouseTracking_object | boolean;
+export declare interface MouseTracking_object {
 
     /**
      * Whether mouse tracking is enabled for this series.
@@ -4876,21 +4915,7 @@ export declare interface GetRange {
 * Select specific items within this collection.
 * @inline true
 */
-export declare type PredicateOrObj = ((...args) => any) | PredicateOrObj_object;
-export declare interface PredicateOrObj_object {
-
-    /**
-     * Filters the collection down to only items with the same property values specified by this object.<br/>chart.series( { name: 'Series 1' } ) - returns series named 'Series 1'.<br/>chart.axes( { prefix: 'x' } ) - returns all x axes.
-     */
-    [any: string]: any;
-
-}
-
-/**
-* Select specific items within this collection.
-* @inline true
-*/
-export declare type Predicate = number | string | ((...args) => any) | Predicate_object;
+export declare type Predicate = ((...args) => any) | Predicate_object;
 export declare interface Predicate_object {
 
     /**
@@ -4901,13 +4926,12 @@ export declare interface Predicate_object {
 }
 
 /**
-* The setting to update on the chart.
+* The function invoked on each item to get the comparable value to sort by. The item is passed in the first argument of this function.
 */
-export declare type ItemOptions = ItemOptions_object | string;
-export declare interface ItemOptions_object {
+export declare interface ItemOptions {
 
     /**
-     * Any options to update associated items with.
+     * Options of the item to add.
      */
     [any: string]: any;
 
