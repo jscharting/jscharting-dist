@@ -1,3 +1,10 @@
+/*
+ * jscharting.js v2.9.0.20191204
+ * (c) 2009-2019 Corporate Web Solutions Ltd.
+ * All client side / JavaScript code may not be used in any way without a valid JSCharting license.
+ * License holder usage is governed by the license.txt terms included with the distribution.
+ * To license JSCharting for your own use, please visit jscharting.com 
+ */
 'use strict';(function(c){function u(b,a){var d="function"===typeof Symbol&&b[Symbol.iterator];if(!d)return b;b=d.call(b);var c,e=[];try{for(;(void 0===a||0<a--)&&!(c=b.next()).done;)e.push(c.value)}catch(l){var f={error:l}}finally{try{c&&!c.done&&(d=b["return"])&&d.call(b)}finally{if(f)throw f.error;}}return e}function m(b,a){b=document.createElement(b);if(a)for(var d in a)b.style[d]=a[d];return b}function t(b,a){b=document.createElementNS("http://www.w3.org/2000/svg",b);if(a)for(var d in a)b.style[d]=
 a[d];return b}function v(b,a){function d(a,b){a&&a.map(function(a){if(a.title){var c=m("h4",{marginTop:"0px",marginBottom:"4px",color:b});c.innerText=a.title;g.appendChild(c)}a.text&&(c=m("p",{marginTop:"0px",marginBottom:"4px"}),c.innerText=a.text,g.appendChild(c))})}if(b.tagName){var c=a.errors?"M8 0c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zM12.2 10.8l-1.4 1.4-2.8-2.8-2.8 2.8-1.4-1.4 2.8-2.8-2.8-2.8 1.4-1.4 2.8 2.8 2.8-2.8 1.4 1.4-2.8 2.8 2.8 2.8z":"M8 0c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zM9 13h-2v-2h2v2zM9 10h-2v-7h2v7z",
 e=a.errors?n.iconError:n.iconWarning,f=window.getComputedStyle(b).position,l="absolute"===f||"relative"===f?"absolute":"static";f=m("div",{bottom:"8px",right:"8px",position:l});e=t("svg",{pointerEvents:"none",fill:e});var p=t("path");e.setAttribute("width",18);e.setAttribute("height",18);e.setAttribute("viewBox","0 0 16 16");p.setAttribute("d",c);e.appendChild(p);f.appendChild(e);var g=m("div",{pointerEvents:"none"});c=m("div",{maxHeight:"200px",overflowY:"auto"});var h=m("div",r({padding:"12px",

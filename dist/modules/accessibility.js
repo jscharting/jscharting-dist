@@ -1,3 +1,10 @@
+/*
+ * jscharting.js v2.9.0.20191204
+ * (c) 2009-2019 Corporate Web Solutions Ltd.
+ * All client side / JavaScript code may not be used in any way without a valid JSCharting license.
+ * License holder usage is governed by the license.txt terms included with the distribution.
+ * To license JSCharting for your own use, please visit jscharting.com 
+ */
 'use strict';(function(l){function g(a,b,c,d){void 0===b&&(b=0);if(!a||null===a.tabIndex||"none"===a.tabIndex||-1===a.tabIndex)return d?null:-1;var e=l.jsLib.isUndefined(a.tabIndex);c=g(c);a=k(a)||e&&a.description?(-1<c?c:0)+b:e?-1:a.tabIndex;return-1<a||!d?a:null}function k(a){return"auto"==a.tabIndex||"auto"==a.tabindex}function n(a,b){b.elGetter(a)&&(b.parentGetter(a).currentOptions.useTabNavigation?p(a,b):m(a,b))}function p(a,b,c){var d=a.chart.currentOptions,e=b.elGetter(a),f=a.currentOptions,
 h=f.description||k(f)&&"%name";e.attr({role:h?b.role:null,tabindex:c?-1:g(f,b.tabIndex,d),"aria-label":h?b.tokenizer(a,h):null});r(a,b);b.postSubscriptionApplier&&b.postSubscriptionApplier(a)}function r(a,b){if(!a.vkeyenterHandler){var c=b.elGetter(a),d=b.parentGetter(a);a.vkeyenterHandler=c.on("vkeyenter",function(c){return b.clickFn(a,c)});a.vchangefocusHandler=c.on("vchangefocus",function(c){b.focusFn(a,c);d.focusedItem=c.hasFocus?a:null;!c.hasFocus&&b.isParentNavigatable&&b.isParentNavigatable(d)&&
 b.elGetter(a).attr({tabindex:-1})})}}function m(a,b){var c=b.parentGetter(a);if(!c.keysNavigationApplied){var d=b.isParentNavigatable&&b.isParentNavigatable(c);a.activeNavigationItem=!d;t(c,b,d);c.keysNavigationApplied=!0}p(a,b,!a.activeNavigationItem)}function t(a,b,c){function d(a){a=a.keyCode;return a===f.Up||a===f.Right||a===f.Down||a===f.Left}if(!a.keyupDocumentEvent){var e=a.chart.renderer.renderer.documentElement;c&&(a.vchangefocusHandler=b.parentElGetter(a).on("vchangefocus",function(b){a.parentFocused=

@@ -7,7 +7,7 @@ independent results across all devices and platforms. Every JSCharting license i
 
 Example Charts: 
 [Chart Types](https://jscharting.com/examples/chart-types/)
-| [Features](https://jscharting.com/examples/chart-types/)
+| [Features](https://jscharting.com/examples/chart-features/)
 ## Install
 
 #### Using CDN

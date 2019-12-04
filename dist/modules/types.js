@@ -1,3 +1,10 @@
+/*
+ * jscharting.js v2.9.0.20191204
+ * (c) 2009-2019 Corporate Web Solutions Ltd.
+ * All client side / JavaScript code may not be used in any way without a valid JSCharting license.
+ * License holder usage is governed by the license.txt terms included with the distribution.
+ * To license JSCharting for your own use, please visit jscharting.com 
+ */
 'use strict';(function(c){function I(c,b){function a(){this.constructor=c}za(c,b);c.prototype=null===b?Object.create(b):(a.prototype=b.prototype,new a)}function Sa(c,b){function a(a){return function(b){return e([a,b])}}function e(a){if(f)throw new TypeError("Generator is already executing.");for(;g;)try{if(f=1,d&&(h=a[0]&2?d["return"]:a[0]?d["throw"]||((h=d["return"])&&h.call(d),0):d.next)&&!(h=h.call(d,a[1])).done)return h;if(d=0,h)a=[a[0]&2,h.value];switch(a[0]){case 0:case 1:h=a;break;case 4:return g.label++,
 {value:a[1],done:!1};case 5:g.label++;d=a[1];a=[0];continue;case 7:a=g.ops.pop();g.trys.pop();continue;default:if(!(h=g.trys,h=0<h.length&&h[h.length-1])&&(6===a[0]||2===a[0])){g=0;continue}if(3===a[0]&&(!h||a[1]>h[0]&&a[1]<h[3]))g.label=a[1];else if(6===a[0]&&g.label<h[1])g.label=h[1],h=a;else if(h&&g.label<h[2])g.label=h[2],g.ops.push(a);else{h[2]&&g.ops.pop();g.trys.pop();continue}}a=b.call(c,g)}catch(n){a=[6,n],d=0}finally{f=h=0}if(a[0]&5)throw a[1];return{value:a[0]?a[1]:void 0,done:!0}}var g=
 {label:0,sent:function(){if(h[0]&1)throw h[1];return h[1]},trys:[],ops:[]},f,d,h,k;return k={next:a(0),"throw":a(1),"return":a(2)},"function"===typeof Symbol&&(k[Symbol.iterator]=function(){return this}),k}function A(c){var b="function"===typeof Symbol&&c[Symbol.iterator],a=0;return b?b.call(c):{next:function(){c&&a>=c.length&&(c=void 0);return{value:c&&c[a++],done:!c}}}}function O(c,b){var a="function"===typeof Symbol&&c[Symbol.iterator];if(!a)return c;c=a.call(c);var e,g=[];try{for(;(void 0===b||
