@@ -3,8 +3,9 @@
   "description": "JavaScript charting library",
   "homepage": "https://jscharting.com",
   "author": "JSCharting <support@jscharting.com> (https://jscharting.com/support.htm)",
-  "version": "2.9.0-4",
+  "version": "2.9.0-5",
   "browser": "dist/jscharting.js",
+  "main": "dist/jscharting.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jscharting/jscharting-dist.git"

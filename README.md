@@ -2,12 +2,11 @@
 
 <a href="https://jscharting.com"><img src="https://jscharting.com/images/logo_short.svg" style="margin: 0 13px 0 0;" align="left" hspace="10" vspace="6" width="200" ></a>
 
-**JSCharting** is a JavaScript chart library for visualizing your data, providing resolution 
-independent results across all devices and platforms. Every JSCharting license includes the full suite of 150+ advanced chart types plus interactive stock charts, seamless grid and calendar support, JavaScript maps, Gantt charts, JavaScript Org Charts and micro charts at no additional charge.
+**JSCharting** is a JavaScript chart library for visualizing your data across all devices and platforms. Every JSCharting license includes the full suite of 150+ advanced chart types plus Gantt charts, JavaScript Org Charts, interactive stock and finance charts, seamless grid and calendar charts, JavaScript maps, and micro charts all for no additional charge. JSCharting has all the features you need and many you don't yet know you want.
 
 Example Charts: 
 [Chart Types](https://jscharting.com/examples/chart-types/)
-| [Features](https://jscharting.com/examples/chart-features/)
+| [Feature Examples](https://jscharting.com/examples/chart-features/)
 ## Install
 
 #### Using CDN
