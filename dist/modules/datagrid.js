@@ -1,5 +1,5 @@
 /*
- * jscharting.js v2.9.0.20200102
+ * jscharting.js v2.9.0.20200122
  * (c) 2009-2020 Corporate Web Solutions Ltd.
  * All client side / JavaScript code may not be used in any way without a valid JSCharting license.
  * License holder usage is governed by the license.txt terms included with the distribution.
