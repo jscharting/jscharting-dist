@@ -3,7 +3,7 @@
   "description": "JavaScript charting library",
   "homepage": "https://jscharting.com",
   "author": "JSCharting <support@jscharting.com> (https://jscharting.com/support.htm)",
-  "version": "2.9.0-7",
+  "version": "2.9.0-8",
   "browser": "dist/jscharting.js",
   "main": "dist/jscharting.js",
   "repository": {
@@ -15,6 +15,12 @@
     "email": "support@jscharting.com"
   },
   "types": "./dist/jscharting.d.ts",
+  "devDependencies": {
+    "jest": "^25.1.0"
+  },
+  "scripts": {
+    "test": "jest"
+  },
   "keywords": [
     "charts",
     "dataviz",
