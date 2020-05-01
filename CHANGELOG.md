@@ -1,5 +1,20 @@
 # Changelog
 
+## [2.9.0-9] - 2020-5-1
+
+### Added
+- Allow string date values in smartPalette configuration 
+
+### Bug Fixes
+- Pinch zoom on iOS devices
+- Issue with scale breaks and axis.invert=true
+- Organizational charts not working with wrong point order
+- OHLC shape drawing extra lines
+- Chart type:'map solid' not making point fills solid
+- SmartPalette range legend entries layout when only SP range entries exist
+- Custom legendEntry not updating through legendEntry.options()
+- Duplicate axisMarker legend entries with gauge charts after chart updates
+
 ## [2.9.0-8] - 2020-3-5
 
 ### Added

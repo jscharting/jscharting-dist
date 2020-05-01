@@ -3,7 +3,7 @@
   "description": "JavaScript charting library",
   "homepage": "https://jscharting.com",
   "author": "JSCharting <support@jscharting.com> (https://jscharting.com/support.htm)",
-  "version": "2.9.0-8",
+  "version": "2.9.0-9",
   "browser": "dist/jscharting.js",
   "main": "dist/jscharting.js",
   "repository": {
@@ -16,7 +16,7 @@
   },
   "types": "./dist/jscharting.d.ts",
   "devDependencies": {
-    "jest": "^25.1.0"
+    "jest": "^25.5.2"
   },
   "scripts": {
     "test": "jest"
