@@ -1,5 +1,55 @@
 # Changelog
 
+## [3.0.0] - 2020-10-21
+
+For more information, visit [What's new in 3.0](https://jscharting.com/blog/v30Release.htm).
+
+### Added
+
+- Venn series type
+- Automatic color blending for venn diagrams
+- `point.altColor` with colorAdjust support for circular gauges
+- Candlestick and OHLC alternate color support with `point.altColor`
+- `stroke` styling for labels
+- updateOptions.then post animation callback.
+- Data highlighting (by muting others)
+    - 3 highlighting modes (series, point, pointGroup)
+    - Highlighting options when hovering points, legend, axis ticks
+- Point selection improvements 
+    - `auto`, `single` or `multiple` selection modes
+    - `{ max: n }` Maximum n points FIFO selection.
+- `pointSelectionChanged` and `seriesSelectionChanged` chart events
+- Legend checkbox option
+- Point and series `muted` and `selected` properties.
+- Chart mentoring, tips and suggestions with `{ debug: true }`
+- Simplified series state settings `{ defaultSeries_states_hover_opacity: .5 }` 
+- `JSC.sortBy()` utility function
+- `beforeExport` and `afterExport` chart events
+- `%parentId` point token
+- Simpler additional axis logic: Automatically assumes what axes to bind to without needing `id` settings.
+- Arbitrary axes. Extra axes with `scale.range` setting can be used without binding to any other axis or data.
+- Axis tick `mouseOver` `mouseOut` and `click` events
+- Tooltip `followCursor` option
+- UIItem slider debounce option
+
+### Changed
+
+- Axis tick animation with proper scaling
+- Setting chart option {export:true} is required for export menu to appear
+- Chart wide performance improvements
+- Use `axis_scale_range:{ padding` and (`min` or `max`) together
+- Point axis tick: Closest point gets the tick.  
+- Smarter point tooltip positioning
+
+### Bug Fixes
+
+- No Y Axis ticks on circular gauge exception fix.
+- Needle gauge default tooltip newline bug fix.
+- Fix X Axis range setting not working with bubble type.
+- Fix custom point settings preventing hatch pattern on legend entries.
+- Mapping mobile touch scroll fix.
+- Line series with labels zoom exception fix. 
+
 ## [2.9.0-9] - 2020-5-1
 
 ### Added

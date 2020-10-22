@@ -486,7 +486,7 @@ export declare interface JSCAxisConfig {
 export declare interface JSCLineBreaksConfig {
 
     /**
-     * A numeric value between 0-1 that controls the gap size at break positions.
+     * A numeric value between 0-.1 that controls the gap size at break positions.
      * @def 0.01
      */
     gap?: number;
@@ -535,7 +535,7 @@ export declare interface JSCAxisTickConfig {
     outline?: JSCOutlineConfig;
 
     /**
-     * Describes the type or each individual corner of the axis tick label box.
+     * Describes the type or each individual corner of the axis tick label box. Visible automatically when used with crosshairs. Set a fill or outline to use corners with regular axis ticks.
      * @since 2.7
      */
     corners?: any | [("square" | "cut" | "round"), ("square" | "cut" | "round"), ("square" | "cut" | "round"), ("square" | "cut" | "round")] | string;
@@ -595,6 +595,19 @@ export declare interface JSCAxisTickConfig {
      * @since 2.8
      */
     rangeMode?: ("auto" | "curly" | "measure");
+
+    /**
+     * Event functions fired when for specific mouse interactions with this axis tick.
+     * @since 3.0
+     */
+    events?: AxisTickEvents;
+
+    /**
+     * When used with point.x/yAxisTick, this property can be used to disable the default series highlighting on hover behavior. Set this option to false or 'none' to disable.
+     * @remarks The default action when hovering a point axis tick is to mute other series to highlight the series of this point.
+     * @since 3.0
+     */
+    hoverAction?: boolean | string;
 
     /**
      * When true and using with circular or radial charts, all tick visuals will render on top of data.
@@ -705,7 +718,6 @@ export declare interface JSCFillConfig_object {
 
 /**
 * Describes a hatch pattern fill.
-* @since 2.0
 */
 export declare interface JSCHatchConfig {
 
@@ -764,7 +776,7 @@ export declare interface JSCColorRangeConfig {
     /**
      * Range value.
      */
-    value?: number | [number, number];
+    value?: number | [(number | string), (number | string)];
 
     /**
      * The color associated with this color range.
@@ -834,7 +846,7 @@ export declare interface JSCSmartPaletteConfig {
     /**
      * An array of values and colors similar to linear gradient stops.
      */
-    stops?: ([number, JSCColorConfig, number, number] | [number, JSCColorConfig, number] | [number, JSCColorConfig])[];
+    stops?: ([(number | string), JSCColorConfig, number, number] | [(number | string), JSCColorConfig, number] | [(number | string), JSCColorConfig])[];
 
     /**
      * .
@@ -845,7 +857,7 @@ export declare interface JSCSmartPaletteConfig {
      * Option can be used with colors array to explicitly define the value range those colors should apply to.
      * @since 2.6
      */
-    colorsValueRange?: [number, number];
+    colorsValueRange?: [(number | string), (number | string)];
 
     /**
      * Indicates whether the color stops are reversed. If so, the values will also invert.
@@ -877,6 +889,12 @@ export declare interface JSCLabelConfig {
      * label color
      */
     color?: JSCColorConfig;
+
+    /**
+     * Label outline settings.
+     * @since 3.0
+     */
+    outline?: JSCLabelOutlineConfig;
 
     /**
      * Whether the label is visible.
@@ -926,6 +944,23 @@ export declare interface JSCLabelConfig {
      * @since 2.9
      */
     maxWidth?: number;
+    [any: string]: any;
+}
+
+/**
+* Represents label outline settings
+*/
+export declare interface JSCLabelOutlineConfig {
+
+    /**
+     * Outline color.
+     */
+    color?: JSCColorConfig;
+
+    /**
+     * Outline width
+     */
+    width?: number;
     [any: string]: any;
 }
 
@@ -1190,14 +1225,11 @@ export declare interface JSCSeriesConfig {
     emptyPointMode?: ("default" | "ignore" | "treatAsZero" | "treataszero");
 
     /**
-     * Specifies whether point selection is enabled for this series.
+     * Specifies whether point selection is enabled, the pointSelectionMode, or the maximum number of points that can be selected at a time. Setting true boolean is same as "auto" selection mode.
+     * @remarks When designing charts for mobile usage where CTRL keys are not available, specific selection modes like "single" or "multiple" can be used for consistent selection behavior across devices.
+     * @since 3.0
      */
-    pointSelection?: boolean;
-
-    /**
-     * The cursor type when mouse hovers points in this series
-     */
-    cursor?: ("none" | "pointer" | "help" | "crosshair" | "wait" | "progress" | "text" | "n-resize" | "ne-resize" | "nw-resize" | "e-resize" | "s-resize" | "se-resize" | "sw-resize" | "w-resize");
+    pointSelection?: boolean | string | PointSelection;
 
     /**
      * Specifies mouse tracking options for this series.
@@ -1233,9 +1265,21 @@ export declare interface JSCSeriesConfig {
     states?: States;
 
     /**
-     * Event functions fired when for specific mouse interactions with this series.
+     * Event functions fired for specific mouse interactions with this series.
      */
     events?: SeriesEvents;
+
+    /**
+     * Indicates whether the series is in the mute state.
+     * @since 3.0
+     */
+    muted?: boolean;
+
+    /**
+     * Indicates whether the series is in the select state.
+     * @since 3.0
+     */
+    selected?: boolean;
 
     /**
      * The starting angle or arc of pie, gauge or radar series type.
@@ -1302,6 +1346,13 @@ export declare interface JSCPointConfig_object {
     color?: JSCColorConfig;
 
     /**
+     * The point's alternate color used with candlestick and ohlc bars when the close prices is lower than the open price. Also used with circular columns to define the alternate color when the column overlaps itself.
+     * @remarks Using the setting 'currentColor' with circular bars disables the color changes. Other color adjustment keywords are supported as well.
+     * @since 3.0
+     */
+    altColor?: JSCColorConfig;
+
+    /**
      * Point's outline options. Applies to marker, bar, or pie series types.
      */
     outline?: JSCOutlineConfig;
@@ -1360,6 +1411,12 @@ export declare interface JSCPointConfig_object {
     mouseTracking?: boolean;
 
     /**
+     * The mouse cursor type when hovering this data point.
+     * @since 3.0
+     */
+    cursor?: ("none" | "default" | "pointer" | "help" | "crosshair" | "wait" | "progress" | "text" | "n-resize" | "ne-resize" | "nw-resize" | "e-resize" | "s-resize" | "se-resize" | "sw-resize" | "w-resize");
+
+    /**
      * Specifies point state options
      * See Also:
      * {@link https://jscharting.com/tutorials/js-chart-interactivity/states/}
@@ -1415,6 +1472,12 @@ export declare interface JSCPointConfig_object {
     close?: number;
 
     /**
+     * Used with Venn diagrams.
+     * @since 3.0
+     */
+    sets?: string[];
+
+    /**
      * Used to specify error bar data for this series.
      * @since 1.1
      */
@@ -1451,6 +1514,18 @@ export declare interface JSCPointConfig_object {
      * Indicates whether this point is selected.
      */
     selected?: boolean;
+
+    /**
+     * Indicates whether this point is muted due to other series or points being highlighted.
+     * @since 3.0
+     */
+    muted?: boolean;
+
+    /**
+     * Used to define a highlighting action when hovering this data point.
+     * @since 3.0
+     */
+    hoverAction?: boolean | string;
 
     /**
      * Indicates whether this pie slice is offset from the main pie.
@@ -1616,6 +1691,12 @@ export declare interface JSCLegendConfig {
     shadow?: boolean;
 
     /**
+     * Limits the pixel width of the legend box.
+     * @since 2.9
+     */
+    maxWidth?: number;
+
+    /**
      * When specified, this pixel width is used for the legend. Determined automatically when not specified.
      */
     width?: number;
@@ -1760,6 +1841,12 @@ export declare interface JSCLegendEntryConfig {
     lineAbove?: boolean;
 
     /**
+     * A checkbox associated with this legend entry.
+     * @since 3.0
+     */
+    checkbox?: boolean | JSCIconConfig;
+
+    /**
      * Specifies whether this legend entry is visible.
      */
     visible?: boolean;
@@ -1768,6 +1855,13 @@ export declare interface JSCLegendEntryConfig {
      * Legend entries will be sorted by this number.
      */
     sortOrder?: number;
+
+    /**
+     * Used to disable the default hover behavior like highlighting. Set this option to false or 'none' to disable.
+     * @remarks The default action when hovering a series or point is to mute other points and series to highlight the one being hovered.
+     * @since 3.0
+     */
+    hoverAction?: boolean | string;
 
     /**
      * State options for legend entry.
@@ -1780,7 +1874,7 @@ export declare interface JSCLegendEntryConfig {
      * The mouse cursor type when hovering this entry.
      * @since 2.6
      */
-    cursor?: ("none" | "pointer" | "help" | "crosshair" | "wait" | "progress" | "text" | "n-resize" | "ne-resize" | "nw-resize" | "e-resize" | "s-resize" | "se-resize" | "sw-resize" | "w-resize");
+    cursor?: ("none" | "default" | "pointer" | "help" | "crosshair" | "wait" | "progress" | "text" | "n-resize" | "ne-resize" | "nw-resize" | "e-resize" | "s-resize" | "se-resize" | "sw-resize" | "w-resize");
 
     /**
      * Event functions fired when for specific mouse interactions with this legend entry.
@@ -1944,7 +2038,7 @@ export declare interface JSCTooltipConfig {
     padding?: number;
 
     /**
-     * Numeric margin that influences the distance betwee toolip and the target element
+     * Numeric margin that influences the distance between tooltip and the target element.
      * @since 2.0
      */
     margin?: number;
@@ -1958,18 +2052,19 @@ export declare interface JSCTooltipConfig {
     label?: JSCLabelConfig;
 
     /**
-     * When true, tooltips disappear and point mouseOut event occurs when the cursor hovers a different series or leaves the chart area. Otherwise, these events occur when the mouse leaves the point's snap proximity.
-     * @remarks This setting is a shortcut for series.mouseTracking.sticky
-     */
-    sticky?: boolean;
-
-    /**
      * Enables a combined tooltip that includes details about all points at the cursor x axis position. The combined tooltip can also be enabled automatically based on crosshair settings. Use defaultTooltip.label.text to defined the combined tooltip template.
      * See Also:
      * {@link https://jscharting.com/tutorials/js-chart-interactivity/crosshair-combined-tooltip/}
      * @since 2.7
      */
     combined?: boolean;
+
+    /**
+     * If true, the tooltip follows the cursor position. This feature is enabled for some chart types by default.
+     * @remarks It is useful with chart types where points visuals fill most of the available space.
+     * @since 3.0
+     */
+    followCursor?: boolean;
     [any: string]: any;
 }
 
@@ -2122,6 +2217,12 @@ export declare interface JSCIconConfig_object {
     fill?: JSCFillConfig;
 
     /**
+     * Hatch styling for the area.
+     * @since 3.0
+     */
+    hatch?: JSCHatchConfig;
+
+    /**
      * Indicates whether the icon is visible.
      */
     visible?: boolean;
@@ -2208,7 +2309,7 @@ export declare interface JSCLabelStyleConfig {
     /**
      * Mouse cursor on label hover.
      */
-    cursor?: ("none" | "pointer" | "help" | "crosshair" | "wait" | "progress" | "text" | "n-resize" | "ne-resize" | "nw-resize" | "e-resize" | "s-resize" | "se-resize" | "sw-resize" | "w-resize");
+    cursor?: ("none" | "default" | "pointer" | "help" | "crosshair" | "wait" | "progress" | "text" | "n-resize" | "ne-resize" | "nw-resize" | "e-resize" | "s-resize" | "se-resize" | "sw-resize" | "w-resize");
 
     /**
      * Label color.
@@ -2228,16 +2329,23 @@ export declare interface JSCSeriesStateConfig {
     line?: JSCLineConfig;
 
     /**
+     * The fill or color of the area of areaLines in this state.
+     * @since 3.0
+     */
+    fill?: JSCFillConfig;
+
+    /**
+     * Can be used disable the state visualization.
+     * @since 3.0
+     */
+    enabled?: boolean;
+
+    /**
      * Opacity from 0 to 1, where 0 is transparent and 1 is solid (default).
      * @since 1.4
      * @max 1
      */
     opacity?: number;
-
-    /**
-     * The mouse cursor type when hovering this series.
-     */
-    cursor?: ("none" | "pointer" | "help" | "crosshair" | "wait" | "progress" | "text" | "n-resize" | "ne-resize" | "nw-resize" | "e-resize" | "s-resize" | "se-resize" | "sw-resize" | "w-resize");
     [any: string]: any;
 }
 export declare type JSCUiItemStateConfig = JSCUiItemConfig;
@@ -2275,9 +2383,10 @@ export declare interface JSCPointStateConfig {
     fill?: JSCFillConfig;
 
     /**
-     * Point marker size.
+     * The chart will avoid calculating state styles for the select state to improve performance based on other properties. You can prevent or force the select state styles to be generated for the object using this property.
+     * @since 3.0
      */
-    size?: number;
+    enabled?: boolean;
     [any: string]: any;
 }
 
@@ -2429,6 +2538,12 @@ export declare interface JSCUpdateOptionsConfig {
      * Animation settings used when with this update.
      */
     animation?: JSCAnimationConfig;
+
+    /**
+     * Callback function to run after the chart update is finishes animating. The "this" keyword refers to the chart object.
+     * @since 3.0
+     */
+    then?: ((...args) => any);
     [any: string]: any;
 }
 
@@ -2674,9 +2789,17 @@ export declare interface JSCGridConfig {
     enabled?: boolean;
 
     /**
-     * When true, the grid will show a button that allows downloading the data as CSV.
+     * When true or set with a csv file name, the grid will show a button that allows downloading the data as CSV.
+     * @since 2.9
+     * @example 'grid-data' -> exports grid-data.csv
      */
-    exportFile?: boolean;
+    exportFile?: boolean | string;
+
+    /**
+     * Data grid title text.
+     * @since 3.0
+     */
+    title?: string;
 
     /**
      * An array of json objects or arrays to display in the grid. A function can be specified as well. It will be executed and the returned data will display in the grid. When grid.options({}) is called, the function is executed again to refresh grid data.
@@ -2900,6 +3023,18 @@ export function nest(): Nest;
 * @since 2.8
 */
 export function map(data: any, iteratee: ((...args) => any)): any;
+/**
+* A stable sort utility that creates an array of items sorted in ascending order. The order is based on the result of each item running through each iteratee. Please note the array provided in the argument is not sorted.
+* @param array - Array to iterate.
+* @param iteratee - Iterates each item in the array.
+* @returns A new array sorted in ascending order.
+* @since 3.0
+* @example JSC.sortBy(points, 'y');
+<br>JSC.sortBy(items, 'attributes.age'); 
+<br>JSC.sortBy(items, ['attributes.age','name']); 
+<br>
+*/
+export function sortBy(array: any, iteratee?: any): any;
 /**
 * Provides a shortcut to the window.fetch() function or a polyfill when browser does not support it natively.
 * @param fileName - Filename to load.
@@ -3173,9 +3308,8 @@ export declare class Chart {
     /**
     * Initiates the conversion of the chart SVG to an image file.
     * @param exportOptions - Export options.
-    * @param chartOptions - Chart settings to apply before the chart is exported.
     */
-    exportImage(exportOptions: JSCExportOptionsConfig, chartOptions?: JSCChartConfig): void;
+    exportImage(exportOptions: JSCExportOptionsConfig): void;
     /**
     * Sends the chart image to the printer.
     */
@@ -3374,8 +3508,9 @@ export declare class Series {
     */
     remove(updateOptions?: JSCUpdateOptionsConfig): void;
     /**
-    * Sets or toggles the series "select" state.
+    * Sets or toggles the series "select" state. Selecting a series adds to the list of selected series.
     * @param isSelected - Specifies whether the series is selected. When not set, the selected state toggles.
+    * @remarks Selected series and selected points are separate states. A series that is selected does not mean all the points within the series are selected.
     */
     select(isSelected?: boolean): void;
     /**
@@ -3465,7 +3600,7 @@ export declare class Nest {
     * @returns Direct result of the given data and nesting.
     * @since 2.7
     */
-    entries(data: any[]): LegendEntry[];
+    entries(data: any[]): any[];
 }
 /**
 * Represents a grid JS object providing methods to manipulate the grid in real-time.
@@ -3581,7 +3716,7 @@ export declare class Annotation {
     options(itemOptions?: (JSCAnnotationConfig | string), updateOptions?: (JSCUpdateOptionsConfig | boolean)): Annotation | any;
     /**
     * Removes and destroys the annotation.
-    * @since 2.8
+    * @since 3.0
     */
     remove(): void;
 }
@@ -3731,7 +3866,7 @@ export declare interface CollectionFactory<T, U> {
     * @param id - The identifyer of a specific item in the collection.
     * @returns A collection of items.
     * @since 2.8
-    * @example chart.axes("x"); // ->The main x axis even if multiple x axes exist
+    * @example chart.axes("x");  -> The main x axis even if multiple x axes exist
     */
     (id: (string | number)): U;
     /**
@@ -3781,7 +3916,7 @@ export declare class Collection<T>  {
     * @param iteratee - The function invoked on each iteration.
     * @returns Array of items resulting from running iteratee on each original item.
     * @since 2.1
-    * @example chart.series().points().map( p => p.x); //  returns an array of x values
+    * @example chart.series().points().map( p => p.x); ->  returns an array of x values
     */
     map(iteratee: ((...args) => any)): any[];
     /**
@@ -3804,7 +3939,7 @@ export declare class Collection<T>  {
     * @param updateOptions - The update options which are passed to items remove method.
     * @returns Returns the collection.
     * @since 2.8
-    * @example chart.series().remove(false); // Removes all series from the chart
+    * @example chart.series().remove(false); -> Removes all series from the chart
     */
     remove(updateOptions?: any): Collection<T>;
 }
@@ -4023,6 +4158,38 @@ export declare interface ChartEvents {
      * @inline true
      */
     mouseOut?: JSCEventHandlerConfig;
+
+    /**
+     * Fires when the selected points change.
+     * @remarks In the function, the "this" keyword refers to the chart object. An array of selected points is passed to the function as an argument.
+     * @since 3.0
+     * @inline true
+     */
+    pointSelectionChanged?: JSCEventHandlerConfig;
+
+    /**
+     * Fires when the selected series change.
+     * @remarks In the function, the "this" keyword refers to the chart object. An array of selected series is passed to the function as an argument.
+     * @since 3.0
+     * @inline true
+     */
+    seriesSelectionChanged?: JSCEventHandlerConfig;
+
+    /**
+     * Fires before the chart is printed or exported.
+     * @remarks In the function, the "this" keyword refers to the chart object.
+     * @since 3.0
+     * @inline true
+     */
+    beforeExport?: JSCEventHandlerConfig;
+
+    /**
+     * Fires before the chart is printed or exported.
+     * @remarks In the function, the "this" keyword refers to the chart object.
+     * @since 3.0
+     * @inline true
+     */
+    afterExport?: JSCEventHandlerConfig;
     [any: string]: any;
 }
 
@@ -4175,6 +4342,7 @@ export declare interface Range_object {
 
     /**
      * Axis scale padding amount. Pads the data range by this amount to leave space between data and axis edges.
+     * @remarks If padding and a min or max value are set, the min and max values will be used instead of padding.
      */
     padding?: number;
     [any: string]: any;
@@ -4312,6 +4480,32 @@ export declare interface Value_object {
 }
 
 /**
+* Event functions fired when for specific mouse interactions with this axis tick.
+* @since 3.0
+*/
+export declare interface AxisTickEvents {
+
+    /**
+     * Fires when mouse enters the axis tick label.
+     * @inline true
+     */
+    mouseOver?: JSCEventHandlerConfig;
+
+    /**
+     * Fires when mouse leaves the axis tick label.
+     * @inline true
+     */
+    mouseOut?: JSCEventHandlerConfig;
+
+    /**
+     * Fires when the axis tick label is clicked.
+     * @inline true
+     */
+    click?: JSCEventHandlerConfig;
+    [any: string]: any;
+}
+
+/**
 * A gradient range of colors that appears in the legend when used with a smartPalette set on the chart level palette property
 * @since 2.1
 */
@@ -4399,6 +4593,22 @@ export declare interface Attributes_object {
 }
 
 /**
+* Specifies whether point selection is enabled, the pointSelectionMode, or the maximum number of points that can be selected at a time. Setting true boolean is same as "auto" selection mode.
+* @remarks When designing charts for mobile usage where CTRL keys are not available, specific selection modes like "single" or "multiple" can be used for consistent selection behavior across devices.
+* @since 3.0
+*/
+export declare type PointSelection = boolean | string | PointSelection_object;
+export declare interface PointSelection_object {
+
+    /**
+     * The maximum number of points that can be selected at a time. This mode uses a FIFO (first in first out) logic when selecting points.
+     * @since 3.0
+     */
+    max?: number;
+    [any: string]: any;
+}
+
+/**
 * Specifies mouse tracking options for this series.
 * @remarks Disabling mouse tracking can improve client-side performance.
 */
@@ -4409,6 +4619,13 @@ export declare interface MouseTracking_object {
      * Whether mouse tracking is enabled for this series.
      */
     enabled?: boolean;
+
+    /**
+     * When true, tooltips disappear and point mouseOut event occurs when the cursor hovers a different point or leaves the chart area. Otherwise, these events occur when the mouse leaves the point.
+     * @remarks Similarly, series mouseOut events occur when the mouse hovers a point of another series or leaves the chart area.
+     * @since 3.0
+     */
+    sticky?: boolean;
     [any: string]: any;
 }
 
@@ -4428,22 +4645,30 @@ export declare interface States {
      * State options when series is selected.
      */
     select?: JSCSeriesStateConfig;
+
+    /**
+     * State options when series is muted due to highlighting other series or points.
+     * @since 3.0
+     */
+    mute?: JSCSeriesStateConfig;
     [any: string]: any;
 }
 
 /**
-* Event functions fired when for specific mouse interactions with this series.
+* Event functions fired for specific mouse interactions with this series.
 */
 export declare interface SeriesEvents {
 
     /**
      * Fires when mouse enters the series.
+     * @remarks In the event handler function, the "this" keyword refers to the series triggering the event.
      * @inline true
      */
     mouseOver?: JSCEventHandlerConfig;
 
     /**
-     * Fires when mouse leaves the series.
+     * Fires when mouse leaves the series. If the series mouseTracking.sticky option is true, the event is triggered when the mouse enters another series or leaves the chart area. Or if using touch, event does not fire until user taps off the chart.
+     * @remarks In the event handler function, the "this" keyword refers to the series triggering the event.
      * @inline true
      */
     mouseOut?: JSCEventHandlerConfig;
@@ -4535,6 +4760,13 @@ export declare interface PointStates {
      * State options when point is selected.
      */
     select?: JSCPointStateConfig;
+
+    /**
+     * State options when point is muted.
+     * @remarks If the series muted state enabled property is defined, points will inherit the setting unless specified at set for points.
+     * @since 3.0
+     */
+    mute?: JSCPointStateConfig;
     [any: string]: any;
 }
 
@@ -4544,14 +4776,14 @@ export declare interface PointStates {
 export declare interface PointEvents {
 
     /**
-     * Fires when mouse enters the point.
+     * Fires when mouse enters the point. Returning false will prevent the default point mouseOver behavior (setting hover state).
      * @remarks In the function, the "this" keyword refers to the clicked point object. An event argument is passed to the specified function.
      * @inline true
      */
     mouseOver?: JSCEventHandlerConfig;
 
     /**
-     * Fires when mouse leaves the point.
+     * Fires when mouse leaves the point. Returning false will prevent the default point mouseOut behavior (setting normal state).
      * @remarks In the function, the "this" keyword refers to the clicked point object. An event argument is passed to the specified function.
      * @inline true
      */
