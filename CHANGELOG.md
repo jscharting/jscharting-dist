@@ -1,5 +1,11 @@
 # Changelog
 
+## [3.0.1] - 2020-10-26
+
+### Changed
+
+- Fixed a few minor bugs. 
+
 ## [3.0.0] - 2020-10-21
 
 For more information, visit [What's new in 3.0](https://jscharting.com/blog/v30Release.htm).
