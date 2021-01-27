@@ -184,6 +184,12 @@ export declare interface JSCChartConfig {
     toolbar?: JSCToolbarConfig;
 
     /**
+     * A shortcut to enable export menu items visibility. It maps to the toolbar.items.export.visible property.
+     * @since 3.0
+     */
+    export?: boolean;
+
+    /**
      * Specifies axis zooming type.
      */
     axisToZoom?: ("x" | "y" | "xy" | "none");
@@ -381,6 +387,12 @@ export declare interface JSCAxisConfig {
      * The default settings used by all minor axis ticks on the axis.
      */
     defaultMinorTick?: JSCAxisTickConfig;
+
+    /**
+     * The default settings used by ticks that are hidden due to overlaps.
+     * @since 3.1
+     */
+    defaultHiddenTick?: JSCAxisTickConfig;
 
     /**
      * Default setting applied to all axis markers on this axis.
@@ -1793,6 +1805,12 @@ export declare interface JSCLegendConfig {
 export declare interface JSCLegendEntryConfig {
 
     /**
+     * The ID of this entry.
+     * @since 3.0
+     */
+    id?: string;
+
+    /**
      * The %name token in the legend template will refer to this string rather than process the token on the related item directly.
      * @since 2.0
      */
@@ -1969,6 +1987,12 @@ export declare interface JSCTitleBoxConfig {
     padding?: number;
 
     /**
+     * Margins around title box.
+     * @since 3.0
+     */
+    margin?: JSCMarginConfig;
+
+    /**
      * Title box outline settings.
      */
     outline?: JSCOutlineConfig;
@@ -2110,7 +2134,7 @@ export declare interface JSCExportOptionsConfig {
     server?: string;
 
     /**
-     * Output image format.
+     * Output image format mime type, or extension name (pdf, png, jpg, svg)
      */
     imageType?: string | string;
 
@@ -2359,6 +2383,12 @@ export declare interface JSCLegendEntryStateConfig {
      * Legend entry label style.
      */
     style?: JSCLabelStyleConfig;
+
+    /**
+     * Color of the legend entry text.
+     * @since 3.0
+     */
+    color?: JSCColorConfig;
     [any: string]: any;
 }
 
@@ -4436,7 +4466,7 @@ export declare interface Scale {
     breaks?: Breaks | ([(number | Date), (number | Date)][] | JSCCalendarPatternConfig[]);
 
     /**
-     * ID of another axis that this axis will sync its range with.
+     * ID of a specific axis to sync its range with. By default extra axes will sync with the main axis of the same prefix (x, y, z...). Using a value of "none" will prevent binding to the main axis and it will prevent showing the axis if the scale_range value is set. In effect, this "none" setting makes the axis revert to v2.9 and earlier behavior.
      * @remarks This is useful with unit conversion where two axes show the same scale but in different units. An axis not associated with data can be synced with another axis. Or two axes both with data can be set to show the same range.
      * See Also:
      * {@link https://jscharting.com/samples/Javascript_AxisShadowingTime_Chart.htm}
