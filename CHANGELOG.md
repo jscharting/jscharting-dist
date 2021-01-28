@@ -1,5 +1,33 @@
 # Changelog
 
+## [3.0.2] - 2021-01-27
+
+### Added
+
+- API uiItem.offset property in the documentation.
+- Added axis.defaultHiddenTick property to control tick styling when they are hidden due to overlaps.
+- Chart parses numeric point data values. `series.0.points = [1,2,3]`
+- Legend line icon width scale to the largest width.
+- Legend line icons include dash styles that scale to fit.
+
+### Bug Fixes
+
+- Fail gracefully when map data is not available for specified countries.
+- Fix to prevent organizational points from overlapping in some scenarios.
+- Fix maps losing tooltips after zooming the chart programmatically.
+- Fix gradient arc axis line without breaks exception.
+- Fix a bug preventing multiple axes from duplicating parent axis category ticks.
+- Fix a bug that prevented custom TopoJSON map data from loading with a remote URL.
+- The Intl polyfill and locales have been removed from the bundle. In the very unlikely case they are needed, they will be downloaded from the CDN.
+- Fix synced category axis tick labels not staying in sync when main axis categories are reordered.
+- Fix %pointCount Token bug when only one point exists.
+- Fix a bug preventing radar series from being updated.
+- Fix overlapping tick logic with dense tick overlaps and custom tick priority
+- Last axis tick visibility is not prioritized over major and minor ticks when ticks overlap.
+- Fix an issue with Chrome 88 on Android not loading charts.
+- An issue that prevented axis data from being passed to click event handlers on maps.
+
+
 ## [3.0.1] - 2020-10-26
 
 ### Changed
