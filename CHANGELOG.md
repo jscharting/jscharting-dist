@@ -1,5 +1,20 @@
 # Changelog
 
+## [3.0.3-beta] - 2021-4-8
+
+### Bug Fixes
+
+- Point click events may have triggered the wrong point when multiple points were overlapping.
+- Custom path point marker may not center when width or height are 0.
+- Axis line with color:'smartPalette' may not work if line breaks are not used.
+- jscharting.d.ts may cause compile errors with TypeScript projects.
+- Pie chart layout may cause pie sizes to collapse in some scenarios.
+- Point marker animation moving along the arc of circular gauges.
+- Slider clicks in IE not updating slider value correctly.
+- Arc gauge gradients fill incorrectly in some cases.
+- Using range x values and point names may place the point on the axis scale incorrectly.
+- Organizational chart with complex multi-parent nodes not laid out correctly.
+
 ## [3.0.2] - 2021-01-27
 
 ### Added

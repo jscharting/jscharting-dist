@@ -3,9 +3,10 @@
   "description": "JavaScript charting library",
   "homepage": "https://jscharting.com",
   "author": "JSCharting <support@jscharting.com> (https://jscharting.com/support.htm)",
-  "version": "3.0.2",
+  "version": "3.0.3-beta",
   "browser": "dist/jscharting.js",
   "main": "dist/jscharting.js",
+  "types": "./dist/jscharting.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jscharting/jscharting-dist.git"
@@ -14,9 +15,8 @@
   "bugs": {
     "email": "support@jscharting.com"
   },
-  "types": "./dist/jscharting.d.ts",
   "devDependencies": {
-    "jest": "^25.5.4"
+    "jest": "^26.6.3"
   },
   "scripts": {
     "test": "jest"
