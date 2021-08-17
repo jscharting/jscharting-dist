@@ -1,5 +1,36 @@
 # Changelog
 
+## [3.1.0] - 2021-8-17
+
+For more information, visit [What's new in 3.1](https://jscharting.com/blog/v31Release.htm).
+
+### Added
+
+- Label.opacity property.
+- Automatic column series corner rounding.
+- Point.radius property to control column corners.
+- Enable point color modifiers (lighten, darken,...) on point.complete.fill and point.complete.hatch.color
+
+### Changed
+
+- legendEntry.iconWidth deprecated, enabled for backward compatibility. Use legendEntry.icon.width instead.
+
+### Bug Fixes
+
+- Resizing circular gauge charts may throw error in some scenarios
+- A regression bug that may prevent manual annotation width or height settings from working.
+- Exception when target Div element has no size set.
+- Smart palette update issue when data is added after first render.
+- Multi-shape animation may throw exception in some circumstances.
+- Make candlestick column with zero value (doji candlestick) render correctly.
+- An issue with passing functions for shape label text.
+- legendEntry.icon.width not working.
+- Issue preventing axis.line.breaks.custom from working on circular axes.
+- Range axis scale mode disabled by a non-range series on a different axis.
+- Scale microchart shows numeric ticks in wrong position in some scenarios.
+- Printing the chart with the export toolbar may print extra blank pages.
+- Axis ticks with fill not moving out of view.
+
 ## [3.0.3-beta] - 2021-4-8
 
 ### Bug Fixes

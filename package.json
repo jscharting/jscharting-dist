@@ -1,9 +1,9 @@
 {
   "name": "jscharting",
   "description": "JavaScript charting library",
+  "version": "3.1.0",
   "homepage": "https://jscharting.com",
   "author": "JSCharting <support@jscharting.com> (https://jscharting.com/support.htm)",
-  "version": "3.0.3-beta",
   "browser": "dist/jscharting.js",
   "main": "dist/jscharting.js",
   "types": "./dist/jscharting.d.ts",
