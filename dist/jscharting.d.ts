@@ -530,7 +530,8 @@ export declare interface JSCAxisTickConfig {
     gridLine?: JSCLineConfig;
 
     /**
-     * The tick line of this AxisTick. The line.length property controls the length of this tick mark.
+     * The tick line of this AxisTick. The line.length property controls the length of this tick mark. With range ticks it controls the range shape (curly braces or arrows).
+     * @remarks Setting line.visible = false will hide the range tick connector lines as well.
      */
     line?: JSCLineConfig;
 
@@ -962,6 +963,12 @@ export declare interface JSCLabelConfig {
      * @since 2.9
      */
     maxWidth?: number;
+
+    /**
+     * When animation options are defined at the label level, it can be used to control the string character animation. To disable it for example.
+     * @since 3.2
+     */
+    animation?: JSCAnimationConfig;
     [any: string]: any;
 }
 
@@ -2527,6 +2534,12 @@ export declare interface JSCShapeConfig {
      * @def true
      */
     visible?: boolean;
+
+    /**
+     * Default settings applied to all shape labels. Useful when multiple shape labels are used.
+     * @since 3.2
+     */
+    defaultLabel?: JSCLabelConfig;
 
     /**
      * Series shape label. Used to specify label text and settings when the series is represented as a shape

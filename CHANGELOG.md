@@ -1,5 +1,27 @@
 # Changelog
 
+## [3.2.0] - 2021-11-20
+
+### Added
+
+- Automatic string tween animations.
+- Automatic text number animation.
+- Property label.animation to control string tween animation independently.
+- Shape labels for pie and funnel charts.
+- Automatic shape labels for pies.
+- Property shape.defaultLabel as defaults for all shape labels.
+
+### Bug Fixes
+
+- Point %icon token not using the individual point color.
+- Allow hiding the colorBar when using the heatmap type.
+- Bubble type tooltip stops working after panning the chart.
+- Incorrectly handling Jan 1st 1970 date value.
+- Logarithmic scale with negative numbers not always working correctly.
+- Logarithmic scale with zero values not always working correctly.
+- DefaultCultureName setting now used in some non-token formatting cases.
+- Axis ticks with token values not always updating tick label text.
+
 ## [3.1.0] - 2021-8-17
 
 For more information, visit [What's new in 3.1](https://jscharting.com/blog/v31Release.htm).
