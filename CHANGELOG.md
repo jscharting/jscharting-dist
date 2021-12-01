@@ -1,5 +1,11 @@
 # Changelog
 
+## [3.2.1] - 2021-11-20
+
+### Added
+
+- Support for Next.js when using the JSC React component.
+
 ## [3.2.0] - 2021-11-20
 
 ### Added
