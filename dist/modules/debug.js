@@ -1,10 +1,3 @@
-/*
- * jscharting.js v3.2.0.20211201
- * (c) 2009-2021 Corporate Web Solutions Ltd.
- * All client side / JavaScript code may not be used in any way without a valid JSCharting license.
- * License holder usage is governed by the license.txt terms included with the distribution.
- * To license JSCharting for your own use, please visit jscharting.com 
- */
 'use strict';(function(d){function v(b,a){var c="function"===typeof Symbol&&b[Symbol.iterator];if(!c)return b;b=c.call(b);var d,e=[];try{for(;(void 0===a||0<a--)&&!(d=b.next()).done;)e.push(d.value)}catch(l){var f={error:l}}finally{try{d&&!d.done&&(c=b["return"])&&c.call(b)}finally{if(f)throw f.error;}}return e}function m(b,a){b=document.createElement(b);if(a)for(var c in a)b.style[c]=a[c];return b}function r(b,a){b=document.createElementNS("http://www.w3.org/2000/svg",b);if(a)for(var c in a)b.style[c]=
 a[c];return b}function w(b,a){function c(a,b){a&&a.map(function(a){if(a.title){var c=m("h4",{marginTop:"0px",marginBottom:"4px",color:b});c.innerText=a.title;g.appendChild(c)}a.text&&(c=m("p",{marginTop:"0px",marginBottom:"4px"}),c.innerText=a.text,g.appendChild(c))})}if(b.tagName){var d=a.errors?"M8 0c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zM12.2 10.8l-1.4 1.4-2.8-2.8-2.8 2.8-1.4-1.4 2.8-2.8-2.8-2.8 1.4-1.4 2.8 2.8 2.8-2.8 1.4 1.4-2.8 2.8 2.8 2.8z":a.warnings?"M8 0c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zM9 13h-2v-2h2v2zM9 10h-2v-7h2v7z":
 "M5.3 14.3c0 1.2.8 1.7 1.5 1.7h2.5c.8 0 1.5-.7 1.5-1.5v-1H5.3v.8zm6.9-12.6C11.1.6 9.5 0 7.9 0 4.7 0 2.1 2.7 2 5.8c0 1.9.8 3.6 2.3 4.8.5.4.9 1 1 1.6h5.5c.1-.6.5-1.2 1-1.7C13.2 9.4 14 7.8 14 6c0-1.6-.6-3.1-1.8-4.3z",e=a.errors?h.iconError:a.warnings?h.iconWarning:h.iconTip,f=window.getComputedStyle(b).position,l="absolute"===f||"relative"===f?"absolute":"static";f=m("div",{bottom:"8px",right:"8px",position:l});e=r("svg",{pointerEvents:"none",fill:e});var n=r("path");e.setAttribute("width",18);e.setAttribute("height",

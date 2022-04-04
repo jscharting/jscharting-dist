@@ -16,7 +16,7 @@ export declare interface JSCChartConfig {
     tabIndex?: number | string;
 
     /**
-     * Specifies the animation settings for all animation scenarios such as real-time data updates.
+     * Animation settings for all animations such as real-time data updates.
      */
     animation?: JSCAnimationConfig;
 
@@ -28,24 +28,24 @@ export declare interface JSCChartConfig {
     type?: string;
 
     /**
-     * Configuration object of a chart template to apply to this chart.
+     * Default chart options for this chart to use.
      * @remarks A single template with common settings can be made and used by all charts on a website to make developing charts faster while maintaining the same look and behavior.
      */
     template?: JSCChartConfig;
 
     /**
-     * Default annotation settings.
+     * Default options for all annotations.
      */
     defaultAnnotation?: JSCAnnotationConfig;
 
     /**
-     * Default options that are applied to axes.
+     * Default axis options used by all axes on the chart.
      * @since 2.9
      */
     defaultAxis?: JSCAxisConfig;
 
     /**
-     * Default culture name used when formatting values on this chart.
+     * Default culture name used when formatting values.
      * @def 'en-US'
      * See Also:
      * {@link https://jscharting.com/tutorials/js-chart-labels/formatting/}
@@ -53,28 +53,22 @@ export declare interface JSCChartConfig {
     defaultCultureName?: string;
 
     /**
-     * Default highlight options applied to all other highlights on the chart.
-     * @since 2.6
-     */
-    defaultHighlight?: JSCHighlightConfig;
-
-    /**
-     * Options applied to all points on this chart.
+     * Options applied to all points.
      */
     defaultPoint?: JSCPointConfig;
 
     /**
-     * Options applied to all series on this chart. It's recommended to use this property to reduce the amount of coding necessary when applying settings to multiple series.
+     * Options applied to all series. It's recommended to use this property to reduce the amount of duplicate settings necessary for each series.
      */
     defaultSeries?: JSCSeriesConfig;
 
     /**
-     * Palette used for series on this chart. Can be a palette name or array of colors.
+     * Palette colors applied to each series. Can be a palette name or array of colors.
      */
     palette?: string | JSCSmartPaletteConfig | JSCColorConfig[];
 
     /**
-     * Indicates whether a default palette should be used with a boolean setting, or an array of hatchStyles that define the palette.
+     * Enable a default palette of hatch patterns to apply to points of each series, or an array of specific hatchStyles.
      * @since 2.0
      */
     hatchPalette?: boolean | string[];
@@ -91,7 +85,7 @@ export declare interface JSCChartConfig {
     height?: number | string;
 
     /**
-     * An array of annotations placed on the chart at arbitrary positions.
+     * An array of annotations with text labels placed anywhere on the chart.
      */
     annotations?: JSCAnnotationConfig[];
 
@@ -108,7 +102,7 @@ export declare interface JSCChartConfig {
 
     /**
      * Specifies the margin around the chart.
-     * @remarks JS chart margin settings specify the distances between the chart area and image edges.
+     * @remarks Margin settings specify the distances between the chart visual bounds and image edges.
      */
     margin?: JSCMarginConfig;
 
@@ -150,7 +144,7 @@ export declare interface JSCChartConfig {
     chartArea?: JSCChartAreaConfig;
 
     /**
-     * An array of series drawn on the chart.
+     * An array of data series visualized on the chart.
      * See Also:
      * {@link https://jscharting.com/tutorials/js-chart-data/}
      */
@@ -190,7 +184,7 @@ export declare interface JSCChartConfig {
     export?: boolean;
 
     /**
-     * Specifies axis zooming type.
+     * Specifies which axis has interactive zooming enabled.
      */
     axisToZoom?: ("x" | "y" | "xy" | "none");
 
@@ -209,7 +203,15 @@ export declare interface JSCChartConfig {
     calendar?: JSCCalendarConfig;
 
     /**
-     * An array of highlight options used to groupings of points.
+     * Default calendar highlight options applied to all other highlights on the chart.
+     * @since 2.6
+     */
+    defaultHighlight?: JSCHighlightConfig;
+
+    /**
+     * An array of calendar highlight options used to emphasize groupings of points in a calendar chart.
+     * See Also:
+     * {@link https://jscharting.com/samples/Javascript_CalendarWeekStart_Chart.htm}
      * @since 2.6
      */
     highlights?: JSCHighlightConfig[];
@@ -242,7 +244,7 @@ export declare interface JSCAnnotationConfig {
     tabIndex?: number | string;
 
     /**
-     * The id of this annotation. Used to easily reference the annotation with chart.annotations(id) api.
+     * The ID of this annotation. Used to easily reference the annotation with chart.annotations(ID) api.
      * @since 2.5
      */
     id?: string;
@@ -351,7 +353,7 @@ export declare interface JSCAxisConfig {
     tabIndex?: number | string;
 
     /**
-     * The id of this axis. Used to reference the axis programmatically at run-time.
+     * The ID of this axis. Used to reference the axis programmatically at run-time.
      */
     id?: string;
 
@@ -414,6 +416,13 @@ export declare interface JSCAxisConfig {
      * @since 1.5
      */
     customTicks?: (JSCAxisTickConfig[] | number[]);
+
+    /**
+     * An array of string category names used on this axis instead of numeric or date values. Point x or name values can be omitted when categories are defined.
+     * @remarks If point x or name values are not specified, each category name will be assigned to each data point x value sequentially. If point strings x values or names are defined, the axis category array will define their sort order. If numeric point x values are defined, they represent the index of the axis category array. Point objects the chart returns through the FP API will have point.name properties set to an x axis category name if used.
+     * @since 3.3
+     */
+    categories?: string[];
 
     /**
      * Styling options for the axis line.
@@ -629,7 +638,7 @@ export declare interface JSCAxisTickConfig {
     onTop?: boolean;
 
     /**
-     * With multiple x or y axes, this property can be used with point.(x/y)AxisTick to specify the id of the axis the point axis tick should be added to.
+     * With multiple x or y axes, this property can be used with point.(x/y)AxisTick to specify the ID of the axis the point axis tick should be added to.
      * @since 2.9
      */
     axisId?: string;
@@ -644,7 +653,7 @@ export declare interface JSCAxisTickConfig {
 export declare interface JSCAxisMarkerConfig {
 
     /**
-     * The axis marker id
+     * The axis marker ID
      */
     id?: string;
 
@@ -718,7 +727,7 @@ export declare interface JSCFillConfig_object {
     angle?: number;
 
     /**
-     * Defines gradient color stops for this fill object.
+     * Defines gradient color stops for this fill.
      */
     stops?: [number, JSCColorConfig][];
 
@@ -836,7 +845,7 @@ export declare interface JSCSpRangeConfig_object {
 export declare interface JSCSmartPaletteConfig {
 
     /**
-     * The smartPalette id.
+     * The smartPalette ID.
      * @since 2.5
      */
     id?: string;
@@ -1001,6 +1010,13 @@ export declare interface JSCOutlineConfig_object {
     color?: JSCColorConfig;
 
     /**
+     * Opacity from 0 to 1, where 0 is transparent and 1 is solid (default).
+     * @since 3.4
+     * @max 1
+     */
+    opacity?: number;
+
+    /**
      * Line dash style
      * @since 1.4
      */
@@ -1025,12 +1041,13 @@ export declare interface JSCOutlineConfig_object {
 export declare interface JSCLineConfig {
 
     /**
-     * Outline color.
+     * Line color.
      */
     color?: JSCColorConfig;
 
     /**
-     * Outline width
+     * Line width in pixels.
+     * @example "5px" || 5
      */
     width?: number | string;
 
@@ -1160,7 +1177,7 @@ export declare interface JSCSeriesConfig {
     tabIndex?: number | string;
 
     /**
-     * Series object id.
+     * Series object ID.
      */
     id?: string;
 
@@ -1342,22 +1359,29 @@ export declare interface JSCSeriesConfig {
 }
 
 /**
-* Represents a data point and related options
+* Represents a data point and related options.
 */
-export declare type JSCPointConfig = ([number, (number | [(number | Date), (number | Date)])] | [Date, (number | [(number | Date), (number | Date)])] | [string, (number | [(number | Date), (number | Date)])] | [(Date | string), number, number, number, number]) | JSCPointConfig_object;
+export declare type JSCPointConfig = ([number, (number | [(number | Date), (number | Date)])] | [Date, (number | [(number | Date), (number | Date)])] | [string, (number | [(number | Date), (number | Date)])] | [(string | number), (string | number), number] | [(Date | string), number, number, number, number]) | number | JSCPointConfig_object;
 export declare interface JSCPointConfig_object {
 
     /**
-     * Point object id.
+     * Point object ID.
      */
     id?: string;
 
     /**
-     * Identifies a parent point by id.
+     * Identifies a single or multiple parent points by ID. If used as an array of pointConnector objects, each connector line can be styled individually. The point.connectorLine properties are the defaults for these lines.
      * @remarks This property allows defining nested hierarchies of points currently used with treemap data.
-     * @since 1.3
+     * @since 3.3
+     * @inline true
      */
-    parent?: string;
+    parent?: string | JSCPointConnectorConfig | JSCPointConnectorConfig[];
+
+    /**
+     * The default parent point connector line styling.
+     * @since 3.3
+     */
+    connectorLine?: JSCLineConfig;
 
     /**
      * Specifies only the point visual fill color and does not affect other point related color.
@@ -1400,7 +1424,7 @@ export declare interface JSCPointConfig_object {
      * A glow effect when the point is hovered or highlighted by combined tooltip and crosshair
      * @since 2.7
      */
-    focusGlow?: FocusGlow;
+    focusGlow?: FocusGlow | boolean;
 
     /**
      * Opacity from 0 to 1, where 0 is transparent and 1 is solid.
@@ -1657,6 +1681,27 @@ export declare interface JSCPointMarkerConfig {
      * @since 2.5
      */
     length?: number | [number, number];
+    [any: string]: any;
+}
+
+/**
+* Represents a hierarchical relationship with one or multiple parents. Includes point ID and line properties to customize the connector line to the specified point.
+* Example: <b>{ id: 'p1', line:{ color: 'red' } }</b>
+* @remarks Used with hierarchical chart types such as organizational or Gantt dependencies.
+* @since 3.3
+* @example { id: 'p1', line:{ color: 'red' } }<br/>{ id: 'p1,p2,p3', line:{ color: 'red' } }
+*/
+export declare interface JSCPointConnectorConfig {
+
+    /**
+     * The ID of a parent point or a comma delimited list of parent point IDs.
+     */
+    id?: string;
+
+    /**
+     * Line properties of the parent connector line.
+     */
+    line?: JSCLineConfig;
     [any: string]: any;
 }
 
@@ -2428,6 +2473,19 @@ export declare interface JSCPointStateConfig {
     fill?: JSCFillConfig;
 
     /**
+     * Color of the point
+     * @since 3.4
+     */
+    color?: JSCColorConfig;
+
+    /**
+     * Opacity from 0 to 1, where 0 is transparent and 1 is solid (default).
+     * @since 3.4
+     * @max 1
+     */
+    opacity?: number;
+
+    /**
      * The chart will avoid calculating state styles for the select state to improve performance based on other properties. You can prevent or force the select state styles to be generated for the object using this property.
      * @since 3.0
      */
@@ -2771,7 +2829,7 @@ export declare interface JSCCalendarPatternValueConfig_object {
 export declare interface JSCHighlightConfig {
 
     /**
-     * The id of this highlight.
+     * The ID of this highlight.
      */
     id?: string;
 
@@ -2825,6 +2883,7 @@ export declare interface JSCLineCapsConfig {
 
     /**
      * The default cap size as a percentage of line width or a pixel size of the cap.
+     * @example "450%" || 20
      */
     size?: string | number;
 
@@ -3320,6 +3379,19 @@ export declare class Chart {
     uiItems: CollectionFactory<Collection<UiItem>, UiItem>;
 
     /**
+    * Use this function to get a list of hierarchy paths, style the connector lines, and reset connector line styling. For example if you want to highlight a path to the root node in an organizational chart when hovering data points.
+    * @param selector - You can select all branches from a point up the hierarchy, down the hierarchy, or between two points.
+    * @param style - Line styling options to apply to the specified connector lines. If you dont provide line styling, lines will be reset.
+    * @param updateOptions - By default line styling will avoid animation. Resetting line styles does not support animation. Animation is not recommended if updating line styles from point hover events.
+    * @returns When you specify the selector argument, this function returns all paths resulting from the selector.
+    * @remarks When you style connector lines using this function they will be rendered on top of data points. When styling is not set, or is reset, they are rendered beneath data points.
+    * See Also:
+    * {@link https://jscharting.com/documentation/#node=Home.Tutorials.hierarchyStyling}
+    * @since 3.3
+    * @example chart.connectors(['pointA', 'up'], {color: 'red'}); -> Styles all connector lines from pointA up the hierarchy.</br>chart.connectors(['pointA', 'up']); -> Reset all previously applied line styling from pointA up the hierarchy.</br>chart.connectors(); -> Reset all line styling previously applied by this function.</br>
+    */
+    connectors(selector?: any[], style?: JSCLineConfig, updateOptions?: JSCUpdateOptionsConfig): string[][];
+    /**
     * Destroy chart and release resources.
     * @since 1.0
     */
@@ -3438,7 +3510,7 @@ export declare class Point {
     name: string;
 
     /**
-    * The point's id that was specified or generated internally. All points will have an ID based on either of these two methods.
+    * The point's ID that was specified or generated internally. All points will have an ID based on either of these two methods.
     */
     id: string;
 
@@ -3506,6 +3578,20 @@ export declare class Point {
     * @example pointObj.tokenValue('%percentOfSeries')
     */
     tokenValue(str: string): number | Date | string | boolean;
+    /**
+    * Returns a collection of hierarchical parent points for the current point.
+    * @returns A collection of parent points.
+    * @since 3.3
+    * @example point.getParents().options({color:'red'})
+    */
+    getParents(): Collection;
+    /**
+    * Returns a collection of hierarchical child points for the current point.
+    * @returns A collection of child points.
+    * @since 3.3
+    * @example point.getChildren().options({color:'red'})
+    */
+    getChildren(): Collection;
 }
 /**
 * Represents a series on the chart by providing properties and methods to manipulate and measure it in real-time.
@@ -3513,7 +3599,7 @@ export declare class Point {
 export declare class Series {
 
     /**
-    * The series id that was specified or generated internally. All series will have an ID based on either of these two methods.
+    * The series ID that was specified or generated internally. All series will have an ID based on either of these two methods.
     */
     id: string;
 
@@ -3920,7 +4006,7 @@ export declare interface CollectionFactory<T, U> {
     */
     (predicate?: (((args: any[]) => any) | Predicate)): T;
     /**
-    * Returns a specific item of the collection based on the id, name, numeric index or other identifying strings.
+    * Returns a specific item of the collection based on the ID, name, numeric index or other identifying strings.
     * @param id - The identifier of a specific item in the collection.
     * @returns A collection of items.
     * @since 2.8
@@ -4101,7 +4187,7 @@ export declare interface Box {
      * Space between box edges and the content in pixels.
      * @since 2.0
      */
-    padding?: number;
+    padding?: JSCMarginConfig;
 
     /**
      * Describes the type of each individual corner of the box.
@@ -4783,7 +4869,8 @@ export declare interface Size_object {
 * A glow effect when the point is hovered or highlighted by combined tooltip and crosshair
 * @since 2.7
 */
-export declare interface FocusGlow {
+export declare type FocusGlow = FocusGlow_object | boolean;
+export declare interface FocusGlow_object {
 
     /**
      * Base glow color.
@@ -4977,6 +5064,7 @@ export declare interface Start {
 
     /**
      * A percentage of line width or a pixel size of the cap.
+     * @example "450%" || 20
      */
     size?: string | number;
 
@@ -4999,6 +5087,7 @@ export declare interface End {
 
     /**
      * A percentage of line width or a pixel size of the cap.
+     * @example "450%" || 20
      */
     size?: string | number;
 

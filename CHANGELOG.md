@@ -1,6 +1,60 @@
 # Changelog
 
-## [3.2.1] - 2021-11-20
+## [3.3.0] - 2022-4-1
+
+### Added
+
+- Support for linear gradients in <icon> tags.
+- Color [adjustment options](https://jscharting.com/tutorials/types/js-series-point-colors-chart/#color-adjustment-options) (darken, lighten) with gradient stops colors based on the first color.
+- Set area series gradient fill with dynamic color adjustment values to create a gradient look regardless of the series color. i.e. `['currentColor','white', 90]`
+- Support label.outline.color = color adjust keywords based on label color.
+- Support point.fill colorAdjust keywords in gradient config values.
+- axis.categories property support to specify categories manually.
+- Support for property paths in nest key() and rollup() functions. i.e. `nest().key('attributes.role')`.
+- Allow toolbar_items_zoom_position setting without overwriting map zoom buttons.
+- Enable axisTick.gridLine_width='column' with scales other than category.
+- point.getParents() getChildren() functions.
+- chart.connectors() function to highlight hierarchy connector lines.
+- series().points(`hierarchy paths selectors`)
+- Expand point.parent property to support an array of parent connectors.
+- Add point.connectorLine property to style point connectors individually.
+- Support point.connectorLine.radius to control radius of connector rounded corners. Including an array of radii to set the radius of each corner of the connector line.
+- Organizational chart type modifier to use right angle or straight connector lines. Right angle by default.
+- Organizational chart connector line pixel snapping.
+- Add point.annotation.syncWidth & syncHeight options for organizational charts.
+- Option to set point.focusGlow = false to disable it.
+
+### Changed
+
+- Reduced the default organizational chart dependency line arrow size.
+- Organizational chart point annotation labels are centered vertically and horizontally by default.
+- chart.type = 'organization' to 'organizational'. 'organization' works for backwards compatibility.
+- Zoomed organizational chart attempts to move root nodes closer to center on initial view.
+
+### Bug Fixes
+
+- Animation on one chart prevents tooltips from appearing on another chart.
+- X Axis crosshair working incorrectly with invisible axis and annotation outside the chartArea.
+- Chart in a DIV that does not have a height resizes when DIV width changed.
+- IE11 stopped working.
+- Point mouseOver, mouseOut events not always invoked reliably.
+- Some Gantt dependencies on points from other series not always drawn.
+- Organizational chart breaks in some cases after changing organizational chart orientation a few times.
+- Organizational node connector lines point in the wrong direction with some tree orientations.
+- Organizational chart edge cases rendering issues.
+- Point selection issue when switching from a max number of points selected limit to another node.
+- label.maxWidth may not work if text is larger in some cases.
+- Smart category grouping failed to group all labels in a rare case.
+- Annotation movement lag in organizational charts when scroll wheel scrolling.
+- Automatic point label color sometimes getting gradient fill when point.fill is a gradient.
+- Point data as [x,y,z] array is not working with heatmap chart.
+- With a full stacked scale some column point corners are not rounding correctly when series visibility changes.
+- Axis range tick shows when tick starts exactly when axis range ends, or vice versa.
+- Range axis marker with the same start/end value doesn't render a line.
+- Axis marker label with user defined alignment renders in corner of chart if label doesn't fit.
+- Axis marker label {autoWrap:false} not working.
+
+## [3.2.1] - 2021-12-1
 
 ### Added
 
