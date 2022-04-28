@@ -1,3 +1,10 @@
+/*
+ * jscharting.js v3.3.1.20220428
+ * (c) 2009-2022 Corporate Web Solutions Ltd.
+ * All client side / JavaScript code may not be used in any way without a valid JSCharting license.
+ * License holder usage is governed by the license.txt terms included with the distribution.
+ * To license JSCharting for your own use, please visit jscharting.com 
+ */
 'use strict';(function(f){function va(b,a){function d(){this.constructor=b}aa(b,a);b.prototype=null===a?Object.create(a):(d.prototype=a.prototype,new d)}function ba(b){var a="function"===typeof Symbol&&b[Symbol.iterator],d=0;return a?a.call(b):{next:function(){b&&d>=b.length&&(b=void 0);return{value:b&&b[d++],done:!b}}}}function W(b,a){var d="function"===typeof Symbol&&b[Symbol.iterator];if(!d)return b;b=d.call(b);var c,h=[];try{for(;(void 0===a||0<a--)&&!(c=b.next()).done;)h.push(c.value)}catch(g){var e=
 {error:g}}finally{try{c&&!c.done&&(d=b["return"])&&d.call(b)}finally{if(e)throw e.error;}}return h}function wa(){for(var b=[],a=0;a<arguments.length;a++)b=b.concat(W(arguments[a]));return b}function xa(b){var a,d,c,h=[];b=f.jsLib.map(b,function(a){return[[a[0],a[1]],[a[0]+a[2],a[1]],[a[0],a[1]+a[3]],[a[0]+a[2],a[1]+a[3]]]});try{for(var e=ba(b),g=e.next();!g.done;g=e.next()){var k=g.value;try{for(var l=(d=void 0,ba(k)),m=l.next();!m.done;m=l.next()){var u=m.value;h.push(u);var n=f.jsLib.isUndefined(n)||
 u[0]<n?u[0]:n,p=f.jsLib.isUndefined(p)||u[1]<p?u[1]:p,A=f.jsLib.isUndefined(A)||u[0]>A?u[0]:A,w=f.jsLib.isUndefined(w)||u[1]>w?u[1]:w}}catch(C){d={error:C}}finally{try{m&&!m.done&&(c=l.return)&&c.call(l)}finally{if(d)throw d.error;}}}}catch(C){var L={error:C}}finally{try{g&&!g.done&&(a=e.return)&&a.call(e)}finally{if(L)throw L.error;}}var r={min:null,max:null},z={min:null,max:null},v={min:null,max:null},q={min:null,max:null};f.jsLib.each(h,function(a){var d=a[0];a=a[1];if(d==n){var c=z;c.min=null==

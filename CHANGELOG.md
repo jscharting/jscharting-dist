@@ -1,5 +1,34 @@
 # Changelog
 
+## [3.3.1] - 2022-4-28
+
+### Changed
+
+- ColorBar 3px corner rounding.
+- Improved some API property descriptions.
+
+### Added
+
+- UiItem.change() function to trigger the item's change event if value is updated programmatically.
+- Point axis tick.label.color = '%color' support to make the tick labels use point's color more easily. Includes AxisTick.label.outline.color & style.color.
+- Better warning message when tooltip text callback function doesn't return a valid value.
+- Warning message when a misspelled palette name is given.
+
+### Bug Fixes
+
+- UiItem.options('value') inconsistent with actual value in some cases.
+- Range axis marker with nearly the same start/end value doesn't render a line.
+- series.options('visible') does not return the actual series visibility if not set by user.
+- Clicking a pie slice to unselect it not working correctly.
+- Pie data point explode not triggered with point's legend entry click.
+- Raster image point marker tooltip and halo paths are not correct.
+- Point axis ticks on category scale with numeric point value not binding to axis.
+- Adding custom axis ticks or markers through chart.axes(0).ticks.add({value:1000}) doesn't work if value is outside axis range.
+- CSV parser should cast percent values `12.4%` and currency `$1.24` to numbers, not date values.
+- Point axis ticks not working on gauges.
+- Gauge chart exceptions in some cases.
+- Linear gauge roundCap bar gridlines not rounding with non-category scale.
+
 ## [3.3.0] - 2022-4-1
 
 ### Added

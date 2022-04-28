@@ -21,15 +21,18 @@ export declare interface JSCChartConfig {
     animation?: JSCAnimationConfig;
 
     /**
-     * The fundamental Chart Type such as horizontal or vertical. See {@link https://jscharting.com/documentation/#node=Home.API.json.Enums.seriesType | seriesType enum} for line, bar, area varieties. This can be set through {@link https://jscharting.com/documentation/#node=Home.API.json.Types.series.type | chart.defaultSeries.type}
+     * The fundamental {@link https://jscharting.com/documentation/#node=Home.API.json.Enums.chartType | chart type} such as horizontal or vertical. You can include additional {@link https://jscharting.com/documentation/#node=Home.API.json.Enums.seriesType | seriesType enum} values for line, bar, area, and other varieties. For example:"horizontal column" creates a bar chart.
+     * @remarks This can be set through <a href="Types.series.type">chart.defaultSeries.type</a> as well.
      * See Also:
      * {@link https://jscharting.com/tutorials/types/ | Describes how to define specific chart types.}
+     * {@link https://jscharting.com/documentation/#node=Home.API.json.Enums.chartType | A list of chart type settings.}
+     * {@link https://jscharting.com/documentation/#node=Home.API.json.Enums.seriesType | A list of series type settings.}
      */
     type?: string;
 
     /**
      * Default chart options for this chart to use.
-     * @remarks A single template with common settings can be made and used by all charts on a website to make developing charts faster while maintaining the same look and behavior.
+     * @remarks Default chart options you can share across multiple charts. Use this to maintain the same look and feel across multiple charts.
      */
     template?: JSCChartConfig;
 
@@ -39,7 +42,7 @@ export declare interface JSCChartConfig {
     defaultAnnotation?: JSCAnnotationConfig;
 
     /**
-     * Default axis options used by all axes on the chart.
+     * Default options for all axes on the chart.
      * @since 2.9
      */
     defaultAxis?: JSCAxisConfig;
@@ -53,22 +56,22 @@ export declare interface JSCChartConfig {
     defaultCultureName?: string;
 
     /**
-     * Options applied to all points.
+     * Default point options.
      */
     defaultPoint?: JSCPointConfig;
 
     /**
-     * Options applied to all series. It's recommended to use this property to reduce the amount of duplicate settings necessary for each series.
+     * Default series options. Use this property to avoid duplicate settings across multiple series.
      */
     defaultSeries?: JSCSeriesConfig;
 
     /**
-     * Palette colors applied to each series. Can be a palette name or array of colors.
+     * Colors assigned to each series sequentially. Can be a {@link https://jscharting.com/documentation/#node=Home.API.json.Enums.palette | palette name}, array of colors, or a smart palette options object.
      */
     palette?: string | JSCSmartPaletteConfig | JSCColorConfig[];
 
     /**
-     * Enable a default palette of hatch patterns to apply to points of each series, or an array of specific hatchStyles.
+     * Set true to apply a default list of hatch patterns to each series of points, or an array of specific {@link https://jscharting.com/documentation/#node=Home.API.json.Enums.hatchStyle | hatchStyles}.
      * @since 2.0
      */
     hatchPalette?: boolean | string[];
@@ -85,24 +88,24 @@ export declare interface JSCChartConfig {
     height?: number | string;
 
     /**
-     * An array of annotations with text labels placed anywhere on the chart.
+     * An array of text annotations placed anywhere on the chart.
      */
     annotations?: JSCAnnotationConfig[];
 
     /**
-     * Visual properties of a box surrounding the chart image.
+     * Visual properties of the background box surrounding the chart image.
      */
     box?: Box;
 
     /**
-     * Default box properties that apply to virtually all box visuals on the chart.
+     * Default box properties that apply to virtually all box visuals on the chart such as annotations, legend, etc. Most boxes on the chart use the boxVisible:false setting, which can be globally reverted through this property.
      * @since 2.5
      */
     defaultBox?: DefaultBox;
 
     /**
-     * Specifies the margin around the chart.
-     * @remarks Margin settings specify the distances between the chart visual bounds and image edges.
+     * Specifies the margin between the chart visual bounds and image edges.
+     * @remarks Use negative margins to clip the chart visual if needed.
      */
     margin?: JSCMarginConfig;
 
@@ -112,22 +115,25 @@ export declare interface JSCChartConfig {
     debug?: boolean;
 
     /**
-     * The main x axis or array of x axes used on the charts.
+     * The main X axis or array of axes used by this chart.
+     * @remarks Additional axes will sync with the main (first) X axis by default.
      */
     xAxis?: JSCAxisConfig | JSCAxisConfig[];
 
     /**
-     * The main y axis object or array of y axis objects for this chart.
+     * The main Y axis or array of axes used by this chart.
+     * @remarks Additional axes will sync with the main (first) Y axis by default.
      */
     yAxis?: JSCAxisConfig[] | JSCAxisConfig;
 
     /**
-     * The main z axis used on the charts.
+     * The Z axis options.
+     * @remarks Use zAxis_scale_type: "stacked" to make column based series overlap points with the same x value rather than cluster in groups. Useful with Gantt charts.
      */
-    zAxis?: JSCAxisConfig[] | JSCAxisConfig;
+    zAxis?: JSCAxisConfig;
 
     /**
-     * Chart legend box options.
+     * Legend options.
      * See Also:
      * {@link https://jscharting.com/tutorials/js-chart-legend/}
      */
@@ -3882,6 +3888,12 @@ export declare class UiItem extends Annotation {
     * @since 2.8
     */
     visible(visible: boolean): void;
+    /**
+    * Triggers the item's change event. For example if the item value is updated programmatically, which does not trigger the event.
+    * @remarks This will trigger the event even if the value has not changed.
+    * @since 3.3
+    */
+    change(): void;
 }
 /**
 * Toolbar object with methods to update and remove it.
@@ -4164,7 +4176,7 @@ export declare interface Corners_object {
 }
 
 /**
-* Visual properties of a box surrounding the chart image.
+* Visual properties of the background box surrounding the chart image.
 */
 export declare interface Box {
 
@@ -4198,7 +4210,7 @@ export declare interface Box {
 }
 
 /**
-* Default box properties that apply to virtually all box visuals on the chart.
+* Default box properties that apply to virtually all box visuals on the chart such as annotations, legend, etc. Most boxes on the chart use the boxVisible:false setting, which can be globally reverted through this property.
 * @since 2.5
 */
 export declare interface DefaultBox {

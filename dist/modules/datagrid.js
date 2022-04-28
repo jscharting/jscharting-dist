@@ -1,3 +1,10 @@
+/*
+ * jscharting.js v3.3.1.20220428
+ * (c) 2009-2022 Corporate Web Solutions Ltd.
+ * All client side / JavaScript code may not be used in any way without a valid JSCharting license.
+ * License holder usage is governed by the license.txt terms included with the distribution.
+ * To license JSCharting for your own use, please visit jscharting.com 
+ */
 'use strict';(function(e){function J(a,c){function b(){this.constructor=a}w(a,c);a.prototype=null===c?Object.create(c):(b.prototype=c.prototype,new b)}function K(a,c){var b="function"===typeof Symbol&&a[Symbol.iterator];if(!b)return a;a=b.call(a);var d,f=[];try{for(;(void 0===c||0<c--)&&!(d=a.next()).done;)f.push(d.value)}catch(k){var g={error:k}}finally{try{d&&!d.done&&(b=a["return"])&&b.call(a)}finally{if(g)throw g.error;}}return f}function C(){for(var a=[],c=0;c<arguments.length;c++)a=a.concat(K(arguments[c]));
 return a}function D(a,c,b){return c.addEventListener?c.addEventListener(a,b,!1):c.attachEvent("on"+a,b)}function E(a,c,b){return c.removeEventListener?c.removeEventListener(a,b,!1):c.detachEvent("on"+a,b)}function y(a){return"[object Array]"===Object.prototype.toString.call(a)}function x(a,c){return window.getComputedStyle?window.getComputedStyle(c)[a]:c.currentStyle[a]}function z(a){if(a){if(e.jsLib.isString(a))return a;if(e.jsLib.isObject(a)){if(a.id.length)return a.id;if(a.childElementCount)return a.children[0].id}}}
 function L(a){a.isRendered&&a._callback&&(a._callback(),delete a._callback)}function M(a,c,b){if(a.pop){var d={};e.jsLib.each(a,function(b,a){d[a]=b});a=d}return e.tokenLib.parseGridTokens(c,a,{cultureName:b})}function N(a,c,b){void 0===b&&(b={});if("object"===typeof c&&(!c.kind||"DataGrid"!==c.kind)){var d=u.find(c);d&&d.destroy()}var f;d=e.jsLib.getValType(c);var g;"string"===d?f=document.getElementById(c):"object"===d&&(c instanceof Element?f=c:"DataGrid"===c.kind&&(g=c));!g&&f?(c=u.find(f))&&
