@@ -60,30 +60,36 @@ export default JSC;
 
 ## First Chart
 
-A target div element is required in the page for the chart to render in.
+Add a target div element to you HTML page for the chart to render in and specify a CSS height setting.
 
 ```html
-<div id="chartDiv" style="width: 100%; height: 400px;"></div>
+<div id="chartDiv" style="max-width: 500px; height: 300px;"></div>
 ```
 
 <blockquote>
 The chart will automatically conform to the container size by default.
 </blockquote>
 
-Instantiate a chart with some static data.
+Create an instance of a chart with some static data.
 
 ```js
 const chart = new JSC.Chart('chartDiv', { 
+  type: 'column',
   series:[{
+	name: 'Teams',
     points: [{ x: 'A', y: 10 }, { x: 'B', y: 5 }]
   }], 
 });
 ```
 
-#### Get some data
-JSC.fetch() is an alias for vanilla JS 
- [fetch()](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) function but includes 
- a polyfill for IE11. This function makes it easy to get data for the chart.
+![First Chart](https://jscharting.com/documentation/tutorials/images/getting-started/first-column-chart.png "First Chart")
+
+Edit in [CodePen](https://codepen.io/jsblog/pen/rNrEyog)
+
+#### Get data from CSV
+JSC.fetch() is an alias for the standard JavaScript
+ [fetch()](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) function and includes a polyfill 
+for IE11. Use this function to effortlessly retrieve chart data from your disk.
  
 ```js
 JSC.fetch('./data.csv')
@@ -92,17 +98,17 @@ JSC.fetch('./data.csv')
         //Use csv text 
     });
 ```
- 
-If data is transferred as csv, tsv or any delimiter separated values, it can be converted to JSON format.
-See the [fetch(), CSV, and JSON](https://jscharting.com/tutorials/js-chart-data/client-side/fetch-csv-and-json/) tutorial for more information.
+
+Data in CSV, TSV, or delimiter-separated values format can be converted to JSON. 
+Refer to the [fetch(), CSV, and JSON](https://jscharting.com/tutorials/js-chart-data/client-side/fetch-csv-and-json/) tutorial for more information.
 
 ```js
 let data = JSC.csv2Json(
-'date,actual,goal\n1/1/2018,5409,7000\n1/2/2018,4893,7000'
-)
+ 'date,actual,goal\n1/1/2023,5409,7000\n1/8/2023,4893,7000'
+);
 // -> 
-// [ {date: 1514786400000, actual: 5409, goal: 7000},
-// {date: 1514872800000, actual: 4893, goal: 7000} ]
+//[{date: 1672552800000, actual: 5409, goal: 7000},
+//{date: 1673157600000, actual: 4893, goal: 7000}]
 ```
 
 #### Map data to chart points
@@ -111,61 +117,83 @@ let data = JSC.csv2Json(
 let points = data.map(d => {  
   return { x: d.date, y: d.actual }; 
 });
-//-> [{ x: 1514786400000, y: 5409 }, { x: 1514872800000, y: 4893 }]
+//-> [{ x: 1672552800000, y: 5409 }, { x: 1673157600000, y: 4893 }]
 ```
 
 #### Render a chart using data
 
 ```js
 const chart = new JSC.Chart('chartDiv', {
-    // Pass points to the series
-    series: [{
-        points: points
-    }],
-    // Set the x axis scale to time.
-    xAxis_scale_type: 'time'
+   /* Set the x axis scale to time. */
+   xAxis_scale_type: 'time',
+   /* Pass points to the series */
+   series: [{
+       points: points
+   }]
 });
 ```
+
+
+![CSV Data Chart](https://jscharting.com/documentation/tutorials/images/getting-started/second-line-chart.png "CSV Data Chart")
+
+Edit in [CodePen](https://codepen.io/jsblog/pen/jOpjmbd)
 
 ## Crash Course
 
 (5 min read to hit the ground running)
 
-The JSCharting API is designed with ease of use in mind. The chart attempts to select 
-default options that are obvious to reduce the need to customize. 
+The JSCharting API is designed to be user-friendly. The chart selects default options that are intuitive, 
+reducing the need for customization.
 
 #### Chart Types
 
- Chart types can be set easily through options such as:
+You can set chart types through the chart type property:
  
  ```js
- const chart = new JSC.Chart('divId', { type:'line step' });
+ const chart = new JSC.Chart('divId', { type: 'horizontal column' });
  ```
- 
- Examples of chart type settings:
- - 'horizontal column aqua' - Horizontal columns with aqua shading
- - 'gauge linear horizontal' - Horizontal linear gauges.
- - 'radar polar column' - Polar radar chart with columns. 
- 
- [More information](https://jscharting.com/tutorials/types/overview/)
- 
-#### Options
 
- Chart options are set in the chart constructor
+There are a variety of [chart types](https://jscharting.com/documentation/#node=Enums.chartType), 
+[series types](https://jscharting.com/documentation/#node=Home.API.json.Enums.seriesType), 
+and modifiers that can be combined in the "type" property. 
+
+##### Examples of chart types:
+`horizontal`, `pie`, `radar`, `map`, `organizational`, `calendar`, [full list](https://jscharting.com/documentation/#node=Enums.chartType)
+
+##### Examples of series types:
+`column`, `line`, `area`, `bubble`, `candlestick`, [full list](https://jscharting.com/documentation/#node=Home.API.json.Enums.seriesType)
+
+A few illustrated examples of type settings:
+
+[![line](https://jscharting.com/documentation/tutorials/images/getting-started/line-type.png)](https://jscharting.com/examples/chart-types/line/)
+[![column](https://jscharting.com/documentation/tutorials/images/getting-started/column-type.png)](https://jscharting.com/examples/chart-types/line/)
+[![area](https://jscharting.com/documentation/tutorials/images/getting-started/area-type.png)](https://jscharting.com/examples/chart-types/area/)
+[![horizontal column](https://jscharting.com/documentation/tutorials/images/getting-started/horizontal-column-type.png)](https://jscharting.com/examples/chart-types/bar/)
+[![radar spider column](https://jscharting.com/documentation/tutorials/images/getting-started/radar-spider-column.png)](https://jscharting.com/examples/chart-types/radar-polar/)
+[![gauge column roundcaps](https://jscharting.com/documentation/tutorials/images/getting-started/gauge-column-roundcaps.png)](https://jscharting.com/examples/chart-types/circular-gauge/)
+[![More Examples](https://jscharting.com/documentation/tutorials/images/getting-started/more-types.png)](https://jscharting.com/examples/chart-types/)
+ 
+ [Chart Types Overview](https://jscharting.com/tutorials/types/overview/)
+
+Be sure to check out our [chart types gallery](https://jscharting.com/examples/chart-types/) for examples and usage guidance.
+ 
+#### Chart Options
+
+Chart options can be set in the chart constructor,
 ```js
 const chart = new JSC.Chart('divId', { /*options*/ });
 ```
- Or at any time after the chart is rendered with
+or at any time after the chart is rendered.
 ```js
 chart.options({ /*options*/ });
 ```
 #### Property Expansion
-JSCharting offers a declarative API with options such as
+JSCharting provides a declarative API with options such as
 ```js
 chart.options({ title: { label: { text: 'title text' }}});
 ```
 
-However, property paths can be combined into single property names as follows:
+For convenience, property paths can be combined into single property names as shown:
 ```js
 chart.options({ title_label_text: 'title text' });
 ```
@@ -180,47 +208,69 @@ chart.options({ legend_visible: false });
 #### Legend Columns 
 
 ```js
-//Less Detail
+// Less Detail
 chart.options({ legend_template: '%icon %name' });
-//More Detail
+// More Detail
 chart.options({ legend_template: '%average %sum %icon %name' });
 ```
+Refer to the [Token Reference Tutorial](https://jscharting.com/tutorials/js-chart-labels/token-reference/) for a comprehensive list of over 54 available tokens, listed under the 'Series Tokens' section.
+
+![Legend template](https://jscharting.com/documentation/tutorials/images/getting-started/legend-template.png "Legend template")
+
+
+Try it out in this [CodePen](https://codepen.io/jsblog/pen/NWBQWGQ)
+
 #### Legend Entries for Points
-The following code snippet sets a series palette which causes each point in a series to have an entry in the legend box.
+The code snippet below sets a series palette, which results in each point in a series having a corresponding entry in the legend box.
 ```js
 chart.options({ defaultSeries_palette: 'default' });
 ```
+
+![No Setting](https://jscharting.com/documentation/tutorials/images/getting-started/default-palette.png "No Setting")
+![Series Palette Set](https://jscharting.com/documentation/tutorials/images/getting-started/default-series-palette.png "Series Palette Set")
+
 [Legend Tutorial](https://jscharting.com/tutorials/js-chart-legend/)
 
 #### Labels
 
 ```js
 chart.options({
-    //Title text
-    title_label_text:'Title text',
-    //Axis label text
-    xAxis_label_text:'Time',
-    yAxis_label_text:'Steps',
-    //Point labels
-    defaultPoint_label_text:'%yValue',
-    //Annotations
+    /* Title text */
+    title_label_text: 'Title text',
+    /* Axis label text */
+    xAxis_label_text: 'Time',
+    yAxis_label_text: 'Steps',
+    /* Point labels */
+    defaultPoint_label_text: '%yValue',
+    /* Annotations */
     annotations:[{
-        position:'top',
-        label_text:'Annotation text'
+        position: 'top',
+        label_text: 'Annotation text'
     }]
 });
 ```
-[Using Labels](https://jscharting.com/tutorials/js-chart-labels/)
+
+![Chart Labels](https://jscharting.com/documentation/tutorials/images/getting-started/label-text.png "Chart Labels")
+
+[Using Labels](https://jscharting.com/tutorials/js-chart-labels/) tutorial.
 
 #### Chart with a button
-Quickly add UI elements to make charts more interactive.
+Do you need a user interface control to adjust a chart setting or test a line of code in real-time?
+
+Traditionally, you would have to create an HTML element and link its events to JavaScript code, 
+but this process can be made much easier by using the integrated UI controls provided by JSCharting. 
+This allows you to add simple UI elements without any HTML required.
+
 ```js
 JSC.Chart('chartDiv', { 
     toolbar_items: {
         'Click Me': {
-            events_click: function(){ alert('Button clicked');}
+            events_click: function(){ alert('Button clicked'); }
         }}
 });
 ```
-[Toolbar &#x26; UiItems](https://jscharting.com/tutorials/js-chart-interactivity/ui-controls/overview/)
+Try it in [CodePen](https://codepen.io/jsblog/pen/poZMoOR).
+
+
+[Toolbar &#x26; UiItems](https://jscharting.com/tutorials/js-chart-interactivity/ui-controls/overview/) tutorial.
 

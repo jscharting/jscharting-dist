@@ -1,5 +1,88 @@
 # Changelog
 
+## [3.4.0] - 2023-2-14
+
+### Changed
+
+- Linear column gauges with roundCaps offset X axis labels by automatically adjusting xAxis.caOffset if not set.
+- System square shape corners radius added.
+- Improve gauge layout algorithm.
+- Improve shape label positioning.
+- Middle center aligned shape labels render in center of circular gauges regardless of arc sweep.
+- Improve organizational chart layout stability.
+- Shape label offset is applied after layout instead of during.
+- Point `exploded` option has been deprecated in favor of the point `selected` option.
+- Point marker rotation corrected. Rotation now offsets the initial angle by rotation amount.
+- Enable type: 'gauge circle column' without clipping smaller arc angle sweeps.
+- series.points(hierarchicalPathSelection) creates a collection with points that are sorted in the say they were added to the chart.
+- API documentation lists items alphabetically.
+
+### Added
+
+- Axis_scale_maxTickCount property.
+- Outside middle left/right shape label placement.
+- AxisTick.gridLine.center
+- Label autoWrap:false setting always works.
+- Label width and maxWidth are always enforced even if they overflow visually.
+- label textOverflow:'ellipsis' works with autoWrap:false and width or maxWidth restrictions.
+- Series.yAt(x) value interpolation function adds support for y range values.
+- Series.defaultLeafPoint option to set point defaults for hierarchical points without children.
+- Point.defaultLeafPoint option to set point defaults for child leaf points.
+- Point.leafPointLayout option to allow 'vertical' layout of leaf points in organizational charts with the default down orientation.
+- AxisMarker.label.color:'%color' will take on the marker color if defined. Color modifiers like darken are supported as well.
+- Muted state for point.complete value visualization.
+- series.points.add([]) Allows adding multiple points at once.
+- Use series.points(date as string | number) to select calendar points.
+- Chart level overlapBranding property so branded charts are the same size as non-branded.
+
+### Bug Fixes
+
+- Labels in linear gauge columns with roundcaps label collision bug.
+- Point axis ticks not working with radar category xAxis chart.
+- Linear gauge tooltip with followCursor: false not aligning to column correctly.
+- Prevent axis tick rounding 2500 to 3k automatically.
+- Tooltip not showing when alternating hovering between same two data points on different charts.
+- Shape label.color='%color' will use the color of the first series of the shape.
+- Csv parsing bug with text that includes numbers like 'Group 1'..
+- Marker series type with custom SVG paths hit test is not accurate.
+- Shape label right margin has no effect.
+- Make xAxis.staticColumnWidth work with circular gauge charts.
+- Enable circular gauges resizing with container DIV resize.
+- Series.shape.offset not working with gauges.
+- Series states.mute.fill not working.
+- Series states.select.fill and opacity not working.
+- Countries with iso codes SQ, GF, GP, GZ, HM, MQ, QO, RE, YT are not showing on maps.
+- Series.mouseTracking and Point.mouseTracking set to false is not consistently preventing crosshair from highlighting points or excluding points from combined tooltips.
+- Axis ticks with inside placement hide first and last ticks even if they are within the axis range.
+- Icon loading issue when defaults({baseUrl}) doesnt have trailing '/'
+- Point.getParents() and Point.getChildren() definition in jscharting.d.ts is incorrect.
+- Improve memory cleanup.
+- Circular gauges with < 360 angle sweep not handling overflowing axis marker values well.
+- Some syntax issues in jscharting.d.ts with more strict processors.
+- label text <img> tag does not work with src attributes containing '=' characters.
+- Using null for axis scale range min/max value doesn't reset the range.
+- Point click event interaction is not working well when crosshair is enabled.
+- Scrolling is not working immediately after a date zoom range is applied through Axis.zoom().
+- Point.zoomTo() not working when only Y axis zoom is enabled.
+- A shape label may not animate its position when updated in some rare cases.
+- In some cases the column label is placed inside the column even if it doesn't fit but should be placed somewhere else.
+- Exception thrown when shape label text is too large to fit inside the chart image.
+- Numeric text animation ignoring leading zeros.
+- Line series line hover works despite series.mouseTracking === false.
+- AxisMarkers with date string value not working on a time scale axis.
+- Regression bug: Issue when adding series with category x values to an existing chart.
+- Issue parsing micro chart string tag booleans in presence of other quoted string attribute values.
+- Bug parsing custom axis tick value set with date object.
+- Point marker offset and rotation not working with some series types.
+- Point marker with SVG image sizing and rendering issue.
+- Raster image point marker does not size to marker.size setting.
+- Point mouseTracking=false not working in some scenarios.
+- series.points(hierarchicalPathSelection) returns duplicate points.
+- Extra blank pages created when printing a chart or page containing a chart.
+- Chart callback can fail to get called if "JSC.Chart()" is instantiated without new keyword.
+- Exception with treemap and calendar types when no series are provided.
+
+
 ## [3.3.1] - 2022-4-28
 
 ### Changed

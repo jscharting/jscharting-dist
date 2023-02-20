@@ -1,6 +1,6 @@
 /*
- * jscharting.js v3.3.1.20220428
- * (c) 2009-2022 Corporate Web Solutions Ltd.
+ * modules/datagrid.js v3.4.0.20230215
+ * (c) 2009-2023 Corporate Web Solutions Ltd.
  * All client side / JavaScript code may not be used in any way without a valid JSCharting license.
  * License holder usage is governed by the license.txt terms included with the distribution.
  * To license JSCharting for your own use, please visit jscharting.com 

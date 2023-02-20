@@ -115,20 +115,20 @@ export declare interface JSCChartConfig {
     debug?: boolean;
 
     /**
-     * The main X axis or array of axes used by this chart.
-     * @remarks Additional axes will sync with the main (first) X axis by default.
+     * The main X axis or array of X axes used by this chart.
+     * @remarks Additional X axes will sync their scale ranges with the main (first) X axis by default.
      */
     xAxis?: JSCAxisConfig | JSCAxisConfig[];
 
     /**
-     * The main Y axis or array of axes used by this chart.
-     * @remarks Additional axes will sync with the main (first) Y axis by default.
+     * The main Y axis or array of Y axes used by this chart.
+     * @remarks Additional axes will sync their scale ranges with the main (first) Y axis by default.
      */
     yAxis?: JSCAxisConfig[] | JSCAxisConfig;
 
     /**
      * The Z axis options.
-     * @remarks Use zAxis_scale_type: "stacked" to make column based series overlap points with the same x value rather than cluster in groups. Useful with Gantt charts.
+     * @remarks Use zAxis_scale_type: "stacked" to make column-based series overlap points with the same x value rather than cluster in groups. Useful with Gantt charts.
      */
     zAxis?: JSCAxisConfig;
 
@@ -157,7 +157,7 @@ export declare interface JSCChartConfig {
     series?: JSCSeriesConfig[];
 
     /**
-     * A csv file name, csv text content, or values separated into arrays of rows and column. Used mainly with the calendar chart type but can also be used to populate a series of any other chart type automatically. Csv data must be in [date,value] format for use with calendar type.
+     * A csv file name, csv text content, or values separated into arrays of rows and column. Used mainly with the calendar chart type but can also be used to populate a series of any other chart type automatically. Csv data must be in [date, value] format for use with calendar type.
      * @since 2.6
      */
     data?: string | [(string | number | Date)][];
@@ -223,7 +223,7 @@ export declare interface JSCChartConfig {
     highlights?: JSCHighlightConfig[];
 
     /**
-     * A number of strings used on the chart.
+     * Several strings used on the chart.
      */
     languageStrings?: JSCLanguageStringsConfig;
 
@@ -233,6 +233,12 @@ export declare interface JSCChartConfig {
      * @since 2.9
      */
     baseUrl?: string;
+
+    /**
+     * Set to true to overlap the JSCharting branding at the bottom left of the chart. By default, branded charts add 20px bottom margin to the chart. This prevents the margin from being added.
+     * @since 3.4
+     */
+    overlapBranding?: boolean;
     [any: string]: any;
 }
 
@@ -365,7 +371,7 @@ export declare interface JSCAxisConfig {
 
     /**
      * Main axis label configuration.
-     * @remarks This label's text is also used to describe data associated with this axis. For example, if the y axis label reads "cost", the tooltip for a data point may show "cost: 123" based on this label.
+     * @remarks This label's text is also used to describe data associated with this axis. For example, if the Y axis label reads "cost", the tooltip for a data point may show "cost: 123" based on this label.
      */
     label?: JSCLabelConfig;
 
@@ -425,7 +431,7 @@ export declare interface JSCAxisConfig {
 
     /**
      * An array of string category names used on this axis instead of numeric or date values. Point x or name values can be omitted when categories are defined.
-     * @remarks If point x or name values are not specified, each category name will be assigned to each data point x value sequentially. If point strings x values or names are defined, the axis category array will define their sort order. If numeric point x values are defined, they represent the index of the axis category array. Point objects the chart returns through the FP API will have point.name properties set to an x axis category name if used.
+     * @remarks If point x or name values are not specified, each category name will be assigned to each data point x value sequentially. If point strings x values or names are defined, the axis category array will define their sort order. If numeric point x values are defined, they represent the index of the axis category array. Point objects the chart returns through the FP API will have point.name properties set to an X axis category name if used.
      * @since 3.3
      */
     categories?: string[];
@@ -456,13 +462,13 @@ export declare interface JSCAxisConfig {
     cultureName?: string;
 
     /**
-     * Spacing percentage between column or bar groups. This setting applies when used with the x axis.
-     * @max 0.5
+     * A number between 0 and 1 that sets the spacing percentage between column or bar groups. This setting applies when used with the X axis. The default spacingPercentage value is 0.2.
+     * @max 1
      */
     spacingPercentage?: number;
 
     /**
-     * Pixel width of columns stemming from this axis. This setting applies when used with the x axis.
+     * Pixel width of columns stemming from this axis. This setting applies when used with the X axis.
      */
     staticColumnWidth?: number;
 
@@ -479,7 +485,7 @@ export declare interface JSCAxisConfig {
     visible?: boolean;
 
     /**
-     * When true and using with circular or radial charts, grid lines will render on top of data.
+     * When true and used with circular or radial charts, grid lines will render on top of data.
      * @since 2.5
      */
     onTop?: boolean;
@@ -498,7 +504,7 @@ export declare interface JSCAxisConfig {
     overflow?: string;
 
     /**
-     * An axis tick that follows the mouse cursor and invokes combined tooltips or if x crosshair is combined with y axis crosshair, the y axis will show multiple crosshairs for all point values at the given x position.
+     * An axis tick that follows the mouse cursor and invokes combined tooltips or if x crosshair is combined with Y axis crosshair, the Y axis will show multiple crosshairs for all point values at the given x position.
      * @remarks Also used as colorBar visual that indicates the value of the hovered element
      * @since 2.7
      */
@@ -638,13 +644,13 @@ export declare interface JSCAxisTickConfig {
     hoverAction?: boolean | string;
 
     /**
-     * When true and using with circular or radial charts, all tick visuals will render on top of data.
+     * When true and used with circular or radial charts, all tick visuals will render on top of data.
      * @since 2.5
      */
     onTop?: boolean;
 
     /**
-     * With multiple x or y axes, this property can be used with point.(x/y)AxisTick to specify the ID of the axis the point axis tick should be added to.
+     * With multiple X or Y axes, this property can be used with point.(x/y)AxisTick to specify the ID of the axis the point axis tick should be added to.
      * @since 2.9
      */
     axisId?: string;
@@ -652,7 +658,7 @@ export declare interface JSCAxisTickConfig {
 }
 
 /**
-* Defines styles and positions used to mark a specified section or position on an axis. .
+* Defines styles and positions used to mark a specified section or position on an axis.
 * See Also:
 * {@link https://jscharting.com/samples/Javascript_AxisMarkersInFront_Chart.htm}
 */
@@ -712,7 +718,7 @@ export declare interface JSCAxisMarkerConfig {
     [any: string]: any;
 }
 /**
-* Represents a color that can be set in a number of ways. Possible options are:
+* Represents a color that can be set in several ways. Possible options are:
 * The color name: "red"
 * Hex color value: "#FF0000"
 * RGB values syntax: rgb(20,20,20)
@@ -793,7 +799,7 @@ export declare interface JSCCompleteConfig_object {
 }
 
 /**
-* A color range specifying a value range and color.
+* A color range specifying a value range and color. It is used with {@link https://jscharting.com/documentation/#node=Home.API.json.Types.smartPalette | smartPalette} objects.
 * See Also:
 * {@link https://jscharting.com/samples/Javascript_SmartPaletteRanges_Chart.htm}
 * {@link https://jscharting.com/tutorials/js-chart-gradient-palette/}
@@ -859,7 +865,7 @@ export declare interface JSCSmartPaletteConfig {
     /**
      * Specifies a token expression evaluated for each point that maps to the colors.
      */
-    pointValue?: string | ((Point) => any);
+    pointValue?: string | ((point: Point) => any);
 
     /**
      * An array of value ranges and the associated colors.
@@ -872,7 +878,7 @@ export declare interface JSCSmartPaletteConfig {
     defaultRange?: JSCColorRangeConfig;
 
     /**
-     * An array of values and colors similar to linear gradient stops.
+     * An array of values and colors like linear gradient stops.
      */
     stops?: ([(number | string), JSCColorConfig, number, number] | [(number | string), JSCColorConfig, number] | [(number | string), JSCColorConfig])[];
 
@@ -911,7 +917,7 @@ export declare interface JSCLabelConfig {
      * {@link https://jscharting.com/tutorials/js-chart-labels/token-reference/ | Label Token Reference}
      * {@link https://jscharting.com/samples/Javascript_LabelTokens_Chart.htm}
      */
-    text?: string | ((any) => string);
+    text?: string | ((arg: any) => string);
 
     /**
      * label color
@@ -968,10 +974,17 @@ export declare interface JSCLabelConfig {
     margin?: JSCMarginConfig;
 
     /**
-     * Used to disable automatic wrapping in certain situations.
+     * Used to disable automatic label wrapping.
+     * @remarks If the string contains &lt;br&gt; tags, automatic wrapping is disabled as well.
      * @since 2.6
      */
     autoWrap?: boolean;
+
+    /**
+     * Set to "ellipsis" in combination with autoWrap:false and width to limit the width of this label.
+     * @since 3.4
+     */
+    textOverflow?: string;
 
     /**
      * Max width of this label.
@@ -1151,12 +1164,12 @@ export declare interface JSCChartAreaConfig {
     series?: JSCSeriesConfig[];
 
     /**
-     * The chart area's y axis or array of y axes.
+     * The chart area's Y axis or array of Y axes.
      */
     yAxis?: JSCAxisConfig | JSCAxisConfig[];
 
     /**
-     * The chart area's y axis or array of y axes.
+     * The chart area's Y axis or array of Y axes.
      * @since 2.0
      */
     xAxis?: JSCAxisConfig | JSCAxisConfig[];
@@ -1211,13 +1224,20 @@ export declare interface JSCSeriesConfig {
     defaultPoint?: JSCPointConfig;
 
     /**
+     * Point options applied to all leaf points within this hierarchy. A leaf point is a hierarchical point that has no child points.
+     * @remarks This can be useful to adjust all vertically stacked leaf points at the same time.
+     * @since 3.4
+     */
+    defaultLeafPoint?: JSCPointConfig;
+
+    /**
      * Point options applied to the first point in this series.
      * @since 2.9
      */
     firstPoint?: JSCPointConfig;
 
     /**
-     * Point options applied to the first point in this series.
+     * Point options applied to the last point in this series.
      * @since 2.9
      */
     lastPoint?: JSCPointConfig;
@@ -1280,7 +1300,7 @@ export declare interface JSCSeriesConfig {
     pointSelection?: boolean | string | PointSelection;
 
     /**
-     * Specifies mouse tracking options for this series.
+     * Specifies mouse tracking options for this series. When using crosshairs and combined tooltips, disabling mouse tracking will exclude points of this series from being highlighted (Point.focusGlow) by the crosshair or included in combined tooltips.
      * @remarks Disabling mouse tracking can improve client-side performance.
      */
     mouseTracking?: MouseTracking | boolean;
@@ -1291,17 +1311,19 @@ export declare interface JSCSeriesConfig {
     legendEntry?: JSCLegendEntryConfig;
 
     /**
-     * Specifies the x axis associated with this series, or a new axis used only by this series..
+     * Specifies the X axis associated with this series, or a new axis used only by this series.
      */
     xAxis?: number | string | JSCAxisConfig;
 
     /**
-     * Specifies the y axis associated with this series, or a new axis used only by this series.
+     * Specifies the Y axis associated with this series, or a new axis used only by this series.
      */
     yAxis?: number | string | JSCAxisConfig;
 
     /**
-     * Specifies the number of pixels by which pie slices are exploded.
+     * Specifies the number of pixels by which pie slices are exploded (offset) from the pie center when points are in the selected state.
+     * See Also:
+     * {@link https://jscharting.com/documentation/#node=Home.API.json.Types.Point.selected | Point selected state option.}
      */
     explodeOffset?: number;
 
@@ -1330,7 +1352,7 @@ export declare interface JSCSeriesConfig {
     selected?: boolean;
 
     /**
-     * The starting angle or arc of pie, gauge or radar series type.
+     * The starting angle or arc of pie, gauge, or radar series type.
      * @since 1.1
      */
     angle?: JSCAngleArcConfig;
@@ -1390,6 +1412,20 @@ export declare interface JSCPointConfig_object {
     connectorLine?: JSCLineConfig;
 
     /**
+     * Organizational layout applied to children of this point if all its children are leaf points. A leaf point is a point in the hierarchy that has no children.
+     * @remarks Set "vertical" to stack points vertically when used with the organizational chart type and the default down orientation.
+     * @since 3.4
+     */
+    leafPointLayout?: string;
+
+    /**
+     * Point options applied to all leaf points that are children of this point. A leaf point is a point in the hierarchy that has no children.
+     * @remarks This can be useful to adjust this point's child leaf points at the same time.
+     * @since 3.4
+     */
+    defaultLeafPoint?: JSCPointConfig;
+
+    /**
      * Specifies only the point visual fill color and does not affect other point related color.
      * @since 2.9
      */
@@ -1401,7 +1437,7 @@ export declare interface JSCPointConfig_object {
     color?: JSCColorConfig;
 
     /**
-     * The point's alternate color used with candlestick and ohlc bars when the close prices is lower than the open price. Also used with circular columns to define the alternate color when the column overlaps itself.
+     * The point's alternate color used with candlestick and OHLC bars when the close price is lower than the open price. Also used with circular columns to define the alternate color when the column overlaps itself.
      * @remarks Using the setting 'currentColor' with circular bars disables the color changes. Other color adjustment keywords are supported as well.
      * @since 3.0
      */
@@ -1453,7 +1489,7 @@ export declare interface JSCPointConfig_object {
 
     /**
      * Point label options.
-     * @remarks Point labels include smart layout logic that will attempt to position them efficiently and without overlapping other labels or points. Specifying settings for align, verticalAlign, and placement will limit the range of possible label positions but the chart will try to find the best settings for any other properties that are not set explicitly.
+     * @remarks Point labels include smart layout logic that will attempt to position them efficiently and without overlapping other labels or points. Specifying settings for align, verticalAlign, and placement will limit the range of possible label positions, but the chart will try to find the best settings for any other properties that are not set explicitly.
      */
     label?: JSCLabelConfig;
 
@@ -1463,10 +1499,10 @@ export declare interface JSCPointConfig_object {
      * {@link https://jscharting.com/tutorials/js-chart-labels/token-reference/ | Label Token Reference}
      * {@link https://jscharting.com/samples/Javascript_LabelTokens_Chart.htm}
      */
-    tooltip?: string | ((Point) => string);
+    tooltip?: string | ((point: Point) => string);
 
     /**
-     * When false, the point will not respond to mouse events. The points will also be invisible to crosshairs and excluded from combined tooltips
+     * When false, the point will not respond to mouse events. The points will not be highlighted by axis crosshairs and will be excluded from combined tooltips.
      * @def true
      * @since 2.6
      */
@@ -1573,7 +1609,9 @@ export declare interface JSCPointConfig_object {
     attributes?: [string, (string | number | Date)][] | any;
 
     /**
-     * Indicates whether this point is selected.
+     * Indicates whether this point is selected. With pie series, selection offsets pie slice from the main pie by series.explodeOffset in pixels.
+     * See Also:
+     * {@link https://jscharting.com/documentation/#node=Home.API.json.Types.Series.explodeOffset | Pie series selected state modifier.}
      */
     selected?: boolean;
 
@@ -1590,24 +1628,19 @@ export declare interface JSCPointConfig_object {
     hoverAction?: boolean | string;
 
     /**
-     * Indicates whether this pie slice is offset from the main pie.
-     */
-    exploded?: boolean;
-
-    /**
      * Legend entry settings associated with this point.
      * @since 2.0
      */
     legendEntry?: JSCLegendEntryConfig;
 
     /**
-     * When defined, an axis tick is added to the x axis with this point's x value. The axis tick label will be processed using point tokens that can describe this point.
+     * When defined, an axis tick is added to the X axis with this point's x value. The axis tick label will be processed using point tokens that can describe this point.
      * @since 2.8
      */
     xAxisTick?: JSCAxisTickConfig;
 
     /**
-     * When defined, an axis tick is added to the y axis with this point's y value. The axis tick label will be processed using point tokens that can describe this point.
+     * When defined, an axis tick is added to the Y axis with this point's y value. The axis tick label will be processed using point tokens that can describe this point.
      * @since 2.8
      */
     yAxisTick?: JSCAxisTickConfig;
@@ -1641,7 +1674,7 @@ export declare interface JSCPointMarkerConfig {
     visible?: boolean;
 
     /**
-     * This point marker color. Applies to both fill and outline color but is slightly adjusted for outline color by default.
+     * This points marker color. Applies to both fill and outline color but is slightly adjusted for outline color by default.
      * @since 2.9
      */
     color?: JSCColorConfig;
@@ -1670,6 +1703,11 @@ export declare interface JSCPointMarkerConfig {
     offset?: string;
 
     /**
+     * Opacity from 0 to 1, where 0 is transparent and 1 is solid.
+     */
+    opacity?: number;
+
+    /**
      * State options for point marker.
      * See Also:
      * {@link https://jscharting.com/tutorials/js-chart-interactivity/states/}
@@ -1677,7 +1715,7 @@ export declare interface JSCPointMarkerConfig {
     states?: PointMarkerStates;
 
     /**
-     * Specifies rotation of the marker in degrees. When using circular or radial charts, setting 'auto' will rotate the marker so it is oriented pointing away from the center. Point tokens values can be used with this property.
+     * Specifies rotation of the marker in degrees. When using circular or radial charts, setting 'auto' will rotate the marker so it is oriented pointing away from the center. Point token values can be used with this property.
      * @since 2.5
      */
     rotate?: number | string;
@@ -1885,13 +1923,13 @@ export declare interface JSCLegendEntryConfig {
      * The %name token in the legend template will refer to this string rather than process the token on the related item directly.
      * @since 2.0
      */
-    name?: string | ((any) => string);
+    name?: string | ((arg: any) => string);
 
     /**
      * The %value token in the legend template will refer to this string rather than process the token on the related item directly.
      * @since 2.0
      */
-    value?: string | ((any) => string);
+    value?: string | ((arg: any) => string);
 
     /**
      * Legend entry text style.
@@ -2035,7 +2073,7 @@ export declare interface JSCTitleBoxConfig {
     opacity?: number;
 
     /**
-     * Whether the title box background and outline is visible
+     * Whether the title box background and outline are visible
      * @def true
      */
     boxVisible?: boolean;
@@ -2135,14 +2173,14 @@ export declare interface JSCTooltipConfig {
 
     /**
      * Label displayed inside the annotation.
-     * @remarks  When combined tooltip is enabled, the text property supports additional additional point list tokens.
+     * @remarks  When combined tooltip is enabled, the text property supports additional point list tokens.
      * See Also:
      * {@link https://jscharting.com/tutorials/js-chart-interactivity/crosshair-combined-tooltip/}
      */
     label?: JSCLabelConfig;
 
     /**
-     * Enables a combined tooltip that includes details about all points at the cursor x axis position. The combined tooltip can also be enabled automatically based on crosshair settings. Use defaultTooltip.label.text to defined the combined tooltip template.
+     * Enables a combined tooltip that includes details about all points at the cursor X axis position. The combined tooltip can also be enabled automatically based on crosshair settings. Use defaultTooltip.label.text to define the combined tooltip template.
      * See Also:
      * {@link https://jscharting.com/tutorials/js-chart-interactivity/crosshair-combined-tooltip/}
      * @since 2.7
@@ -2534,8 +2572,8 @@ export declare interface JSCAnimationConfig_object {
     easing?: string;
     [any: string]: any;
 }
-export declare type JSCEventHandlerConfig = string | ((any) => any);
-export declare type JSCDataEventHandlerConfig = ((any) => any);
+export declare type JSCEventHandlerConfig = string | ((arg: any) => any);
+export declare type JSCDataEventHandlerConfig = ((arg: any) => any);
 
 /**
 * Defines an angle or arc.
@@ -2632,12 +2670,12 @@ export declare interface JSCSubvalueConfig {
     line?: JSCLineConfig;
 
     /**
-     * Represents a range, +/- the value of the offset with respect to the elements YValue value or range.
+     * Represents a range, +/- the value of the offset with respect to the elements Y value or range.
      */
     offset?: number;
 
     /**
-     * Represents a range, +/- the percentage of the elements YValue value or range.
+     * Represents a range, +/- the percentage of the elements Y value or range.
      */
     percent?: number;
 
@@ -2706,7 +2744,7 @@ export declare interface JSCCalendarConfig {
     calculation?: ("sum" | "average" | "min" | "max");
 
     /**
-     * Sub values are grouped into predefined intervals but may result in spikes if data does not provide sufficient points for each sub grouping. Setting this to true will create interpolated values for missing data points.
+     * Sub values are grouped into predefined intervals but may result in spikes if data does not provide sufficient points for each subgrouping. Setting this to true will create interpolated values for missing data points.
      */
     interpolateSubvalues?: boolean;
 
@@ -2716,14 +2754,14 @@ export declare interface JSCCalendarConfig {
     defaultEmptyPoint?: JSCPointConfig;
 
     /**
-     * The default point options set for peripheral calendar cells that are not part of the series date range but included for completeness. For example when using month view, some cells representing days of adjacent months are included to fill in the gaps of the grid.
+     * The default point options set for peripheral calendar cells that are not part of the series date range but included for completeness. For example, when using month view, some cells representing days of adjacent months are included to fill in the gaps of the grid.
      */
     defaultEdgePoint?: JSCPointConfig;
     [any: string]: any;
 }
 
 /**
-* Specifies a calendar pattern that includes filters and rules such as weekends, or more complicated rules similar to how dates of national holidays are determined. Calendar patterns can also represent complex time intervals such as first weekend of every month.
+* Specifies a calendar pattern that includes filters and rules such as weekends, or more complicated rules like how dates of national holidays are determined. Calendar patterns can also represent complex time intervals such as first weekend of every month.
 * 
 * Setting filter property value to " " indicates that an interval at that time span. For example {month:" "} means every month. Only one property can have an asterisk.
 * 
@@ -2738,7 +2776,7 @@ export declare type JSCCalendarPatternConfig = JSCCalendarPatternConfig_object |
 export declare interface JSCCalendarPatternConfig_object {
 
     /**
-     * When multiple filters are specified and this this option is true, all filters must be met for a date value to match this pattern.
+     * When multiple filters are specified and this option is true, all filters must be met for a date value to match this pattern.
      */
     inclusive?: boolean;
 
@@ -2748,7 +2786,7 @@ export declare interface JSCCalendarPatternConfig_object {
     every?: number;
 
     /**
-     * Specifies a time offset as a time interval or as a number in milliseconds. This option is useful with scale breaks that remove parts of the scale such as weekends. Data points may be centered on dates that specify the beginning of the time span like 12AM. This offset allows the parts of the scale that are removed to be adjusted so they dont remove parts of the data points.
+     * Specifies a time offset as a time interval or as a number in milliseconds. This option is useful with scale breaks that remove parts of the scale such as weekends. Data points may be centered on dates that specify the beginning of the time span like 12AM. This offset allows the parts of the scale that are removed to be adjusted so they do not remove parts of the data points.
      * See Also:
      * {@link https://jscharting.com/samples/Javascript_FinancePatternBreaks_Chart.htm}
      * @since 2.7
@@ -2925,7 +2963,7 @@ export declare interface JSCGridConfig {
     title?: string;
 
     /**
-     * An array of json objects or arrays to display in the grid. A function can be specified as well. It will be executed and the returned data will display in the grid. When grid.options({}) is called, the function is executed again to refresh grid data.
+     * An array of JSON objects or arrays to display in the grid. A function can be specified as well. It will be executed and the returned data will display in the grid. When grid.options({}) is called, the function is executed again to refresh grid data.
      */
     data?: ([(string | number | Date)][] | Undefined[]) | ((args: any[]) => any);
 
@@ -2955,12 +2993,12 @@ export declare interface JSCGridConfig {
     headerRow?: boolean;
 
     /**
-     * When specified, the default DataGrid css file will be omitted and the specified one is downloaded instead. Setting the value to an empty string will omit downloading the default css file.
+     * When specified, the default DataGrid CSS file will be omitted and the specified one is downloaded instead. Setting the value to an empty string will omit downloading the default CSS file.
      */
     cssFile?: string;
 
     /**
-     * The css class name of the datagrid table.
+     * The CSS class name of the datagrid table.
      */
     className?: string;
 
@@ -3001,7 +3039,7 @@ export declare interface JSCGridColumnConfig {
     header?: string | string[];
 
     /**
-     * Width of the output column in pixels or as a css string value.
+     * Width of the output column in pixels or as a CSS string value.
      */
     width?: number | string;
 
@@ -3021,7 +3059,7 @@ export declare interface JSCGridColumnConfig {
     value?: string;
 
     /**
-     * The css class name applied to the grid column.
+     * The CSS class name applied to the grid column.
      */
     className?: string;
     [any: string]: any;
@@ -3051,7 +3089,7 @@ export declare interface JSCGridButtonConfig {
 * @param chartConfig - Chart options
 * @param callback - A callback function called when the chart load is complete. This function is called in the context of the chart object, hence, the "this" keyword can be used in the function to refer to the <a href="iObject.chart">chart</a>.
 * @returns Returns a chart JS object.
-* @example var chart = JSC.chart('targetDiv',options,callback);
+* @example var chart = JSC.chart('targetDiv', options, callback);
 */
 export function chart(targetElement: (string | any), chartConfig: JSCChartConfig, callback?: ((args: any[]) => any)): Chart;
 /**
@@ -3062,13 +3100,13 @@ export function chart(targetElement: (string | any), chartConfig: JSCChartConfig
 * @returns Returns a string with the value formatted according to the specified format.
 * See Also:
 * {@link https://jscharting.com/samples/Javascript_CallbackFormatting_Chart.htm}
-* {@link https://jscharting.com/tutorials/js-chart-labels/ | Includes information on formatStrings.}
+* {@link https://jscharting.com/tutorials/js-chart-labels/formatting/ | Formatting labels tutorial.}
 */
 export function formatString(val: (number | Date), format: string, culture?: any): string;
 /**
 * Formats a number based on specified format string.
 * @param val - The value to be formatted based on the given format string.
-* @param format - Format string.
+* @param format - Format string. A default number format is used if not provided.
 * @param culture - Culture.
 * @returns Returns a string with the value formatted according to the specified format.
 * See Also:
@@ -3076,7 +3114,7 @@ export function formatString(val: (number | Date), format: string, culture?: any
 * {@link https://jscharting.com/tutorials/js-chart-labels/ | Includes information on formatStrings.}
 * @since 2.0
 */
-export function formatNumber(val: number, format: string, culture?: any): string;
+export function formatNumber(val: number, format?: string, culture?: any): string;
 /**
 * Formats a date based on specified format string.
 * @param val - The value to be formatted based on the given format string.
@@ -3089,10 +3127,6 @@ export function formatNumber(val: number, format: string, culture?: any): string
 * @since 2.0
 */
 export function formatDate(val: (string | Date), format: string, culture?: any): string;
-/**
-* A static method that clears the API cache. This cache is used to improve config object processing and expansion performance. It is most useful when there are more than one charts on a page. Clearing this cache can decrease memory usage in the browser if necessary.
-*/
-export function clearApiCache(): void;
 /**
 * A static method used to populate points from array data with the goal of reducing the amount of overhead (string data size) when data is passed to JSCharting.
 * @param properties - A comma delimited list of properties the data argument arrays map to.
@@ -3188,10 +3222,11 @@ export function parseCsv(text: string, options?: Options): ParseCsv;
 * Recursively merges own and inherited enumerable string keyed properties of source objects into the destination object. Source properties that resolve to undefined are skipped if a destination value exists. Array and plain object properties are merged recursively.
 * @param target - Object to merge sources into.
 * @param sources - (...object) Sources to merge
+* @param sources2 - (...object) Sources to merge
 * @returns The result of merged objects.
 * @since 2.7
 */
-export function merge(target: Target, sources?: Sources): any;
+export function merge(target: Target, sources?: Sources, sources2?: Sources2): any;
 /**
 * Provides JSCharting label support for any DIV elements on a page. Supported features include microchart, and icon tag syntax.
 * @param targetElement - Specifies the ID of the HTML element to which this chart is added, or the element object itself.
@@ -3367,7 +3402,7 @@ export declare class Chart {
     /**
     * A collection used to get and update axes on the chart.
     * @since 2.0
-    * @example chart.axes( { prefix: "x" } ) - Get all x axes.<br/>chart.axes( "x" ) - Get the main x axis.
+    * @example chart.axes( { prefix: "x" } ) - Get all X axes.<br/>chart.axes( "x" ) - Get the main X axis.
     */
     axes: CollectionFactory<AxisCollection, Axis>;
 
@@ -3387,7 +3422,7 @@ export declare class Chart {
     /**
     * Use this function to get a list of hierarchy paths, style the connector lines, and reset connector line styling. For example if you want to highlight a path to the root node in an organizational chart when hovering data points.
     * @param selector - You can select all branches from a point up the hierarchy, down the hierarchy, or between two points.
-    * @param style - Line styling options to apply to the specified connector lines. If you dont provide line styling, lines will be reset.
+    * @param style - Line styling options to apply to the specified connector lines. If you do not provide line styling, lines will be reset.
     * @param updateOptions - By default line styling will avoid animation. Resetting line styles does not support animation. Animation is not recommended if updating line styles from point hover events.
     * @returns When you specify the selector argument, this function returns all paths resulting from the selector.
     * @remarks When you style connector lines using this function they will be rendered on top of data points. When styling is not set, or is reset, they are rendered beneath data points.
@@ -3431,7 +3466,7 @@ export declare class Chart {
     */
     replaceTokens(str: string): string;
     /**
-    * Returns the value of the specified token in it's native data type. Tokens are evaluated based on data of all series (series Collection).
+    * Returns the value of the specified token in its native data type. Tokens are evaluated based on data of all series (series Collection).
     * @param str - A string containing a single token to evaluate.
     * @returns The value of the specified token.
     * @remarks Only one token or expression should be used with this method.
@@ -3574,7 +3609,7 @@ export declare class Point {
     */
     replaceTokens(str: string): string;
     /**
-    * Returns the value of the specified token associated with this data point in it's native data type. For example, if the token represents a number, the result of this function will be a number. (See token reference below for a list of available tokens)
+    * Returns the value of the specified token associated with this data point in its native data type. For example, if the token represents a number, the result of this function will be a number. (See token reference below for a list of available tokens)
     * @param str - A string containing a single token to evaluate.
     * @returns The value of the specified token.
     * @remarks Only one token or expression should be used with this method.
@@ -3590,14 +3625,14 @@ export declare class Point {
     * @since 3.3
     * @example point.getParents().options({color:'red'})
     */
-    getParents(): Collection;
+    getParents(): CollectionFactory<Collection<Point>, Point>;
     /**
     * Returns a collection of hierarchical child points for the current point.
     * @returns A collection of child points.
     * @since 3.3
     * @example point.getChildren().options({color:'red'})
     */
-    getChildren(): Collection;
+    getChildren(): CollectionFactory<Collection<Point>, Point>;
 }
 /**
 * Represents a series on the chart by providing properties and methods to manipulate and measure it in real-time.
@@ -3610,12 +3645,12 @@ export declare class Series {
     id: string;
 
     /**
-    * The series's color.
+    * The series' color.
     */
     color: JSCColorConfig;
 
     /**
-    * The series's name.
+    * The series' name.
     */
     name: string;
 
@@ -3631,9 +3666,13 @@ export declare class Series {
     */
     visible(visible?: boolean): Series;
     /**
-    * A collection used to get/update/set points of this series.
+    * A collection used to get, update, and add points to this series.
+    * @remarks You can add multiple points to a series at once by passing an array of point options to series.points.add([...])
+    * See Also:
+    * {@link https://jscharting.com/tutorials/js-chart-api-features/functional-programming/ | Examples of point collection usage.}
+    * {@link https://jscharting.com/documentation/#node=Home.Tutorials.hierarchyStyling | Hierarchical point selection.}
     * @since 2.0
-    * @example chart.series().points().options( { color: 'red' } )
+    * @example chart.series(0).points().options({color: 'red'}) // All points in the first series become red.
     */
     points: CollectionFactory<Collection<Point>, Point>;
 
@@ -3680,7 +3719,7 @@ export declare class Series {
     */
     replaceTokens(str: string): string;
     /**
-    * Returns the value of the specified token associated with this data series in it's native data type. For example, if the token represents a number, the result of this function will be a number. (See token reference below for a list of available tokens)
+    * Returns the value of the specified token associated with this data series in its native data type. For example, if the token represents a number, the result of this function will be a number. (See token reference below for a list of available tokens)
     * @param str - A string containing a single token to evaluate.
     * @returns The value of the specified token.
     * @remarks Only one token or expression should be used with this method.
@@ -3738,7 +3777,7 @@ export declare class Nest {
     */
     series(data: any[]): Series[];
     /**
-    * Applies the nesting call chain on the specified data entries generating an array of points. Should only be used when the nesting call chain contains a single key() call which generates a single series..
+    * Applies the nesting call chain on the specified data entries generating an array of points. Should only be used when the nesting call chain contains a single key() call which generates a single series.
     * @param data - An array of data entries to process.
     * @returns An array of points given the specified data.
     * @since 2.7
@@ -4022,12 +4061,12 @@ export declare interface CollectionFactory<T, U> {
     * @param id - The identifier of a specific item in the collection.
     * @returns A collection of items.
     * @since 2.8
-    * @example chart.axes("x");  -> The main x axis even if multiple x axes exist
+    * @example chart.axes("x");  -> The main X axis even if multiple X axes exist
     */
     (id: (string | number)): U;
     /**
-    * This collectionFactory method adds an item with the specified options and returns a new collection.
-    * @param itemOptions - An item to add to the collection.
+    * This method adds an item with the specified options and returns a new collection.
+    * @param itemOptions - An item to add to the collection. The series.points.add() functions allows adding of items at once.
     * @param updateOptions - The update options used when adding the item.
     * @returns A collection of items.
     * @since 2.8
@@ -4570,6 +4609,13 @@ export declare interface Scale {
     minorInterval?: number | JSCTimeIntervalConfig | string;
 
     /**
+     * Sets your desired number of automatically generated numeric and time scale axis ticks. This setting can be used to decrease or increase the number of automatically generated ticks to the closest count that fits the data which the system will automatically select. The default setting for numeric and time scale ticks are 9 and 10 respectively.
+     * @remarks With numeric scales this limit works best with 3 or more. With time scales, 5 or more works best. Manually setting an interval overrides this setting.
+     * @since 3.4
+     */
+    maxTickCount?: number;
+
+    /**
      * Indicates whether the axis scale is inverted.
      */
     invert?: boolean;
@@ -4593,7 +4639,7 @@ export declare interface Scale {
     breaks?: Breaks | ([(number | Date), (number | Date)][] | JSCCalendarPatternConfig[]);
 
     /**
-     * ID of a specific axis to sync its range with. By default extra axes will sync with the main axis of the same prefix (x, y, z...). Using a value of "none" will prevent binding to the main axis and it will prevent showing the axis if the scale_range value is set. In effect, this "none" setting makes the axis revert to v2.9 and earlier behavior.
+     * ID of a specific axis to sync its range with. By default, extra axes will sync with the main axis of the same prefix (x, y, z...). Using a value of "none" will prevent binding to the main axis, and it will prevent showing the axis if the scale_range value is set. In effect, this "none" setting makes the axis revert to v2.9 and earlier behavior.
      * @remarks This is useful with unit conversion where two axes show the same scale but in different units. An axis not associated with data can be synced with another axis. Or two axes both with data can be set to show the same range.
      * See Also:
      * {@link https://jscharting.com/samples/Javascript_AxisShadowingTime_Chart.htm}
@@ -4602,7 +4648,7 @@ export declare interface Scale {
 
     /**
      * Specifies the axis {@link https://jscharting.com/documentation/#node=Home.API.json.Enums.scale | scale} enum.
-     * @remarks If a time scale is specified for the x axis, the chart will attempt to interpret the data x values as dates.
+     * @remarks If a time scale is specified for the X axis, the chart will attempt to interpret the data x values as dates.
      */
     type?: ("auto" | "time" | "stacked" | "stackedFull" | "stackedfull" | "stackedLogarithmic" | "stackedlogarithmic" | "logarithmic" | "variwide");
 
@@ -4716,7 +4762,7 @@ export declare interface Points_object {
     types?: string;
 
     /**
-     * By default a comma delimiter is used, but alternative column delimiters can be specified when using with csv data.
+     * By default, a comma delimiter is used, but alternative column delimiters can be specified when using with csv data.
      * @since 2.0
      */
     delimiter?: string;
@@ -4766,7 +4812,7 @@ export declare interface PointSelection_object {
 }
 
 /**
-* Specifies mouse tracking options for this series.
+* Specifies mouse tracking options for this series. When using crosshairs and combined tooltips, disabling mouse tracking will exclude points of this series from being highlighted (Point.focusGlow) by the crosshair or included in combined tooltips.
 * @remarks Disabling mouse tracking can improve client-side performance.
 */
 export declare type MouseTracking = MouseTracking_object | boolean;
@@ -5242,6 +5288,18 @@ export declare interface Sources {
 }
 
 /**
+* (...object) Sources to merge
+*/
+export declare interface Sources2 {
+
+    /**
+     * Manually specified delimiter character
+     */
+    [any: string]: any;
+
+}
+
+/**
 * Specifies a key name or function key getter by which data is grouped and nested.
 */
 export declare type Iteratee = ((entry: any) => any) | Iteratee_object | string;
@@ -5311,7 +5369,7 @@ export declare type Predicate = ((args: any[]) => any) | Predicate_object;
 export declare interface Predicate_object {
 
     /**
-     * Filters the collection down to only items with the same property values specified by this object.<br/>chart.series( { name: 'Series 1' } ) - returns series named 'Series 1'.<br/>chart.axes( { prefix: 'x' } ) - returns all x axes.
+     * Filters the collection down to only items with the same property values specified by this object.<br/>chart.series( { name: 'Series 1' } ) - returns series named 'Series 1'.<br/>chart.axes( { prefix: 'x' } ) - returns all X axes.
      */
     [any: string]: any;
 
